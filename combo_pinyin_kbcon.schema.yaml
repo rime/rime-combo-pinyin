@@ -168,9 +168,9 @@ chord_composer:
     - "erase/^([A-Za-z]+)$/"
   # 並擊過程中套用的式樣
   prompt_format:
-    - xform/{Return}/回車/
+    - 'xform/\{Return\}/回車/'
     # 加方括弧
-    - "xform/^(.*)$/[$1]/"
+    - 'xform/^(.*)$/[$1]/'
 
 translator:
   dictionary: luna_pinyin
