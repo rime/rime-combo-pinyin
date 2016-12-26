@@ -168,6 +168,7 @@ chord_composer:
     - "erase/^([A-Za-z]+)$/"
   # 並擊過程中套用的式樣
   prompt_format:
+    - 'xform/\{BackSpace\}/刪除/'
     - 'xform/\{Return\}/回車/'
     # 加方括弧
     - 'xform/^(.*)$/[$1]/'
