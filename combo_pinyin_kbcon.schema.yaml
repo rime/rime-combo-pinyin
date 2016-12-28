@@ -73,11 +73,11 @@ speller:
 chord_composer:
   # 字母表，包含用於並擊的按鍵
   # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  alphabet: 'swxdecfrvgb hnjum;ki,lo./'
+  alphabet: 'swxdecfrvgb hjumn;ki,lo./'
   # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
   algebra:
     # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|swxdecfrvgb hnjum;ki,lo./|sCZclfzdbgkhHRiuVaNIUeoEW|'
+    - 'xlit|swxdecfrvgb hjumn;ki,lo./|sCZclfzdbgkhHiuVRaNIUeoEW|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
     # 組合聲母
     - xform/^bh/p/
@@ -107,6 +107,9 @@ chord_composer:
     - xform/^a$/;/
     - xform/^ae$/a/
     - xform/^[CZHR]a$/a/
+    - xform/^R$/er/
+    # 缺少拇指位「;」鍵的鍵盤，A 以 er 鍵代用
+    - xform/Re?/a/
     - xform/[CZH]//
     # 上排三鍵並擊 ong, uang
     - xform/(ua?)Io$/$1Ne/
@@ -134,7 +137,6 @@ chord_composer:
     # ‹en› 省略 ‹e›
     - xform/N$/en/
     - xform/^un$/wen/
-    - xform/R$/er/
     # 漢語拼音方案的拼寫規則
     - xform/^i(ng?)$/yi$1/
     - xform/^i$/yi/
