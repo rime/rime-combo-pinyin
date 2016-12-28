@@ -124,8 +124,8 @@ chord_composer:
     # 下排三鍵並擊 iong
     - xform/VUE$/VNe/
     # [ü] 活用爲介音 ‹i-› 以利於並擊 iao, iu
-    - xform/V(a?)[UW]$/i$1U/
-    - xform/a[UW]$|UE?W$/ao/
+    - xform/V(a?[UEW]+)$/i$1/
+    - xform/a[UW]+$|UE?W$/ao/
     - xform/UE?$|E?W$/ou/
     - xform/([aiuV])Ne$/$1ng/
     # ‹eng› 省略 ‹e›
