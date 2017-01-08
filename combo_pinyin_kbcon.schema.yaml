@@ -19,7 +19,7 @@ schema:
 
         Ln  Dt          u   I   O
     S   Cr  Z*  Gk      i*  N   E
-        Fm  Bp  K   er  yu  U   E
+        Fm  Bp      er  yu  U   E
                 H*  A*
 
     標「*」的按鍵爲拇指、食指的基準鍵位
@@ -73,26 +73,26 @@ speller:
 chord_composer:
   # 字母表，包含用於並擊的按鍵
   # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  alphabet: 'swxdecfrvgb hjumn;ki,lo./'
+  alphabet: 'swxdecfrvgtb hjumn;ki,lo./'
   # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
   algebra:
     # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|swxdecfrvgb hjumn;ki,lo./|sCZclfzdbgkhHiuVRaNIUeoEW|'
+    - 'xlit|swxdecfrvgtb hjumn;ki,lo./|sczclfzdbgtphHiuVRaNIUeoEW|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
     # 組合聲母
     - xform/^bh/p/
     - xform/^dh/t/
     - xform/^gh/k/
-    - xform/^fh/v/
+    #- xform/^fh/v/
     - xform/^fb/m/
     - xform/^ld/n/
     - xform/^cz/r/
     - xform/^sch/ch/
     # 兼容大衆式
     - xform/^sc/sh/
-    - xform/^Cl/ch/
-    - xform/^Zf/zh/
-    - xform/([^zcsZC])h/\1/
+    - xform/^cl/ch/
+    - xform/^zf/zh/
+    - xform/([^zcs])h/\1/
     # g,k,h 接 i/ü 時作 ji/ju, qi/qu, xi/xu
     - xform/^[gz]([iV])/j$1/
     - xform/^[kc]([iV])/q$1/
@@ -106,11 +106,11 @@ chord_composer:
     - xform/^[Re]W$/W/
     - xform/^a$/;/
     - xform/^ae$/a/
-    - xform/^[CZHR]a$/a/
+    - xform/^[HR]a$/a/
     - xform/^R$/er/
     # 缺少拇指位「;」鍵的鍵盤，A 以 er 鍵代用
     - xform/Re?/a/
-    - xform/[CZH]//
+    - xform/H//
     # 上排三鍵並擊 ong, uang
     - xform/(ua?)Io$/$1Ne/
     - xform/aI$/ai/
