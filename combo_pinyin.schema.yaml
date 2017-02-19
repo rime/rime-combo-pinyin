@@ -4,7 +4,7 @@
 schema:
   schema_id: combo_pinyin
   name: 宮保拼音
-  version: "0.9"
+  version: "0.9.1"
   author:
     - 佛振 <chen.sst@gmail.com>
   description: |
@@ -44,6 +44,10 @@ engine:
   filters:
     - simplifier
     - uniquifier
+
+editor:
+  bindings:
+    BackSpace: back_syllable
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
