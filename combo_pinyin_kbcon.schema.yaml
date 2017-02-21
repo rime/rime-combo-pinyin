@@ -108,8 +108,8 @@ chord_composer:
     # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
     - 'xlit|gtbfrvdecswxa;hjumn ki,lo./|gtpzdbclfsczHhAiuVRaNIUeoEW|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
-    # 鍵盤控專用拇指位 h 聲母鍵單擊時發送標點符號
-    - xform/^h$/;/
+    # 鍵盤控專用拇指位 h 聲母鍵單擊時發送標點符號（鑑於分號較音節 he 少用，現改用 Shift+; 輸入）
+    #- xform/^h$/;/
     # 以下統一表記爲 h
     - xform/Hh?/h/
     # 組合聲母
@@ -219,6 +219,9 @@ translator:
 
 punctuator:
   import_preset: default
+  half_shape: &punct
+    ':': [ '：', '；' ]
+  full_shape: *punct
 
 key_binder:
   import_preset: default
