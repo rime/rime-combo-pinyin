@@ -15,17 +15,18 @@ schema:
 
         Ln  Dt          u   I   O
     S   Cr  Z*  Gk      i*  N   E
-        Fm  Bp      er  yu  U   E
+        Fm  Bp      er  yu  U   E'
                 H*  A*
 
     標「*」的按鍵爲拇指、食指的基準鍵位
+    E' 是 E 的活用鍵位，只用於組合韻母
 
     適用鍵盤型號及固件：
 
     - AMJ40:   http://github.com/lotem/AMJ40/tree/kbcon
     - Ergodox: http://github.com/lotem/ergodox-firmware/tree/kbcon
 
-    仿「鍵盤控」佈局（適用標準 PC 鍵盤）：
+    「鍵盤控」兼容佈局（適用標準 PC 鍵盤）：
 
         C'  Ln  Dt  T'      u   I   O
     H'  S   Cr  Z*  Gk      i*  N   E
@@ -36,24 +37,26 @@ schema:
 
     組合鍵：
 
-    鍵盤控聲母組合鍵
+    # 組合聲母
     BH = p, BF = m, DH = t, DL = n, GH = k,
     ZH = zh, CH = ch, SH = sh, ZC = r
 
-    PC 鍵盤聲母組合鍵及活用
-    BH' = BZ' = p, BF = m, DH' = DC' = t, DL = n, GH' = GC = k,
-    ZH' = ZS = zh, CH' = ch, SH' = sh, ZC = r
-
-    兼容「大衆式」聲母
-    P' = p, T' = t, FZ' = zh, LC' = ch, CS = sh
-
-    韻母組合鍵及活用
-    AI = ai, EI = OI = ei, AU = ao, U = E'U = ou,
-    uI = uei, uAI = uai, iU = yuU = iou, iAU = yuAU = iao,
+    # 組合韻母及活用（同「大衆式」），括弧內爲活用組合
+    AI = ai, EI (OI) = ei, AU = ao, U (E'U) = ou,
+    uI = uei, uAI = uai, iU (yuU) = iou, iAU (yuAU) = iao,
     N = en, NE = eng, AN = an, ANE = ang,
     iN = in, uN = uen, yuN = yun,
-    iNE = ing, uNE = uIO = ong, yuNE = yuUE' = iong,
-    uANE = uAIO = uang
+    iNE = ing, uNE (uIO) = ong, yuNE (yuUE') = iong,
+    uANE (uAIO) = uang
+
+    組合鍵增補：
+
+    # PC 鍵盤組合聲母及活用
+    BH' (BZ') = p, BF = m, DH' (DC') = t, DL = n, GH' (GC) = k,
+    ZH' (ZS) = zh, CH' = ch, SH' = sh, ZC = r
+
+    # 兼容「大衆式」聲母
+    P' = p, T' = t, FZ' = zh, LC' = ch, CS = sh
 
 switches:
   - name: ascii_mode
