@@ -21,20 +21,6 @@ schema:
     標「*」的按鍵爲拇指、食指的基準鍵位
     E' 是 E 的活用鍵位，只用於組合韻母
 
-    適用鍵盤型號及固件：
-
-    - AMJ40:   http://github.com/lotem/AMJ40/tree/kbcon
-    - Ergodox: http://github.com/lotem/ergodox-firmware/tree/kbcon
-
-    「鍵盤控」兼容佈局（適用標準 PC 鍵盤）：
-
-        C'  Ln  Dt  T'      u   I   O
-    H'  S   Cr  Z*  Gk      i*  N   E
-        Z'  Fm  Bp  P'  er  yu  U   E'
-                        A*
-
-    標「*」的按鍵爲拇指、食指的基準鍵位
-
     組合鍵：
 
     # 組合聲母
@@ -48,6 +34,20 @@ schema:
     iN = in, uN = uen, yuN = yun,
     iNE = ing, uNE (uIO) = ong, yuNE (yuUE') = iong,
     uANE (uAIO) = uang
+
+    適用鍵盤型號及固件：
+
+    - AMJ40:   http://github.com/lotem/AMJ40/tree/kbcon
+    - Ergodox: http://github.com/lotem/ergodox-firmware/tree/kbcon
+
+    「鍵盤控」兼容佈局（適用標準 PC 鍵盤）：
+       (C') Ln  Dt (T')     u   I   O
+    H'  S   Cr  Z*  Gk      i*  N   E
+       (Z') Fm  Bp (P') er  yu  U   E'
+                    A*
+
+    標「*」的按鍵爲拇指、食指的基準鍵位
+    加 () 的冗餘按鍵，是爲方便用家從「大衆式」過渡到本式而增設
 
     組合鍵增補：
 
