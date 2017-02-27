@@ -4,7 +4,7 @@
 schema:
   schema_id: combo_pinyin_kbcon
   name: 宮保拼音·鍵盤控式
-  version: "1.1"
+  version: "1.2"
   author:
     - 佛振 <chen.sst@gmail.com>
   description: |
@@ -113,7 +113,9 @@ chord_composer:
     - 'xlit|gtbfrvdecswxa;hjumn ki,lo./|gtpzdbclfsczHhAiuVRaNIUeoEW|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
     # 鍵盤控專用拇指位 h 聲母鍵單擊時發送標點符號（鑑於分號較音節 he 少用，現改用 Shift+; 輸入）
-    #- xform/^h$/;/
+    #- 'xform/^h$/;/'
+    # 又改爲輸出空格，方便雙手交替上字
+    - 'xform/^h$/ /'
     # 以下統一表記爲 h
     - xform/Hh?/h/
     # 組合聲母
