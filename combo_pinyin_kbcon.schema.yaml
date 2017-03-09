@@ -106,11 +106,11 @@ speller:
 chord_composer:
   # 字母表，包含用於並擊的按鍵
   # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  alphabet: 'gtbfrvdecswxa;hjumn ki,lo./'
+  alphabet: 'gtbfrvdecswxa;hynjum ki,lo./'
   # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
   algebra:
     # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|gtbfrvdecswxa;hjumn ki,lo./|gtpzdbclfsczHhAiuVRaNIUeoEW|'
+    - 'xlit|gtbfrvdecswxa;hynjum ki,lo./|gtpzdbclfsczHhXYRiuVaNIUeoEW|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
     # 鍵盤控專用拇指位 h 聲母鍵單擊時發送標點符號（鑑於分號較音節 he 少用，現改用 Shift+; 輸入）
     #- 'xform/^h$/;/'
@@ -151,7 +151,9 @@ chord_composer:
     - 'xform/^a$/ /'
     - xform/^ae$/a/
     - xform/^R$/er/
-    - xform/[AR]+//
+    - xform/^Y$/,/
+    - xform/^X$/./
+    - xform/[XYR]+//
     # 上排三鍵並擊 ong, uang
     - xform/(ua?)Io$/$1Ne/
     - xform/aI$/ai/
