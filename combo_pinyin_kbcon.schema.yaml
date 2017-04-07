@@ -4,7 +4,7 @@
 schema:
   schema_id: combo_pinyin_kbcon
   name: 宮保拼音·鍵盤控式
-  version: "1.3"
+  version: "1.4"
   author:
     - 佛振 <chen.sst@gmail.com>
   description: |
@@ -150,8 +150,9 @@ chord_composer:
     - 'xform/^a$/ /'
     - xform/^ae$/a/
     - xform/^R$/er/
-    - xform/^Y$/,/
-    - xform/^X$/./
+    # 40% 鍵盤可啓用這二鍵輸入標點符號及翻頁，但會影響回車輸入字母
+    #- xform/^Y$/,/
+    #- xform/^X$/./
     - xform/[XYR]+//
     # 上排三鍵並擊 ong, uang
     - xform/(ua?)Io$/$1Ne/
