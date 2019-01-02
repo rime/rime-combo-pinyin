@@ -4,7 +4,7 @@
 schema:
   schema_id: combo_pinyin_kbcon_left
   name: 宮保拼音·鍵盤控式·空格居左
-  version: "1.4"
+  version: "1.5"
   author:
     - 佛振 <chen.sst@gmail.com>
   description: |
@@ -36,8 +36,8 @@ schema:
     uANE (uAIO) = uang
 
     「鍵盤控」兼容佈局（適用標準 PC 鍵盤）：
-       (C') Ln  Dt (T')     u   I   O
-    H'  S   Cr  Z*  Gk      i*  N   E  A'
+       (C') Ln  Dt (T')     u   I   O  A'
+    H'  S   Cr  Z*  Gk      i*  N   E  A
        (Z') Fm  Bp (P') er  yu  U   E'
                     H*
 
@@ -49,6 +49,8 @@ schema:
     # PC 鍵盤組合聲母及活用
     BH' (BZ') = p, BF = m, DH' (DC') = t, DL = n, GH' (GC) = k,
     ZH' (ZS) = zh, CH' = ch, SH' = sh, ZC = r
+
+    uIOA' = uNEA = uang
 
     # 兼容「大衆式」聲母
     P' = p, T' = t, FZ' = zh, LC' = ch, CS = sh
@@ -101,16 +103,18 @@ speller:
 chord_composer:
   # 字母表，包含用於並擊的按鍵
   # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  alphabet: 'gtbfrvdecswxa hynjum;ki,/lo.'
+  alphabet: 'gtbfrvdecswxa hynjump;ki,/lo.'
   # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
   algebra:
     # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|gtbfrvdecswxa hynjum;ki,/lo.|gtpzdbclfsczHhXYRiuVaNIUWeoE|'
+    - 'xlit|gtbfrvdecswxa hynjump;ki,/lo.|gtpzdbclfsczHhXYRiuVAaNIUWeoE|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
     # 鍵盤控專用拇指位 h 聲母鍵單擊時發送空格（音節 he 拼作 H+E）
     - 'xform/^h$/ /'
     # 以下統一表記爲 h
     - xform/Hh?/h/
+    # 以下統一表記爲 a
+    - xform/Aa?/a/
     # 組合聲母
     - xform/^bh/p/
     - xform/^dh/t/
