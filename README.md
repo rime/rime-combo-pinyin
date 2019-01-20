@@ -2,7 +2,7 @@
 
 配方： ℞ **combo-pinyin**
 
-[Rime](http://rime.im) 宮保拼音輸入方案
+[Rime](https://rime.im) 宮保拼音輸入方案
 
 ## 簡介
 
