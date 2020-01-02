@@ -4,7 +4,7 @@
 schema:
   schema_id: combo_pinyin_left
   name: 宮保拼音·左式
-  version: "0.9.1"
+  version: "0.9.2"
   author:
     - 佛振 <chen.sst@gmail.com>
   description: |
@@ -159,12 +159,20 @@ translator:
 
 punctuator:
   import_preset: default
-  full_shape: &punct
-    '<': { commit: '，' }
-    '>': { commit: '。' }
-    '[': [ '「', '【', '〔', '［', '》', '〉' ]
-    ']': [ '」', '】', '〕', '］', '》', '〉' ]
-  half_shape: *punct
+  full_shape:
+    __include: punct_override
+  half_shape:
+    __include: punct_override
+
+punct_override:
+  '<':
+    /=:
+      { commit: '，' }
+  '>':
+    /=:
+      { commit: '。' }
+  '[': [ '「', '【', '〔', '［', '》', '〉' ]
+  ']': [ '」', '】', '〕', '］', '》', '〉' ]
 
 key_binder:
   import_preset: default
