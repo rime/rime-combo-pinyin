@@ -4,7 +4,7 @@
 schema:
   schema_id: combo_pinyin_kbcon
   name: 宮保拼音·鍵盤控式
-  version: "1.4"
+  version: "1.5"
   author:
     - 佛振 <chen.sst@gmail.com>
   description: |
@@ -54,6 +54,9 @@ schema:
     # PC 鍵盤組合聲母及活用
     BH' (BZ') = p, BF = m, DH' (DC') = t, DL = n, GH' (GC) = k,
     ZH' (ZS) = zh, CH' = ch, SH' = sh, ZC = r
+
+    # 左手拇指位 H 組合鍵
+    GB (GF) = k, ZF = zh, CF = ch, SF = sh
 
     # 兼容「大衆式」聲母
     P' = p, T' = t, FZ' = zh, LC' = ch, CS = sh
@@ -126,6 +129,11 @@ chord_composer:
     - xform/^bf/m/
     - xform/^dl/n/
     - xform/^zc/r/
+    # 左手拇指位 H 組合鍵
+    - xform/^g[pbfz]/k/
+    - xform/^z[bfz]/zh/
+    - xform/^bc|^c[fz]/ch/
+    - xform/^[bf]s|^sz/sh/
     # PC 鍵盤組合聲母
     - xform/^b[zcsh]+/p/
     - xform/^d[zcsh]+/t/
@@ -228,9 +236,10 @@ translator:
 
 punctuator:
   import_preset: default
-  half_shape: &punct
+  half_shape:
     ':': [ '：', '；' ]
-  full_shape: *punct
+  full_shape:
+    ':': [ '：', '；' ]
 
 key_binder:
   import_preset: default

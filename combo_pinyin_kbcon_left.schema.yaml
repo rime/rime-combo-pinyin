@@ -225,9 +225,10 @@ translator:
 
 punctuator:
   import_preset: default
-  half_shape: &punct
+  half_shape:
     ':': [ '：', '；' ]
-  full_shape: *punct
+  full_shape:
+    ':': [ '：', '；' ]
 
 key_binder:
   import_preset: default
