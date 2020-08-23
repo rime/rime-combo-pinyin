@@ -4,7 +4,7 @@
 schema:
   schema_id: combo_pinyin
   name: 宮保拼音
-  version: "0.9.1"
+  version: "0.9.2"
   author:
     - 佛振 <chen.sst@gmail.com>
   description: |
@@ -53,18 +53,27 @@ editor:
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
   delimiter: " '"
-  algebra:
-    - erase/^xx$/
 
 chord_composer:
   # 字母表，包含用於並擊的按鍵
   # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  alphabet: "swxdecfrvgtbnjum ki,lo."
+  alphabet: "aqzswxdecfrvgtbhynjum ki,lo.p"
   # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
   algebra:
     # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|swxdecfrvgtbnjum ki,lo.|sczhlfgdbktpRiuVaNIUeoE|'
+    - 'xlit|aqzswxdecfrvgtbhynjum ki,lo.p|XXXsczhlfgdbktpXXRiuVaNIUeoER|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
+    # 單擊時發送標點符號
+    - xform/^U$/,/
+    - xform/^E$/./
+    # 空格鍵單擊時產生空白
+    - 'xform/^a$/ /'
+    # 特例：以組合鍵[ae]輸入拼音‹a›
+    - xform/^ae$/a/
+    # ‹er›自成音節
+    - xform/^R$/er/
+    # 消除無效按鍵
+    - xform/[XR]+//
     # 組合聲母
     - xform/^zf/zh/
     - xform/^cl/ch/
@@ -75,13 +84,6 @@ chord_composer:
     - xform/^[gz]([iV])/j$1/
     - xform/^[kc]([iV])/q$1/
     - xform/^[hs]([iV])/x$1/
-    # 空格鍵單擊時產生空白
-    - 'xform/^a$/ /'
-    # 特例：以組合鍵[ae]輸入拼音‹a›
-    - xform/ae$/a/
-    # 單擊時產生字符 , .
-    - xform/^U$/,/
-    - xform/^E$/./
     # 上排三鍵並擊 ong, uang
     - xform/(ua?)Io$/$1Ne/
     - xform/aI$/ai/
@@ -108,7 +110,6 @@ chord_composer:
     # ‹en› 省略 ‹e›
     - xform/N$/en/
     - xform/^un$/wen/
-    - xform/R$/er/
     # 漢語拼音方案的拼寫規則
     - xform/^i(ng?)$/yi$1/
     - xform/^i$/yi/
