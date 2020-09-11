@@ -4,7 +4,7 @@
 schema:
   schema_id: combo_pinyin_kbcon
   name: 宮保拼音·鍵盤控式
-  version: "1.6"
+  version: "1.7"
   author:
     - 佛振 <chen.sst@gmail.com>
   description: |
@@ -47,7 +47,7 @@ schema:
        (Z') Fm  Bp (P') er  yu  U   E'
                     A*
 
-    其中 H' 可用字母鍵 A 或左 Shift 鍵擊發
+    其中 H' 可用字母鍵 A 或選用左 Control/Alt/Shift 鍵擊發
     標「*」的按鍵爲拇指、食指的基準鍵位
     加 () 的冗餘按鍵，是爲方便用家從「大衆式」過渡到本式而增設
 
@@ -109,22 +109,32 @@ speller:
 chord_composer:
   # 字母表，包含用於並擊的按鍵
   # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  alphabet: 'gtbfrvdecswxaqz{Shift_L}hynjum ki,lo.p'
+  alphabet: 'gtbfrvdecswxaqzhynjum ki,lo.p'
+  # 可選：左 Control 鍵作 H 鍵。請注意 Control+space 可能與系統快捷鍵衝突
+  use_control: false
+  # 可選：左 Alt 鍵作 H 鍵。請注意 Alt+space 可能與系統快捷鍵衝突
+  use_alt: false
+  # 可選：左 Shift 鍵作 H 鍵。建議關閉以左 Shift 鍵作中西文切換鍵
+  use_shift: false
   # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
   algebra:
-    # 本案Shift鍵參與並擊，須改以單個字符表示按鍵
-    - 'xform/\{Shift_L\}/:/'
+    # 若 Control/Alt/Shift 鍵參與並擊，須改以單個字符表示按鍵
+    - 'xform/\{Control_L\}/^/'
+    - 'xform/\{Alt_L\}/~/'
+    - 'xform/\{Shift_L\}/+/'
     # 將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|gtbfrvdecswxaqz:hynjum ki,lo.p|gtpzdbclfsczHXXhXXRiuVaNIUeoER|'
+    - 'xlit|gtbfrvdecswxaqzhynjum ki,lo.p|gtpzdbclfsczHXXXXRiuVaNIUeoER|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
-    # 左手拇指鍵 H 在組合中作‹h›、單擊輸出空格，方便雙手交替上字
-    #- 'xform/^h$/ /'
     # 單擊時發送標點符號
     - xform|^U$|,|
     - xform|^E$|.|
     # 與Shift鍵組合時發送標點符號
-    - xform|^hU$|<|
-    - xform|^hE$|>|
+    - xform|^[+]U$|<|
+    - xform|^[+]E$|>|
+    # 左手拇指鍵 H
+    - 'xlit|^~+|hhh|'
+    # 可選：左手拇指鍵 H 在組合中作‹h›、單擊作空格鍵，方便雙手交替上字
+    #- 'xform/^h$/ /'
     # 空格鍵單擊時發送空白
     - 'xform/^a$/ /'
     # 特例：以組合鍵[ae]輸入拼音‹a›
@@ -244,10 +254,27 @@ key_binder:
 
 recognizer: {}
 
-# 用大寫鎖定鍵切換中西文
-ascii_composer:
-  good_old_caps_lock: false
-  switch_key:
-    Shift_L: noop
-    Shift_R: noop
-    Caps_Lock: clear
+if_use_control:
+  chord_composer/+:
+    alphabet: 'gtbfrvdecswxaqz{Control_L}hynjum ki,lo.p'
+    use_control: true
+
+if_use_alt:
+  chord_composer/+:
+    alphabet: 'gtbfrvdecswxaqz{Alt_L}hynjum ki,lo.p'
+    use_alt: true
+
+if_use_shift:
+  chord_composer/+:
+    alphabet: 'gtbfrvdecswxaqz{Shift_L}hynjum ki,lo.p'
+    use_shift: true
+  # 若左 Shift 鍵用於並擊則禁止其切換中西文
+  ascii_composer:
+    __include: default:/ascii_composer
+    switch_key/+:
+      Shift_L: noop
+
+# 選定左手拇指 H 鍵
+#__patch: if_use_control
+#__patch: if_use_alt
+#__patch: if_use_shift
