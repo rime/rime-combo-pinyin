@@ -275,6 +275,6 @@ if_use_shift:
       Shift_L: noop
 
 # 選定左手拇指 H 鍵
-#__patch: if_use_control
+__patch: if_use_control
 #__patch: if_use_alt
 #__patch: if_use_shift
