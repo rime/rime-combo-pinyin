@@ -254,27 +254,12 @@ key_binder:
 
 recognizer: {}
 
-if_use_control:
-  chord_composer/+:
-    alphabet: 'gtbfrvdecswxaqz{Control_L}hynjum ki,lo.p'
-    use_control: true
-
-if_use_alt:
-  chord_composer/+:
-    alphabet: 'gtbfrvdecswxaqz{Alt_L}hynjum ki,lo.p'
-    use_alt: true
-
-if_use_shift:
-  chord_composer/+:
-    alphabet: 'gtbfrvdecswxaqz{Shift_L}hynjum ki,lo.p'
-    use_shift: true
-  # 若左 Shift 鍵用於並擊則禁止其切換中西文
-  ascii_composer:
-    __include: default:/ascii_composer
-    switch_key/+:
-      Shift_L: noop
-
-# 選定左手拇指 H 鍵
-__patch: if_use_control
-#__patch: if_use_alt
-#__patch: if_use_shift
+__patch:
+  # 打開下列註釋行之一，選定左手拇指 H 鍵
+  # - combo_pinyin_kbcon.options:/if_use_control
+  # - combo_pinyin_kbcon.options:/if_use_alt
+  # - combo_pinyin_kbcon.options:/if_use_shift
+  # 使用八股文語言模型
+  - grammar:/hant?
+  # 用家自選配置
+  - combo_pinyin_kbcon.custom:/patch?
