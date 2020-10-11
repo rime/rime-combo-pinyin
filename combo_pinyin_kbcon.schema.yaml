@@ -153,11 +153,6 @@ chord_composer:
     - xform/^bf/m/
     - xform/^dl/n/
     - xform/^zc/r/
-    # 左手拇指位 H 組合鍵
-    - xform/^g[pbfz]/k/
-    - xform/^z[bfz]/zh/
-    - xform/^bc|^c[fz]/ch/
-    - xform/^[bf]s|^sz/sh/
     # PC 鍵盤組合聲母
     - xform/^b[zcsh]+/p/
     - xform/^d[zcsh]+/t/
