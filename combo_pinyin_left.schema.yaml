@@ -130,7 +130,6 @@ chord_composer:
     # 聲母獨用時補足隠含的韻母
     - xform/^([bpf])$/$1u/
     - xform/^([mdtnlgkh])$/$1e/
-    - xform/^([mdtnlgkh])$/$1e/
     - xform/^([zcsr]h?)$/$1i/
   # 並擊完成後套用的式樣
   output_format:
