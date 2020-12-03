@@ -4,7 +4,7 @@
 schema:
   schema_id: combo_pinyin_kbcon
   name: 宮保拼音·鍵盤控式
-  version: "1.7"
+  version: "1.8"
   author:
     - 佛振 <chen.sst@gmail.com>
   description: |
@@ -38,8 +38,9 @@ schema:
     適用鍵盤型號及固件：
     https://github.com/lotem/qmk_firmware
 
-    - AMJ40: make amj40:kbcon
-    - Ergodox: make ergodox_ez:kbcon
+    - AMJ40: make amj40:kbcon  # 左手拇指大鍵編程爲分號（;）
+    - crkbd: make crkbd:kbcon  # 左手拇指大鍵編程爲 Control
+    - Ergodox: make ergodox_ez:kbcon  # 左手拇指大鍵編程爲 Control
 
     「鍵盤控」兼容佈局（適用標準 PC 鍵盤）：
        (C') Ln  Dt (T')     u   I   O
@@ -47,7 +48,7 @@ schema:
        (Z') Fm  Bp (P') er  yu  U   E'
                     A*
 
-    其中 H' 可用字母鍵 A 或選用左 Control/Alt/Shift 鍵擊發
+    其中 H' 可用字母鍵 A 或設定爲用左 Control/Alt/Shift 鍵擊發
     標「*」的按鍵爲拇指、食指的基準鍵位
     加 () 的冗餘按鍵，是爲方便用家從「大衆式」過渡到本式而增設
 
@@ -109,7 +110,7 @@ speller:
 chord_composer:
   # 字母表，包含用於並擊的按鍵
   # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  alphabet: 'gtbfrvdecswxaqzhynjum ki,lo.p'
+  alphabet: 'gtbfrvdecswxaqz;hynjum ki,lo.p'
   # 可選：左 Control 鍵作 H 鍵。請注意 Control+space 可能與系統快捷鍵衝突
   use_control: false
   # 可選：左 Alt 鍵作 H 鍵。請注意 Alt+space 可能與系統快捷鍵衝突
@@ -123,7 +124,7 @@ chord_composer:
     - 'xform/\{Alt_L\}/~/'
     - 'xform/\{Shift_L\}/+/'
     # 將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|gtbfrvdecswxaqzhynjum ki,lo.p|gtpzdbclfsczHXXXXRiuVaNIUeoER|'
+    - 'xlit|gtbfrvdecswxaqz;hynjum ki,lo.p|gtpzdbclfsczHXXhXXRiuVaNIUeoER|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
     # 單擊時發送標點符號
     - xform|^U$|,|
@@ -131,6 +132,8 @@ chord_composer:
     # 與Shift鍵組合時發送標點符號
     - xform|^[+]U$|<|
     - xform|^[+]E$|>|
+    # 分號較少用，改爲通過組合輸出
+    - 'xform/^[HX]h$|^h[XR]$/;/'
     # 左手拇指鍵 H
     - 'xlit|^~+|hhh|'
     # 可選：左手拇指鍵 H 在組合中作‹h›、單擊作空格鍵，方便雙手交替上字
