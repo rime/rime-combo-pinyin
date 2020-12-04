@@ -35,12 +35,12 @@ schema:
     iNE = ing, uNE (uIO) = ong, yuNE (yuUE') = iong,
     uANE (uAIO) = uang
 
-    適用鍵盤型號及固件：
+    適用鍵盤型號及固件（左手拇指大鍵編程爲 Control）
     https://github.com/lotem/qmk_firmware
 
-    - AMJ40: make amj40:kbcon  # 左手拇指大鍵編程爲分號（;）
-    - crkbd: make crkbd:kbcon  # 左手拇指大鍵編程爲 Control
-    - Ergodox: make ergodox_ez:kbcon  # 左手拇指大鍵編程爲 Control
+    - AMJ40: make amj40:kbcon
+    - crkbd: make crkbd:kbcon
+    - Ergodox: make ergodox_ez:kbcon
 
     「鍵盤控」兼容佈局（適用標準 PC 鍵盤）：
        (C') Ln  Dt (T')     u   I   O
@@ -110,7 +110,10 @@ speller:
 chord_composer:
   # 字母表，包含用於並擊的按鍵
   # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  alphabet: 'gtbfrvdecswxaqz;hynjum ki,lo.p'
+  alphabet: 'gtbfrvdecswxaqzhynjum ki,lo.p'
+  # 雙空格鍵盤的左手拇指鍵，本案用作聲母鍵 H。
+  # 左手拇指鍵須編程爲其他輸入鍵以外的常規按鍵，支持下列選項
+  # 可選：左手拇指鍵爲分號
   # 可選：左 Control 鍵作 H 鍵。請注意 Control+space 可能與系統快捷鍵衝突
   use_control: false
   # 可選：左 Alt 鍵作 H 鍵。請注意 Alt+space 可能與系統快捷鍵衝突
@@ -120,11 +123,11 @@ chord_composer:
   # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
   algebra:
     # 若 Control/Alt/Shift 鍵參與並擊，須改以單個字符表示按鍵
-    - 'xform/\{Control_L\}/^/'
-    - 'xform/\{Alt_L\}/~/'
-    - 'xform/\{Shift_L\}/+/'
+    - 'xform/\{Control_L\}/:/'
+    - 'xform/\{Alt_L\}/:/'
+    - 'xform/\{Shift_L\}/:/'
     # 將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|gtbfrvdecswxaqz;hynjum ki,lo.p|gtpzdbclfsczHXXhXXRiuVaNIUeoER|'
+    - 'xlit|gtbfrvdecswxaqzhynjum ki,lo.p|gtpzdbclfsczHXXXXRiuVaNIUeoER|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
     # 單擊時發送標點符號
     - xform|^U$|,|
@@ -132,10 +135,12 @@ chord_composer:
     # 與Shift鍵組合時發送標點符號
     - xform|^[+]U$|<|
     - xform|^[+]E$|>|
-    # 分號較少用，改爲通過組合輸出
+    # 左手拇指鍵 H 爲分號鍵，表記爲 h
+    - 'xlit|;|h|'
+    # 分號較少用，改爲通過組合輸出（僅當分號鍵用作 H 鍵時）
     - 'xform/^[HX]h$|^h[XR]$/;/'
-    # 左手拇指鍵 H
-    - 'xlit|^~+|hhh|'
+    # 左手拇指鍵 H 爲修飾鍵之一，統一表記爲 h
+    - 'xlit|:|h|'
     # 可選：左手拇指鍵 H 在組合中作‹h›、單擊作空格鍵，方便雙手交替上字
     #- 'xform/^h$/ /'
     # 空格鍵單擊時發送空白

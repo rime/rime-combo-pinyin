@@ -5,6 +5,10 @@
 patch:
   __include: combo_pinyin_kbcon.options:/if_use_control
 
+if_use_semicolon:
+  chord_composer/+:
+    alphabet: 'gtbfrvdecswxaqz;hynjum ki,lo.p'
+
 if_use_control:
   chord_composer/+:
     alphabet: 'gtbfrvdecswxaqz{Control_L}hynjum ki,lo.p'
