@@ -4,7 +4,7 @@
 schema:
   schema_id: combo_pinyin
   name: 宮保拼音
-  version: "0.9.2"
+  version: "0.9.3"
   author:
     - 佛振 <chen.sst@gmail.com>
   description: |
@@ -162,3 +162,9 @@ key_binder:
 
 recognizer:
   import_preset: default
+
+__patch:
+  # 使用八股文語言模型
+  - grammar:/hant?
+  # 用家自選配置
+  - combo_pinyin.custom:/patch?
