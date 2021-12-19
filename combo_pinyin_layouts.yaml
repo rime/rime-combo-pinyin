@@ -159,9 +159,9 @@ zhia_layout_options:
     # 若 Control/Alt/Shift 鍵參與並擊，須改以單個字符表示按鍵
     - 'xform/\{Control_L\}/:/'
     - 'xform/\{Alt_L\}/:/'
-    - 'xform/\{Shift_L\}/:/'
+    - 'xform/\{Shift_L\}/+/'
     # 將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|gtbfrvdecswxaqzhynjum ki,lo.p|gtpzdbclfsczHXXRXRiuVaNIUeoEX|'
+    - 'xlit|gtbfrvdecswxaqzhynjum ki,lo.p;''|gtpzdbclfsczHXXRXRiuVaNIUeoEXSQ|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
     # 單擊時發送標點符號
     - xform|^U$|,|
@@ -169,12 +169,20 @@ zhia_layout_options:
     # 與Shift鍵組合時發送標點符號
     - xform|^[+]U$|<|
     - xform|^[+]E$|>|
-    # 左手拇指鍵 h 爲分號鍵，表記爲 h
-    - 'xlit|;|h|'
+    # 可選：單擊時發送標點符號
+    #- xform|^S$|;|
     # 分號較少用，改爲通過組合輸出（僅當分號鍵用作 h 鍵時）
-    - 'xform/^[HX]h$|^h[XR]$/;/'
+    - 'xform/^[HX]S$|^S[XR]$/;/'
+    # 左手拇指鍵 h 爲分號鍵，表記爲 h
+    - xlit|S|h|
+    # 可選：單擊時發送標點符號
+    #- "xform|^Q$|'|"
+    # 單引號較少用，改爲通過組合輸出（僅當單引號鍵用作 h 鍵時）
+    - 'xform/^[HX]Q$|^Q[XR]$/''/'
+    # 左手拇指鍵 h 爲單引號鍵，表記爲 h
+    - xlit|Q|h|
     # 左手拇指鍵 h 爲修飾鍵之一，統一表記爲 h
-    - 'xlit|:|h|'
+    - 'xlit|:+|hh|'
     # 可選：左手拇指鍵 h 在組合中作⟨h⟩、單擊作空格鍵，方便雙手交替上字
     #- 'xform/^h$/ /'
     # 空格鍵單擊時發送空白
@@ -392,6 +400,10 @@ use_zhn_layout:
 use_semicolon:
   chord_composer/+:
     alphabet: 'gtbfrvdecswxaqz;hynjum ki,lo.p'
+
+use_apostrophe:
+  chord_composer/+:
+    alphabet: 'gtbfrvdecswxaqz''hynjum ki,lo.p'
 
 use_control:
   chord_composer/+:
