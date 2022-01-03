@@ -1,7 +1,7 @@
 # 宮保拼音鍵盤佈局
 
 info: |
-    * 大衆式（g·i·a 佈局）
+    * 七指禪／大衆式／g·i·a 佈局
     --------------------------------------
     指法  左4 左3 左2 左2 右2 右2 右3 右4
     --------------------------------------
@@ -35,7 +35,7 @@ info: |
     i-n+e = ⟨ing⟩, u-n+e (u-i+o) = ⟨ong⟩, ü-n+e (ü-u+e') = ⟨iong⟩,
     u+a-n+e (u+a-i+o) = ⟨uang⟩
 
-    * 執鍵人式（z·h·i·a 佈局）
+    * 八指禪／執鍵人式／z·h·i·a 佈局
     佈局專爲拆分空格鍵盤優化，左右手拇指各司一鍵以利並擊。
     略改換指法，亦可兼容具備全鍵並擊或任意6鍵並擊性能的標準電腦鍵盤。
     --------------------------------------
@@ -67,7 +67,7 @@ info: |
     其他支持自定義鍵位的分裂空格鍵盤，可通過VIA、QMK Configurator等工具
     將左手拇指大鍵編程爲Control或其他可選鍵位。
 
-    * 「執鍵人」兼容佈局（z·i·a 佈局）
+    * 「執鍵人」兼容佈局／z·i·a 佈局
     兼容標準電腦鍵盤。
     以「執鍵人式」爲基礎，兼收「大衆式」的部分聲母鍵及組合聲母。
     ------------------------------------------
@@ -95,7 +95,7 @@ info: |
     ** 兼容「大衆式」聲母
     p' = ⟨p⟩, t' = ⟨t⟩, z'+f = ⟨zh⟩, c'+l = ⟨ch⟩, s+c = ⟨sh⟩
 
-    * 左式（z·h·-n 佈局）
+    * 左式／z·h·-n 佈局
     ------------------------------------------
     指法  左4 左3 左2 左2 右2 右2 右3 右4 右5
     ------------------------------------------
@@ -123,24 +123,28 @@ info: |
     ü-n (ü+ou) = ⟨ün⟩
     ü-ng (ü+ao) = ⟨iong⟩
 
-    * 四呼式（g·y·w·a 佈局）
+    * 十指禪／g·y·w·a 佈局
     用兩顆拇指鍵的組合表記四呼。
-    在鍵盤固件裏，將左1指位編程爲 '' 鍵，右1指位編程爲空格鍵。
-    ------------------------------------------
-    指法  左4 左3 左2 左2 右2 右2 右3 右4 右5
-    ------------------------------------------
-    上排    c   l   d   t       u  -i   o
-    中排    s   h   g*  k   er  a* -n   e  -u
-    下排    z   f   b   p
-    拇指                y*  w*
-    ------------------------------------------
-    指法              左1 右1
-    ------------------------------------------
+    在鍵盤固件裏，將左1指位編程爲空格鍵，右1指位編程爲單引號鍵。
+    若左、右拇指鍵編程爲不同按鍵，須相應地修改並擊規則。
+    如Emacs用家可將左1指位設爲Control，右1指位設爲空格鍵。
+    --------------------------------------------
+    指法  左5 左4 左3 左2 左2 右2 右2 右3 右4 右5
+    --------------------------------------------
+    上排  q   c   l   d   t       u  -i   o  -u
+    中排  x   s   h   g*  k   er  a* -n   e  -u
+    下排  j   z   f   b   p
+    拇指                  y*  w*
+    --------------------------------------------
+    指法                 左1 右1
+    --------------------------------------------
     標「*」的按鍵爲拇指、食指的基準鍵位，可幫助定位其他按鍵。
     本文及輸入方案配置中，通過列舉定位鍵指稱鍵盤佈局。
 
     y 和 w 表示介音⟨i⟩⟨u⟩，兩者並擊爲⟨ü⟩。對應地，-i, -u 用於韻尾。
     惟 y 和 w 不可單擊；音節⟨yi⟩⟨wu⟩可拼作 y-i, w+u 或簡作 -i, u。
+
+    與 j, q, x 拼合時，y 鍵即元音⟨i⟩可省略，元音⟨ü⟩可略爲⟨u⟩。
 
     在合口呼中，e 鍵可活用爲⟨o⟩，如 w+o = ⟨uo⟩；
     類似地，o, e 在雙元音中可相互代用： o-i = ⟨ei⟩, e-u = ⟨ou⟩。
@@ -149,17 +153,16 @@ info: |
 
     ** 組合聲母
     b+f = ⟨m⟩, d+l = ⟨n⟩, g+h = ⟨r⟩,
-    z+f = ⟨zh⟩, c+l = ⟨ch⟩, s+h = ⟨sh⟩,
-    g+y = ⟨j⟩, k+y = ⟨q⟩, h+y = ⟨x⟩
+    z+f = ⟨zh⟩, c+l = ⟨ch⟩, s+h = ⟨sh⟩
 
     ** 組合韻母
     y+w (y+u) = ⟨ü⟩
     a-i = ⟨ai⟩
-    o-i = ⟨ei⟩
+    o-i (e-i) = ⟨ei⟩
     w-i (u-i) = ⟨uei⟩
-    a-u = ⟨ao⟩
-    e-u = ⟨ou⟩
-    y-u (y+e-u) = ⟨iou⟩
+    a-o (a-u) = ⟨ao⟩
+    o-u (e-u) = ⟨ou⟩
+    y-u (y+o-u, y+e-u) = ⟨iou⟩
     a-n = ⟨an⟩
     -n = ⟨en⟩
     y-n = ⟨in⟩
@@ -170,6 +173,24 @@ info: |
     y-n+e = ⟨ing⟩
     w-n+e = ⟨ong⟩
     y+w-n+e = ⟨iong⟩
+
+    * 九指禪／g·y·a 佈局
+    對十指禪佈局做少許調整，兼容通用鍵盤（單空格鍵）。
+    --------------------------------------------
+    指法  左5 左4 左3 左2 左2 右2 右2 右3 右4 右5
+    --------------------------------------------
+    上排  q   c   l   d   t   ua  u  -i   o  -u
+    中排  x   s   h   g*  k   er  a* -n   e  -u
+    下排  j   z   f   b   p   ua  u
+    拇指                  y*
+    --------------------------------------------
+    指法                 左1
+    --------------------------------------------
+    標「*」的按鍵爲拇指、食指的基準鍵位，可幫助定位其他按鍵。
+    本文及輸入方案配置中，通過列舉定位鍵指稱鍵盤佈局。
+
+    左手拇指管 y 鍵即空格鍵。
+    十指禪中的 w 鍵由 u 代替。增設 ua 鍵，代表雙元音⟨ua⟩。
 
 gia_layout_options:
   # 字母表，包含用於並擊的按鍵
@@ -414,17 +435,14 @@ zhn_punct_override:
 gywa_layout_options:
   # 字母表，包含用於並擊的按鍵
   # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  alphabet: 'swxdecfrvgtbaqz'' hynjumkilo;p'
+  #alphabet: 'aqzswxdecfrvgtb ''hynjumkilo;p'
   # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
-  algebra:
-    # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|swxdecfrvgtbaqz'' hynjumkilo;p|sczhlfgdbktpYYYywRWWauuNIeoUX|'
+  algebra/+:
+    # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母。y, w 鍵另行定義
+    - 'xlit|aqzswxdecfrvgtbhynjumkilo;p|xqjsczhlfgdbktpRAAauuNIeoUX|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
     # 單擊時發送標點符號
     - xform/^U$/;/
-    - 'xform/^y$/''/'
-    # 空格鍵單擊時產生空白
-    - 'xform/^w$/ /'
     # ‹er›自成音節
     - xform/^R$/er/
     # 消除無效按鍵
@@ -436,8 +454,8 @@ gywa_layout_options:
     - xform/^ld/n/
     - xform/^hg/r/
     # 統一表記介音
-    - xlit/Yyw/iiu/
-    - xform/W/ua/
+    - xlit/YW/iu/
+    - xform/A/ua/
     # g,k,h 接 i/ü 時作 ⟨ji/ju, qi/qu, xi/xu⟩
     - xform/^[gz]i/ji/
     - xform/^[kc]i/qi/
@@ -474,6 +492,12 @@ gywa_layout_options:
     - xform/^u/w/
     - xform/^V/yu/
     - xform/^([jqx])V/$1u/
+    - xform/V/v/
+    # j, q, x 可省略 ⟨i⟩
+    - xform/^([jqx])e(ng?)/$1i$2/
+    - xform/^([jqx])([aoe])/$1i$2/
+    - xform/^([jqx])$/$1i/
+    - xform/^([jqx])uo$/$1ue/
     # 一些容錯
     - xform/^([zcsr]h?)i([aoe])/$1$2/
     - xform/^([zcsr]h?)i(ng?)$/$1e$2/
@@ -518,6 +542,37 @@ use_zhn_layout:
 
 use_gywa_layout:
   chord_composer/+:
+    alphabet: 'aqzswxdecfrvgtb ''hynjumkilo;p'
+    algebra:
+      - 'xform/ /Y/'
+      - 'xform/^Y$/ /'
+      - 'xform/''/W/'
+      - 'xform/^W$/''/'
+    __patch:
+      - gywa_layout_options
+      - common_options
+
+# I have more fingers than you!
+use_gywa_emacsen_layout:
+  chord_composer/+:
+    alphabet: 'aqzswxdecfrvgtb{Control_L} hynjumkilo;p'
+    use_control: true
+    algebra:
+      - 'xform/\{Control_L\}/Y/'
+      # 可選：單擊左拇指鍵也輸出空格，以利雙手交替上字
+      - 'xform/^Y$/ /'
+      - 'xform/ /W/'
+      - 'xform/^W$/ /'
+    __patch:
+      - gywa_layout_options
+      - common_options
+
+use_gya_layout:
+  chord_composer/+:
+    alphabet: 'aqzswxdecfrvgtb hynjumkilo;p'
+    algebra:
+      - 'xform/ /Y/'
+      - 'xform/^Y$/ /'
     __patch:
       - gywa_layout_options
       - common_options
