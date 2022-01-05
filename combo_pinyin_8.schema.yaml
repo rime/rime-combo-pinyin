@@ -1,0 +1,31 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: combo_pinyin_8
+  name: 宮保拼音·八指禪
+  version: '2.0'
+  author:
+    - 居戎氏 <chen.sst@gmail.com>
+  description: |
+    並擊輸入拼音。
+    本式佈局亦稱「鍵盤控式」，專爲拆分空格鍵盤優化，左右手拇指各司一鍵以利並擊。
+
+__include: combo_pinyin.schema:/
+__patch:
+  # 選用「八指禪」及兼容佈局
+  - combo_pinyin_layouts:/use_zhia_layout
+  # 默認配置爲兼容佈局。
+  # 標準鍵盤用左手小指A鍵當作 h 鍵。
+  # 拆分空格鍵盤須設拇指左鍵爲字母A。
+  # 或者解封下列註釋行之一，選定拆分空格鍵盤的左手拇指 h 鍵：
+  # 拇指左鍵設爲分號
+  # - combo_pinyin_layouts:/use_semicolon
+  # 拇指左鍵設爲單引號
+  # - combo_pinyin_layouts:/use_apostrophe
+  # 拇指左鍵設爲Control
+  # - combo_pinyin_layouts:/use_control
+  # 拇指左鍵設爲Alt
+  # - combo_pinyin_layouts:/use_alt
+  # 拇指左鍵設爲Shift
+  # - combo_pinyin_layouts:/use_shift

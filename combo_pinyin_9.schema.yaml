@@ -1,0 +1,16 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: combo_pinyin_9
+  name: 宮保拼音·九指禪
+  version: '2.0'
+  author:
+    - 居戎氏 <chen.sst@gmail.com>
+  description: |
+    並擊輸入拼音。
+    本式佈局由「十指禪」改編，可兼容標準鍵盤。
+
+__include: combo_pinyin.schema:/
+__patch:
+  - combo_pinyin_layouts:/use_gya_layout
