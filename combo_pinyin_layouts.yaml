@@ -208,7 +208,7 @@ gia_layout_options:
     - 'xform/^a$/ /'
     # 特例：以組合鍵[ae]輸入拼音⟨a⟩
     - xform/^ae$/a/
-    # ‹er›自成音節
+    # ⟨er⟩自成音節
     - xform/^R$/er/
     # 消除無效按鍵
     - xform/[XR]+//
@@ -443,7 +443,7 @@ gywa_layout_options:
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
     # 單擊時發送標點符號
     - xform/^U$/;/
-    # ‹er›自成音節
+    # ⟨er⟩自成音節
     - xform/^R$/er/
     # 組合聲母
     - xform/^zf/zh/
@@ -451,9 +451,11 @@ gywa_layout_options:
     - xform/^fb/m/
     - xform/^ld/n/
     - xform/^hg/r/
+    # 活用組合：齊指並擊 u-i+o = ⟨ong⟩
+    - xform/([uAR])Io$/$1ng/
     # 統一表記介音
     - xlit/YW/iu/
-    # 在組合中，er 鍵通借爲‹ua›以利指法
+    # 在組合中，er 鍵通借爲⟨ua⟩以利指法
     - xform/[AR]/ua/
     # g,k,h 接 i/ü 時作 ⟨ji/ju, qi/qu, xi/xu⟩
     - xform/^[gz]i/ji/
