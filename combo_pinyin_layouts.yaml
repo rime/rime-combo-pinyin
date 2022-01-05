@@ -445,8 +445,6 @@ gywa_layout_options:
     - xform/^U$/;/
     # ‹er›自成音節
     - xform/^R$/er/
-    # 消除無效按鍵
-    - xform/R+//
     # 組合聲母
     - xform/^zf/zh/
     - xform/^cl/ch/
@@ -455,7 +453,8 @@ gywa_layout_options:
     - xform/^hg/r/
     # 統一表記介音
     - xlit/YW/iu/
-    - xform/A/ua/
+    # 在組合中，er 鍵通借爲‹ua›以利指法
+    - xform/[AR]/ua/
     # g,k,h 接 i/ü 時作 ⟨ji/ju, qi/qu, xi/xu⟩
     - xform/^[gz]i/ji/
     - xform/^[kc]i/qi/
