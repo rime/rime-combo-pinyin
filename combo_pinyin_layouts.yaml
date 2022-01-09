@@ -498,7 +498,7 @@ gywa_layout_options:
     - xform/^([jqx])e(ng?)/$1i$2/
     - xform/^([jqx])([aoe])/$1i$2/
     - xform/^([jqx])$/$1i/
-    - xform/^([jqx])uo$/$1ue/
+    - xform/^([jqxy])uo$/$1ue/
     # 一些容錯
     - xform/^([zcsr]h?)i([aoe])/$1$2/
     - xform/^([zcsr]h?)i(ng?)$/$1e$2/
