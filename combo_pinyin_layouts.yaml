@@ -464,7 +464,7 @@ gywa_layout_options:
     - xform/aI$/ai/
     - xform/I[oe]$/ei/
     - xform/uI$/uei/
-    - xform/a[oUX]$/ao/
+    - xform/a[oeUX]$/ao/
     - xform/[oe]?[UX]$/ou/
     # -i 鍵亦可用作韻母 ⟨i⟩
     - xform/^gI$/ji/
