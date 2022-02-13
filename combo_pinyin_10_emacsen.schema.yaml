@@ -3,14 +3,14 @@
 
 schema:
   schema_id: combo_pinyin_10_emacsen
-  name: 宮保拼音·十指禪·Emacs用家
+  name: 宮保拼音·十指禪
   version: '2.0'
   author:
     - 居戎氏 <chen.sst@gmail.com>
   description: |
     並擊輸入拼音。
     本式佈局專爲拆分空格鍵盤優化，左右手拇指各司一鍵以利並擊。
-    拇指左鍵設爲Control，拇指右鍵設爲空格。
+    方便Emacs用家，拇指左鍵設爲Control，拇指右鍵設爲空格。
 
 __include: combo_pinyin.schema:/
 __patch:
