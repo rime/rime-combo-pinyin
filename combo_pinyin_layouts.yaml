@@ -210,6 +210,9 @@ gia_layout_options:
     - xform/^ae$/a/
     # ⟨er⟩自成音節
     - xform/^R$/er/
+    # 3x10鍵盤缺少拇指鍵，可用 N 鍵代替空格鍵並擊⟨a⟩
+    - xform/^Re$/a/
+    - xform/R([iuV]?)a?/$1a/
     # 消除無效按鍵
     - xform/[XR]+//
     # 組合聲母
