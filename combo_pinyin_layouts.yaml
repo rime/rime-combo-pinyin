@@ -195,7 +195,7 @@ gia_layout_options:
   # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
   algebra:
     # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|aqzswxdecfrvgtbhynjum ki,lo.p|XXXsczhlfgdbktpRRRiuVaNIUeoEX|'
+    - 'xlit|aqzswxdecfrvgtbhynjum ki,lo.p|XXXsczhlfgdbktpRRRiuVaNIUeoEW|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
     # 單擊時發送標點符號
     - xform/^U$/,/
@@ -209,6 +209,8 @@ gia_layout_options:
     # 3x10鍵盤缺少拇指鍵，可用 N 鍵代替空格鍵並擊⟨a⟩
     - xform/^Re$/a/
     - xform/R([iuV]?)a?/$1a/
+    # 若不能使用 , . 並擊，可用 P 鍵代替 -u 形成並擊組合 o-u, i+o-u, i-u
+    - xform/o?W/U/
     # 消除無效按鍵
     - xform/[XR]+//
     # 組合聲母
