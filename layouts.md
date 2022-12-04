@@ -73,15 +73,11 @@ er' 和 er 等效，分別爲直列鍵盤和錯列鍵盤優化設計。
 
 同「七指禪」
 
-### 部分適用鍵盤型號及示例固件程序
+### 適用鍵盤型號及鍵位設定
 
-https://github.com/lotem/qmk_firmware
-
-  - AMJ40: make amj40:kbcon
-  - Ergodox: make ergodox_ez:kbcon
-
-其他支持自定義鍵位的分裂空格鍵盤，可通過VIA、QMK Configurator等工具
-將左手拇指大鍵編程爲Control或其他可選鍵位。
+支持自定義鍵位、分裂空格的鍵盤，如Ergodox、Corne、Alice等等。
+可通過VIA、QMK Configurator等工具將右手拇指大鍵編程爲空格，
+左手拇指大鍵編程爲Control或其他可選鍵位。
 
 ## 八指禪兼容佈局
 

@@ -58,14 +58,10 @@ info: |
 
     ** 組合韻母及活用（同「大衆式」）
 
-    ** 部分適用鍵盤型號及示例固件程序
-    https://github.com/lotem/qmk_firmware
-
-    - AMJ40: make amj40:kbcon
-    - Ergodox: make ergodox_ez:kbcon
-
-    其他支持自定義鍵位的分裂空格鍵盤，可通過VIA、QMK Configurator等工具
-    將左手拇指大鍵編程爲Control或其他可選鍵位。
+    ** 適用鍵盤型號及鍵位設定
+    支持自定義鍵位、分裂空格的鍵盤，如Ergodox、Corne、Alice等等。
+    可通過VIA、QMK Configurator等工具將右手拇指大鍵編程爲空格，
+    左手拇指大鍵編程爲Control或其他可選鍵位。
 
     * 「執鍵人」兼容佈局／z·i·a 佈局
     兼容標準電腦鍵盤。
