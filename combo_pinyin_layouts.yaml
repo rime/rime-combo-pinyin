@@ -210,6 +210,7 @@ gia_layout_options:
     - xform/^Re$/a/
     - xform/R([iuV]?)a?/$1a/
     # 若不能使用 , . 並擊，可用 P 鍵代替 -u 形成並擊組合 o-u, i+o-u, i-u
+    - xform/Io?W/iU/
     - xform/o?W/U/
     # 消除無效按鍵
     - xform/[XR]+//
