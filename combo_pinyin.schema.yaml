@@ -4,7 +4,7 @@
 schema:
   schema_id: combo_pinyin
   name: 宮保拼音
-  version: '2.0'
+  version: '2.1'
   author:
     - 居戎氏 <chen.sst@gmail.com>
   description: |
@@ -74,6 +74,10 @@ punctuator:
 
 key_binder:
   import_preset: default
+  bindings:
+    # 逗號、句號不用作翻頁，直接上屏
+    - { when: paging, accept: comma, send: comma }
+    - { when: has_menu, accept: period, send: period }
 
 recognizer:
   import_preset: default
