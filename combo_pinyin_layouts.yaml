@@ -151,6 +151,9 @@ info: |
     b+f = ⟨m⟩, d+l = ⟨n⟩, g+h = ⟨r⟩,
     z+f = ⟨zh⟩, c+l = ⟨ch⟩, s+h = ⟨sh⟩
 
+    ** 特殊配列鍵盤用的組合聲母
+    z+b = ⟨p⟩, c+d = ⟨t⟩, s+g = ⟨k⟩
+
     ** 組合韻母
     y+w (y+u) = ⟨ü⟩
     a-i = ⟨ai⟩
@@ -220,6 +223,10 @@ gia_layout_options:
     - xform/^fb/m/
     - xform/^ld/n/
     - xform/^hg/r/
+    # 特殊配列鍵盤用的組合聲母
+    - xform/^[zs]b/p/
+    - xform/^[cs]d/t/
+    - xform/^sg/k/
 
 zhia_layout_options:
   # 字母表，包含用於並擊的按鍵
