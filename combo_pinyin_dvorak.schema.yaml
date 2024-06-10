@@ -1,0 +1,99 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: combo_pinyin_dvorak
+  name: 宮保拼音（Dvorak）
+  version: '2.0'
+  author:
+    - 居戎氏 <chen.sst@gmail.com>
+  description: |
+    並擊輸入拼音，適配 Dvorak 鍵盤佈局
+    https://github.com/rime/home/wiki/ComboPinyin
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    states: [ 漢字, 汉字 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - chord_composer  # 實現並擊按鍵處理
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+chord_composer:
+  __patch:
+    - combo_pinyin_layouts:/gia_layout_options
+    - combo_pinyin_layouts:/ia_shared_options
+    - combo_pinyin_layouts:/common_options
+    - dvorak_layout_options
+
+dvorak_layout_options:
+  # 字母表，包含用於並擊的按鍵
+  # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
+  alphabet: "ao,qe.jupkiyxdfbhgm tcwnrvslz"
+  # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
+  # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
+  algebra/@0: "xlit|ao,qe.jupkiyxdfbhgm tcwnrvslz|XsczhlfgdbktpRRRiuVaNIUeoEXXX|"
+
+editor:
+  bindings:
+    BackSpace: back_syllable
+
+speller:
+  alphabet: "zyxwvutsrqponmlkjihgfedcba'"
+  initials: "zyxwvutsrqponmlkjihgfedcba"
+  delimiter: " "
+  algebra:
+    # 拼音音節一律後加隔音符號，避免音節切分歧義
+    - "xform/^([a-z]+)$/$1'/"
+
+translator:
+  dictionary: luna_pinyin
+  prism: combo_pinyin
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+    - "xform/' /'/"
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+
+__patch:
+  # 使用八股文語言模型
+  - grammar:/hant?
+
+  # 用家自選配置
+  - combo_pinyin_dvorak.custom:/patch?
