@@ -4,7 +4,7 @@
 schema:
   schema_id: combo_pinyin
   name: 宮保拼音
-  version: '2.0'
+  version: '3.0'
   author:
     - 居戎氏 <chen.sst@gmail.com>
   description: |
@@ -57,6 +57,11 @@ speller:
   initials: "zyxwvutsrqponmlkjihgfedcba"
   delimiter: " "
   algebra:
+    # 合併音節
+    - derive/^lo$/lou/
+    # 合併 ⟨o / ou⟩、⟨e / ei⟩兩組韻母
+    #- derive/^([bpmf])?ou$/$1o/
+    #- derive/^([zcsr]h?)?ei$/$1e/
     # 拼音音節一律後加隔音符號，避免音節切分歧義
     - "xform/^([a-z]+)$/$1'/"
 
@@ -79,23 +84,17 @@ recognizer:
   import_preset: default
 
 __patch:
-  # 默認七指禪（大衆式）
-  - combo_pinyin_layouts:/use_gia_layout
+  # 默認七指禪
+  - combo_pinyin_layouts:/use_pc_layout
   # 解封下列代碼，選用其他佈局選項
-  # 八指禪，默認字母A = h
-  # - combo_pinyin_layouts:/use_zhia_layout
-  # 八指禪：選定左手拇指 h 鍵
+  # 八指禪，默認配置：字母 A = 宮保拼音碼 H
+  # - combo_pinyin_layouts:/use_split_layout
+  # 八指禪，可選配置：設定左手拇指位 H 的鍵碼
   # - combo_pinyin_layouts:/use_semicolon
   # - combo_pinyin_layouts:/use_apostrophe
   # - combo_pinyin_layouts:/use_control
   # - combo_pinyin_layouts:/use_alt
   # - combo_pinyin_layouts:/use_shift
-  # 九指禪
-  # - combo_pinyin_layouts:/use_gya_layout
-  # 十指禪，左、右拇指鍵設爲：空格鍵、單引號鍵
-  # - combo_pinyin_layouts:/use_gywa_layout
-  # 十指禪·Emacs用家，左、右拇指鍵設爲：Control鍵、空格鍵
-  # - combo_pinyin_layouts:/use_gywa_emacsen_layout
 
   # 使用八股文語言模型
   - grammar:/hant?

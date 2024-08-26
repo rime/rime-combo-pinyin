@@ -2,30 +2,30 @@
 # encoding: utf-8
 
 schema:
-  schema_id: combo_pinyin_8
+  schema_id: combo_pinyin_split
   name: 宮保拼音·八指禪
-  version: '2.0'
+  version: '3.0'
   author:
     - 居戎氏 <chen.sst@gmail.com>
   description: |
     並擊輸入拼音。
-    本式佈局亦稱「鍵盤控式」，專爲拆分空格鍵盤優化，左右手拇指各司一鍵以利並擊。
+    專爲分體式或有拆分空格設計的鍵盤優化，左右手拇指各司一鍵以利並擊。
 
 __include: combo_pinyin.schema:/
 __patch:
   # 選用「八指禪」及兼容佈局
-  - combo_pinyin_layouts:/use_zhia_layout
+  - combo_pinyin_layouts:/use_split_layout
   # 默認配置爲兼容佈局。
-  # 標準鍵盤用左手小指A鍵當作 h 鍵。
-  # 拆分空格鍵盤須設拇指左鍵爲字母A。
-  # 或者解封下列註釋行之一，選定拆分空格鍵盤的左手拇指 h 鍵：
+  # 標準鍵盤左手小指字母 A 鍵當作宮保拼音碼 H。
+  # 可編程鍵盤須設拇指左鍵爲字母 A。
+  # 或者解封下列註釋行之一，選定左手拇指 H 鍵所用的鍵碼：
   # 拇指左鍵設爲分號
   # - combo_pinyin_layouts:/use_semicolon
   # 拇指左鍵設爲單引號
   # - combo_pinyin_layouts:/use_apostrophe
-  # 拇指左鍵設爲Control
+  # 拇指左鍵設爲 Control
   # - combo_pinyin_layouts:/use_control
-  # 拇指左鍵設爲Alt
+  # 拇指左鍵設爲 Alt
   # - combo_pinyin_layouts:/use_alt
-  # 拇指左鍵設爲Shift
+  # 拇指左鍵設爲 Shift
   # - combo_pinyin_layouts:/use_shift

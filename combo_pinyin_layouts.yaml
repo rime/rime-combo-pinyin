@@ -1,357 +1,147 @@
 # 宮保拼音鍵盤佈局
 
-info: |
-    * 七指禪／大衆式／g·i·a 佈局
-    --------------------------------------
-    指法  左4 左3 左2 左2 右2 右2 右3 右4
-    --------------------------------------
-    上排    c   l   d   t       u  -i   o
-    中排    s   h   g*  k   er  i* -n   e
-    下排    z   f   b   p   er' ü  -u   e'
-    拇指                    a*
-    --------------------------------------
-    指法                  右1
-    --------------------------------------
-    標「*」的按鍵爲拇指、食指的基準鍵位，可幫助定位其他按鍵。
-    本文及輸入方案配置中，通過列舉定位鍵指稱鍵盤佈局。
-
-    e' 是 e 的活用鍵位，只用於組合韻母。
-    er' 和 er 等效，分別爲直列鍵盤和錯列鍵盤優化設計。
-
-    組合鍵：
-
-    ** 組合聲母
-    b+f = ⟨m⟩, d+l = ⟨n⟩, g+h = ⟨r⟩,
-    z+f = ⟨zh⟩, c+l = ⟨ch⟩, s+h = ⟨sh⟩,
-
-    ** 組合韻母及活用，括弧內爲活用組合
-    a-i = ⟨ai⟩, e-i (o-i) = ⟨ei⟩,
-    a-u = ⟨ao⟩, -u (e'-u) = ⟨ou⟩,
-    u-i = ⟨uei⟩, u+a-i = ⟨uai⟩,
-    i-u (ü-u) = ⟨iou⟩, i+a-u (ü+a-u) = ⟨iao⟩,
-    -n = ⟨en⟩, -n+e = ⟨eng⟩,
-    a-n = ⟨an⟩, a-n+e = ⟨ang⟩,
-    i-n = ⟨in⟩, u-n = ⟨uen⟩, ü-n = ⟨ün⟩,
-    i-n+e = ⟨ing⟩, u-n+e (u-i+o) = ⟨ong⟩, ü-n+e (ü-u+e') = ⟨iong⟩,
-    u+a-n+e (u+a-i+o) = ⟨uang⟩
-
-    * 八指禪／執鍵人式／z·h·i·a 佈局
-    佈局專爲拆分空格鍵盤優化，左右手拇指各司一鍵以利並擊。
-    略改換指法，亦可兼容具備全鍵並擊或任意6鍵並擊性能的標準電腦鍵盤。
-    --------------------------------------
-    指法  左4 左3 左2 左2 右2 右2 右3 右4
-    --------------------------------------
-    上排        l   d           u  -u   o
-    中排    s   c   z*  g   er  i* -n   e
-    下排        f   b       er' ü  -u   e'
-    拇指                h*  a*
-    --------------------------------------
-    指法              左1 右1
-    --------------------------------------
-
-    組合鍵：
-
-    ** 組合聲母
-    b+h = ⟨p⟩, d+h = ⟨t⟩, g+h = ⟨k⟩,
-    b+f = ⟨m⟩, d+l = ⟨n⟩, z+c = ⟨r⟩,
-    z+h = ⟨zh⟩, c+h = ⟨ch⟩, s+h = ⟨sh⟩,
-
-    ** 組合韻母及活用（同「大衆式」）
-
-    ** 適用鍵盤型號及鍵位設定
-    支持自定義鍵位、分裂空格的鍵盤，如Ergodox、Corne、Alice等等。
-    可通過VIA、QMK Configurator等工具將右手拇指大鍵編程爲空格，
-    左手拇指大鍵編程爲Control或其他可選鍵位。
-
-    * 「執鍵人」兼容佈局／z·i·a 佈局
-    兼容標準電腦鍵盤。
-    以「執鍵人式」爲基礎，兼收「大衆式」的部分聲母鍵及組合聲母。
-    ------------------------------------------
-    指法  左5 左4 左3 左2 左2 右2 右2 右3 右4
-    ------------------------------------------
-    上排       (c') l   d  (t')     u  -i   o
-    中排    h'  s   c   z*  g       i* -n   e
-    下排       (z') f   b  (p') er  ü  -u   e'
-    拇指                        a*
-    ------------------------------------------
-    指法                      右1
-    ------------------------------------------
-    h' 可用字母鍵 A 或設定爲用分號、左Control/Alt/Shift鍵擊發。
-    加 () 的冗餘按鍵，是爲方便用家從「大衆式」過渡到本式而增設。
-
-    組合鍵增補：
-
-    ** 組合聲母及活用
-    在組合聲母中設置 s, c 等爲 h' 的通借鍵以分擔左手小指的壓力。
-    若大量打字或長時間練習，請務必習用通借鍵，謹防小指過度疲勞。
-    b+h' (b+z') = ⟨p⟩, d+h' (d+c') = ⟨t⟩, g+h' (g+c, g+s) = ⟨k⟩,
-    b+f = ⟨m⟩, d+l = ⟨n⟩, z+c = ⟨r⟩,
-    z+h' (z+s) = ⟨zh⟩, c+h' = ⟨ch⟩, s+h' = ⟨sh⟩,
-
-    ** 兼容「大衆式」聲母
-    p' = ⟨p⟩, t' = ⟨t⟩, z'+f = ⟨zh⟩, c'+l = ⟨ch⟩, s+c = ⟨sh⟩
-
-    * 左式／z·h·-n 佈局
-    ------------------------------------------
-    指法  左4 左3 左2 左2 右2 右2 右3 右4 右5
-    ------------------------------------------
-    上排        l   d      ai  ei  u   o   er
-    中排    s   c   z*  g -ng  -n* i   a
-    下排        f   b      ao  ou  ü   e
-    拇指                h*
-    ------------------------------------------
-    指法              左1
-    ------------------------------------------
-
-    組合鍵：
-
-    ** 組合聲母
-    b+h = ⟨p⟩, d+h = ⟨t⟩, g+h = ⟨k⟩,
-    b+f = ⟨m⟩, d+l = ⟨n⟩, z+c = ⟨r⟩,
-    z+h = ⟨zh⟩, c+h = ⟨ch⟩, s+h = ⟨sh⟩
-
-    ** 組合韻母及活用
-    u+a-n (u+o-n) = ⟨uan⟩
-    u+a-ng (u+o-ng) = ⟨uang⟩
-    u-n = ⟨uen⟩
-    u-ng, o-ng (o+ai) = ⟨ong⟩
-    ü+a-n (ü+e+ou) = ⟨üan⟩
-    ü-n (ü+ou) = ⟨ün⟩
-    ü-ng (ü+ao) = ⟨iong⟩
-
-    * 十指禪／g·y·w·a 佈局
-    用兩顆拇指鍵的組合表記四呼。
-    在鍵盤固件裏，將左1指位編程爲空格鍵，右1指位編程爲單引號鍵。
-    若左、右拇指鍵編程爲不同按鍵，須相應地修改並擊規則。
-    如Emacs用家可將左1指位設爲Control，右1指位設爲空格鍵。
-    --------------------------------------------
-    指法  左5 左4 左3 左2 左2 右2 右2 右3 右4 右5
-    --------------------------------------------
-    上排  q   c   l   d   t       u  -i   o  -u
-    中排  x   s   h   g*  k   er  a* -n   e  -u
-    下排  j   z   f   b   p
-    拇指                  y*  w*
-    --------------------------------------------
-    指法                 左1 右1
-    --------------------------------------------
-    標「*」的按鍵爲拇指、食指的基準鍵位，可幫助定位其他按鍵。
-    本文及輸入方案配置中，通過列舉定位鍵指稱鍵盤佈局。
-
-    y 和 w 表示介音⟨i⟩⟨u⟩，兩者並擊爲⟨ü⟩。對應地，-i, -u 用於韻尾。
-    惟 y 和 w 不可單擊；音節⟨yi⟩⟨wu⟩可拼作 y-i, w+u 或簡作 -i, u。
-
-    與 j, q, x 拼合時，y 鍵即元音⟨i⟩可省略，元音⟨ü⟩可略爲⟨u⟩。
-
-    在合口呼中，e 鍵可活用爲⟨o⟩，如 w+o = ⟨uo⟩；
-    類似地，o, e 在雙元音中可相互代用： o-i = ⟨ei⟩, e-u = ⟨ou⟩。
-
-    組合鍵：
-
-    ** 組合聲母
-    b+f = ⟨m⟩, d+l = ⟨n⟩, g+h = ⟨r⟩,
-    z+f = ⟨zh⟩, c+l = ⟨ch⟩, s+h = ⟨sh⟩
-
-    ** 特殊配列鍵盤用的組合聲母
-    z+b = ⟨p⟩, c+d = ⟨t⟩, s+g = ⟨k⟩
-
-    ** 組合韻母
-    y+w (y+u) = ⟨ü⟩
-    a-i = ⟨ai⟩
-    o-i (e-i) = ⟨ei⟩
-    w-i (u-i) = ⟨uei⟩
-    a-o (a-u) = ⟨ao⟩
-    o-u (e-u) = ⟨ou⟩
-    y-u (y+o-u, y+e-u) = ⟨iou⟩
-    a-n = ⟨an⟩
-    -n = ⟨en⟩
-    y-n = ⟨in⟩
-    w-n = ⟨uen⟩
-    y+w-n = ⟨ün⟩
-    a-n+e  = ⟨ang⟩
-    -n+e = ⟨eng⟩
-    y-n+e = ⟨ing⟩
-    w-n+e = ⟨ong⟩
-    y+w-n+e = ⟨iong⟩
-
-    * 九指禪／g·y·a 佈局
-    對十指禪佈局做少許調整，兼容通用鍵盤（單空格鍵）。
-    --------------------------------------------
-    指法  左5 左4 左3 左2 左2 右2 右2 右3 右4 右5
-    --------------------------------------------
-    上排  q   c   l   d   t   ua  u  -i   o  -u
-    中排  x   s   h   g*  k   er  a* -n   e  -u
-    下排  j   z   f   b   p   ua  u
-    拇指                  y*
-    --------------------------------------------
-    指法                 左1
-    --------------------------------------------
-    標「*」的按鍵爲拇指、食指的基準鍵位，可幫助定位其他按鍵。
-    本文及輸入方案配置中，通過列舉定位鍵指稱鍵盤佈局。
-
-    左手拇指管 y 鍵即空格鍵。
-    十指禪中的 w 鍵由 u 代替。增設 ua 鍵，代表雙元音⟨ua⟩。
-
-gia_layout_options:
+pc_layout_options:
   # 字母表，包含用於並擊的按鍵
   # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  alphabet: 'aqzswxdecfrvgtbhynjum ki,lo.p'
+  alphabet: 'swxdecfrvgtbjum kiloaqzhynp'
   # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
   algebra:
     # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|aqzswxdecfrvgtbhynjum ki,lo.p|XXXsczhlfgdbktpRRRiuVaNIUeoEW|'
+    - 'xlit|swxdecfrvgtbjum kiloaqzhynp|SCZHLFGDBKTPIUVANREOXXXXXXX|'
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
-    # 單擊時發送標點符號
-    - xform/^U$/,/
-    - xform/^E$/./
     # 空格鍵單擊時產生空白
-    - 'xform/^a$/ /'
-    # 特例：以組合鍵[ae]輸入拼音⟨a⟩
-    - xform/^ae$/a/
-    # ⟨er⟩自成音節
-    - xform/^R$/er/
-    # 3x10鍵盤缺少拇指鍵，可用 N 鍵代替空格鍵並擊⟨a⟩
-    - xform/^Re$/a/
-    - xform/R([iuV]?)a?/$1a/
-    # 若不能使用 , . 並擊，可用 P 鍵代替 -u 形成並擊組合 o-u, i+o-u, i-u
-    - xform/Io?W/iU/
-    - xform/o?W/U/
+    - 'xform/^A$/ /'
     # 消除無效按鍵
-    - xform/[XR]+//
-    # 組合聲母
-    - xform/^zf/zh/
-    - xform/^cl/ch/
-    - xform/^fb/m/
-    - xform/^ld/n/
-    - xform/^hg/r/
-    # 特殊配列鍵盤用的組合聲母
-    - xform/^[zs]b/p/
-    - xform/^[cs]d/t/
-    - xform/^sg/k/
+    - xform/X+//
 
-zhia_layout_options:
+pc_layout_initials:
+  algebra/+:
+    # 並擊聲母
+    - xform/^ZF/zh/
+    - xform/^CL/ch/
+    - xform/^FB/m/
+    - xform/^LD/n/
+    - xform/^HG/r/
+    # 特殊配列鍵盤用
+    - xform/^ZB/p/
+    - xform/^CD/t/
+    - xform/^SG/k/
+
+split_layout_options:
   # 字母表，包含用於並擊的按鍵
   # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  alphabet: 'gtbfrvdecswxaqzhynjum ki,lo.p'
+  alphabet: 'swxdecfrvgtbajum kiloqzhynp'
   # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
   algebra:
     # 若 Control/Alt/Shift 鍵參與並擊，須改以單個字符表示按鍵
-    - 'xform/\{Control_L\}/:/'
-    - 'xform/\{Alt_L\}/:/'
-    - 'xform/\{Shift_L\}/+/'
+    - 'xform/\{Control_L\}/a/'
+    - 'xform/\{Alt_L\}/a/'
+    - 'xform/\{Shift_L\}/a/'
     # 將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|gtbfrvdecswxaqzhynjum ki,lo.p;''|gtpzdbclfsczHXXRRRiuVaNIUeoEXSQ|'
+    - "xlit|swxdecfrvgtba;'jum kiloqzhynp|SCZCLFZDBGTPHJQIUVANREOXXXXXX|"
     # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
-    # 單擊時發送標點符號
-    - xform|^U$|,|
-    - xform|^E$|.|
-    # 與Shift鍵組合時發送標點符號
-    - xform|^[+]U$|<|
-    - xform|^[+]E$|>|
-    # 可選：單擊時發送標點符號
-    #- xform|^S$|;|
-    # 分號較少用，改爲通過組合輸出（僅當分號鍵用作 h 鍵時）
-    - 'xform/^[HX]S$|^S[XR]$/;/'
-    # 左手拇指鍵 h 爲分號鍵，表記爲 h
-    - xlit|S|h|
-    # 可選：單擊時發送標點符號
-    #- "xform|^Q$|'|"
-    # 單引號較少用，改爲通過組合輸出（僅當單引號鍵用作 h 鍵時）
-    - 'xform/^[HX]Q$|^Q[XR]$/''/'
-    # 左手拇指鍵 h 爲單引號鍵，表記爲 h
-    - xlit|Q|h|
-    # 左手拇指鍵 h 爲修飾鍵之一，統一表記爲 h
-    - 'xlit|:+|hh|'
-    # 可選：左手拇指鍵 h 在組合中作⟨h⟩、單擊作空格鍵，方便雙手交替上字
-    #- 'xform/^h$/ /'
+    # 分號、單引號較少用，改爲通過並擊組合輸入
+    - "xform/^JR$/;/"
+    - "xform/^QR$/'/"
+    # 若左手拇指鍵爲分號或單引號，改寫爲 H
+    - xlit|JQ|HH|
     # 空格鍵單擊時發送空白
-    - 'xform/^a$/ /'
-    # 特例：以組合鍵[ae]輸入拼音⟨a⟩
-    - xform/^ae$/a/
+    - 'xform/^A$/ /'
+    # 消除無效按鍵
+    - xform/X+//
+    - xform/H+/H/
+
+split_layout_initials:
+  algebra/+:
+    # 並擊聲母
+    - xform/^BH/p/
+    - xform/^DH/t/
+    - xform/^GH/k/
+    - xform/^FB/m/
+    - xform/^LD/n/
+    - xform/^CZ/r/
+    # PC鍵盤增補聲母
+    - xform/^[ZCS]B/p/
+    - xform/^[ZCS]D/t/
+    - xform/^[ZCS]G/k/
+    - xform/^[ZCS]Z/zh/
+    # 兼容大衆式
+    - xform/^ZF/zh/
+    - xform/^CL/ch/
+    - xform/^SC/sh/
+
+common_options:
+  algebra/+:
+    - xlit/BPFDTLGKHZCS/bpfdtlgkhzcs/
+
+    # G,K,H 接 I/Ü 作 ⟨ji/ju, qi/qu, xi/xu⟩
+    # 若分尖團，也可用 Z,C,S 與 I/Ü 相拼
+    - xform/^[gz]([IV])/j$1/
+    - xform/^[kc]([IV])/q$1/
+    - xform/^[hs]([IV])/x$1/
+
     # ⟨er⟩自成音節
     - xform/^R$/er/
-    # 消除無效按鍵
-    - xform/[XR]+//
-    # 將鍵位 h、h' 統一表記爲 h
-    - xform/Hh?/h/
-    # 組合聲母
-    - xform/^bh/p/
-    - xform/^dh/t/
-    - xform/^gh/k/
-    #- xform/^fh/v/
-    - xform/^bf/m/
-    - xform/^dl/n/
-    - xform/^zc/r/
-    # PC鍵盤組合聲母
-    - xform/^b[zcsh]+/p/
-    - xform/^d[zcsh]+/t/
-    - xform/^g[zcsh]+/k/
-    - xform/^[zr][sh]+/zh/
-    - xform/^csh/ch/
-    # 兼容大衆式
-    - xform/^cs/sh/
-    - xform/^lc/ch/
-    - xform/^fz/zh/
-    # 消除多餘的 h
-    - xform/([^zcs])h/\1/
+    # 舌尖元音⟨ï⟩
+    - xform/^([zcsr]h?)R?$/$1i/
 
-ia_shared_options:
-  algebra/+:
-    # g,k,h 接 i/ü 時作 ⟨ji/ju, qi/qu, xi/xu⟩
-    - xform/^[gz]([iV])/j$1/
-    - xform/^[kc]([iV])/q$1/
-    - xform/^[hs]([iV])/x$1/
-    # 上排三鍵並擊 ⟨ong, uang⟩
-    - xform/(ua?)Io$/$1Ne/
-    - xform/aI$/ai/
-    - xform/I[oe]$/ei/
-    - xform/uI$/uei/
-    # -i 鍵亦可用作韻母 ⟨i⟩
-    - xform/^gI$/ji/
-    - xform/^kI$/qi/
-    - xform/^hI$/xi/
-    - xform/I$/i/
-    # 下排三鍵並擊 ⟨iong⟩
-    - xform/VUE$/VNe/
-    # ü 活用爲介音 ⟨i⟩ 以利於並擊 ⟨iao, iou⟩
-    - xform/V(a?)U$/i$1U/
-    - xform/aU$/ao/
-    - xform/UE?$/ou/
-    - xform/aN?e$/ang/
-    - xform/([iuV])Ne$/$1ng/
-    # ⟨eng⟩ 省略 ⟨e⟩
-    - xform/Ne$/eng/
-    - xform/^ung$/weng/
-    - xform/ung$/ong/
-    - xform/Vng$/iong/
-    - xform/([aiuV])N$/$1n/
-    # ⟨en⟩ 省略 ⟨e⟩
+    - xform/ANE$/ang/
+    - xform/UARO$/uang/
+    - xform/IRO$/iong/
+    - xform/URO$/ong/
+    - xform/VNE$/iong/
+    - xform/UNE$/ong/
+    - xform/INE$/ing/
+    - xform/NE$/eng/
+
+    - xform/AN$/an/
+    - xform/VN$/vn/
+    - xform/UN$/uen/
+    - xform/IN$/in/
     - xform/N$/en/
-    - xform/^un$/wen/
+
+    - xform/IAR$/iao/
+    - xform/AR$/ai/
+    - xform/RE$/ei/
+    - xform/UR$/uei/
+    - xform/RO$/ou/
+    - xform/IR$/iou/
+    - xform/AO$/ao/
+    - xform/AE$/a/
+
+    - xform/^([dtnlgkhzcsr]h?)O$/$1ou/
+    - xform/^([bpmfdtnlgkh])E$/$1ei/
+
+    - xlit/AOEIUV/aoeiuv/
+
     # 漢語拼音方案的拼寫規則
     - xform/^i(ng?)$/yi$1/
     - xform/^i$/yi/
     - xform/^i/y/
+    - xform/^ong$/weng/
     - xform/^u$/wu/
     - xform/^u/w/
-    - xform/^V/yu/
-    - xform/^([jqx])V/$1u/
+    - xform/^v/yu/
+    - xform/^([jqx])v/$1u/
     # 一些容錯
+    - xform/^([bpmf])uo$/$1o/
+    - xform/^([nl])uei$/$1ei/
+    - xform/^([nl])iong$/$1ong/
+    - xform/io$/iao/
     - xform/^([zcsr]h?)i([aoe])/$1$2/
     - xform/^([zcsr]h?)i(ng?)$/$1e$2/
     # 拼寫規則
     - xform/iou$/iu/
     - xform/uei$/ui/
-    - xlit/VE/ve/
+    - xform/uen$/un/
 
-common_options:
-  algebra/+:
     # 聲母獨用時補足隠含的韻母
     # ⟨bu, pu, fu⟩
     - xform/^([bpf])$/$1u/
-    # ⟨de, te, ne, le, ge, ke, he⟩，特別地，⟨me⟩ 對應常用字「麼·么」
+    # ⟨de, te, ne, le, ge, ke, he⟩
+    # 特別地，⟨me⟩ 對應常用字「麼·么」
     - xform/^([mdtnlgkh])$/$1e/
-    # ⟨zhi, chi, shi, ri, zi, ci si⟩，舌尖元音無須按鍵，尤其 z,c,s 不得與 i 鍵並擊
-    - xform/^([zcsr]h?)$/$1i/
+
   # 並擊完成後套用的式樣
   output_format:
     # 追加隔音符號
@@ -364,250 +154,57 @@ common_options:
     - "xform/^([jqxy])([iu]|i?a|[iu]?e|o|i?ao|[oi]u|[iu]?an|[iu]n|ing|i?ang|i?ong)$/$1$2'/"
     - "xform/^([aeo]|[ae]i|ao|ou|[ae]ng?|er)$/$1'/"
     # 消除不構成合法音節的並擊組合
-    - "erase/^([A-Za-z]+)$/"
+    - "erase/^([A-Za-z+]+)$/"
   # 並擊過程中套用的式樣
   prompt_format:
     # 加方括弧
     - 'xform/^(.*)$/[$1]/'
 
-zhn_layout_options:
-  # 字母表，包含用於並擊的按鍵
-  # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  alphabet: 'swxdecfrvgtb ki,lo.hjyunmp'
-  # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
-  algebra:
-    # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
-    - 'xlit|sdecfrvgtb ki,lo.hjyunmp|sclfzdbgtphiuVaoeQNJYXWR|'
-    # 空格鍵單擊時產生空白
-    - 'xform/^h$/ /'
-    # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
-    # 組合聲母
-    - xform/^bh/p/
-    - xform/^dh/t/
-    - xform/^gh/k/
-    - xform/^fh/v/
-    - xform/^fb/m/
-    - xform/^ld/n/
-    - xform/^cz/r/
-    - xform/^sc/sh/
-    # g,k,h 接 i/ü 時作 ⟨ji/ju, qi/qu, xi/xu⟩
-    - xform/^[gz]([iV])/j$1/
-    - xform/^[kc]([iV])/q$1/
-    - xform/^[hs]([iV])/x$1/
-    # 活用組合
-    - xform/uo([QN])/ua\1/
-    - xform/uoJ/uaQ/
-    - xform/uoY/uaN/
-    - xform/oJ/oQ/
-    - xform/VX/VQ/
-    - xform/VW/VN/
-    - xform/VeW/VaN/
-    #- xform/V([XW])/i\1/
-    # 韻母
-    - xform/V/yu/
-    - xform/([aoeiu])Q$/\1ng/
-    - xform/Q$/eng/
-    - xform/([aoeiu])N$/\1n/
-    - xform/N$/en/
-    - xform/J$/ai/
-    - xform/Y$/ei/
-    - xform/X$/ao/
-    - xform/W$/ou/
-    - xform/^R$/er/
-    # 漢語拼音方案的拼寫規則
-    - xform/^i(ng?)$/yi$1/
-    - xform/^i$/yi/
-    - xform/^i/y/
-    - xform/^u(i|ng?)$/we\1/
-    - xform/ung$/ong/
-    - xform/^u$/wu/
-    - xform/^u/w/
-    - xform/^([jqx])yu/$1u/
-    - xform/^([nl])yue$/$1ve/
-    - xform/^([nljqx])yong$/$1iong/
-    # 一些容錯
-    - xform/^([zcsr]h?)i([aoe])/$1$2/
-    - xform/^([zcsr]h?)i(ng?)$/$1e$2/
-    - xform/^([zcsr]h?)yu/$1u/
-    # 拼寫規則
-    - xform/iou$/iu/
-    - xform/uei$/ui/
-
-zhn_punct_override:
-  '<':
-    /=: { commit: '，' }
-  '>':
-    /=: { commit: '。' }
-  '[': [ '「', '【', '〔', '［', '《', '〈' ]
-  ']': [ '」', '】', '〕', '］', '》', '〉' ]
-
-gywa_layout_options:
-  # 字母表，包含用於並擊的按鍵
-  # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  #alphabet: 'aqzswxdecfrvgtb ''hynjumkilo;p'
-  # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
-  algebra/+:
-    # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母。y, w 鍵另行定義
-    - 'xlit|aqzswxdecfrvgtbhynjumkilo;p|xqjsczhlfgdbktpRAAauuNIeoUX|'
-    # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
-    # 單擊時發送標點符號
-    - xform/^U$/;/
-    # ⟨er⟩自成音節
-    - xform/^R$/er/
-    # 組合聲母
-    - xform/^zf/zh/
-    - xform/^cl/ch/
-    - xform/^fb/m/
-    - xform/^ld/n/
-    - xform/^hg/r/
-    # 活用組合：齊指並擊 u-i+o = ⟨ong⟩
-    - xform/([uAR])Io$/$1ng/
-    # 統一表記介音
-    - xlit/YW/iu/
-    # 在組合中，er 鍵通借爲⟨ua⟩以利指法
-    - xform/[AR]/ua/
-    # g,k,h 接 i/ü 時作 ⟨ji/ju, qi/qu, xi/xu⟩
-    - xform/^[gz]i/ji/
-    - xform/^[kc]i/qi/
-    - xform/^[hs]i/xi/
-    - xform/aI$/ai/
-    - xform/I[oe]$/ei/
-    - xform/uI$/uei/
-    - xform/a[oeUX]$/ao/
-    - xform/[oe]?[UX]$/ou/
-    # -i 鍵亦可用作韻母 ⟨i⟩
-    - xform/^gI$/ji/
-    - xform/^kI$/qi/
-    - xform/^hI$/xi/
-    - xform/I$/i/
-    # ⟨ng⟩
-    - xform/([aiu])Ne$/$1ng/
-    # ⟨eng⟩ 省略 ⟨e⟩
-    - xform/Ne$/eng/
-    - xform/^ung$/weng/
-    - xform/ung$/ong/
-    - xform/([aiu])N$/$1n/
-    # ⟨en⟩ 省略 ⟨e⟩
-    - xform/N$/en/
-    - xform/^un$/wen/
-    # ⟨ü⟩
-    - xform/iu/V/
-    # e 兼表 ⟨o⟩
-    - xform/([bpmfu])e$/$1o/
-    # 漢語拼音方案的拼寫規則
-    - xform/^i(ng?)$/yi$1/
-    - xform/^i$/yi/
-    - xform/^i/y/
-    - xform/^u$/wu/
-    - xform/^u/w/
-    - xform/^V/yu/
-    - xform/^([jqx])V/$1u/
-    - xform/V/v/
-    # j, q, x 可省略 ⟨i⟩
-    - xform/^([jqx])e(ng?)/$1i$2/
-    - xform/^([jqx])([aoe])/$1i$2/
-    - xform/^([jqx])$/$1i/
-    - xform/^([jqxy])uo$/$1ue/
-    # 一些容錯
-    - xform/^([zcsr]h?)i([aoe])/$1$2/
-    - xform/^([zcsr]h?)i(ng?)$/$1e$2/
-    # 拼寫規則
-    - xform/iou$/iu/
-    - xform/uei$/ui/
 
 # 補丁模板
 #
-# 用法示例：選用 z·h·i·a 佈局，左Control鍵用作 h
+# 用法示例：選用八指禪佈局，左 Control 鍵用作 H
 # combo_pinyin.custom.yaml
 patch:
   __patch:
-    - combo_pinyin_layouts:/use_zhia_layout
+    - combo_pinyin_layouts:/use_split_layout
     - combo_pinyin_layouts:/use_control
 
-use_gia_layout:
+use_pc_layout:
   chord_composer/+:
     __patch:
-      - gia_layout_options
-      - ia_shared_options
+      - pc_layout_options
+      - pc_layout_initials
       - common_options
 
-use_zhia_layout:
+use_split_layout:
   chord_composer/+:
     __patch:
-      - zhia_layout_options
-      - ia_shared_options
-      - common_options
-
-use_zhn_layout:
-  chord_composer/+:
-    __patch:
-      - zhn_layout_options
-      - common_options
-  punctuator:
-    import_preset: default
-    full_shape:
-      __patch: zhn_punct_override
-    half_shape:
-      __patch: zhn_punct_override
-
-use_gywa_layout:
-  chord_composer/+:
-    alphabet: 'aqzswxdecfrvgtb ''hynjumkilo;p'
-    algebra:
-      - 'xform/ /Y/'
-      - 'xform/^Y$/ /'
-      - 'xform/''/W/'
-      - 'xform/^W$/''/'
-    __patch:
-      - gywa_layout_options
-      - common_options
-
-# I have more fingers than you!
-use_gywa_emacsen_layout:
-  chord_composer/+:
-    alphabet: 'aqzswxdecfrvgtb{Control_L} hynjumkilo;p'
-    use_control: true
-    algebra:
-      - 'xform/\{Control_L\}/Y/'
-      # 可選：單擊左拇指鍵也輸出空格，以利雙手交替上字
-      - 'xform/^Y$/ /'
-      - 'xform/ /W/'
-      - 'xform/^W$/ /'
-    __patch:
-      - gywa_layout_options
-      - common_options
-
-use_gya_layout:
-  chord_composer/+:
-    alphabet: 'aqzswxdecfrvgtb hynjumkilo;p'
-    algebra:
-      - 'xform/ /Y/'
-      - 'xform/^Y$/ /'
-    __patch:
-      - gywa_layout_options
+      - split_layout_options
+      - split_layout_initials
       - common_options
 
 use_semicolon:
   chord_composer/+:
-    alphabet: 'gtbfrvdecswxaqz;hynjum ki,lo.p'
+    alphabet: 'swxdecfrvgtba;jum kiloqzhynp'
 
 use_apostrophe:
   chord_composer/+:
-    alphabet: 'gtbfrvdecswxaqz''hynjum ki,lo.p'
+    alphabet: "swxdecfrvgtba'jum kiloqzhynp"
 
 use_control:
   chord_composer/+:
-    alphabet: 'gtbfrvdecswxaqz{Control_L}hynjum ki,lo.p'
+    alphabet: 'swxdecfrvgtba{Control_L}jum kiloqzhynp'
     use_control: true
 
 use_alt:
   chord_composer/+:
-    alphabet: 'gtbfrvdecswxaqz{Alt_L}hynjum ki,lo.p'
+    alphabet: 'swxdecfrvgtba{Alt_L}jum kiloqzhynp'
     use_alt: true
 
 use_shift:
   chord_composer/+:
-    alphabet: 'gtbfrvdecswxaqz{Shift_L}hynjum ki,lo.p'
+    alphabet: 'swxdecfrvgtba{Shift_L}jum kiloqzhynp'
     use_shift: true
   # 若左 Shift 鍵用於並擊則禁止其切換中西文
   ascii_composer:
