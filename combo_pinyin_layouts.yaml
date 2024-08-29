@@ -177,6 +177,14 @@ use_pc_layout:
       - pc_layout_initials
       - common_options
 
+use_pc_layout_with_briefs:
+  chord_composer/+:
+    __patch:
+      - pc_layout_options
+      - combo_pinyin_briefs:/briefs
+      - pc_layout_initials
+      - common_options
+
 use_split_layout:
   chord_composer/+:
     __patch:

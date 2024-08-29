@@ -84,9 +84,11 @@ recognizer:
   import_preset: default
 
 __patch:
-  # 默認七指禪
+  # 默認佈局：七指禪
   - combo_pinyin_layouts:/use_pc_layout
   # 解封下列代碼，選用其他佈局選項
+  # 七指禪，運用縮略碼
+  # - combo_pinyin_layouts:/use_pc_layout_with_briefs
   # 八指禪，默認配置：字母 A = 宮保拼音碼 H
   # - combo_pinyin_layouts:/use_split_layout
   # 八指禪，可選配置：設定左手拇指位 H 的鍵碼
