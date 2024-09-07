@@ -4,6 +4,8 @@
 
 [Rime](https://rime.im) 宮保拼音輸入方案
 
+![](https://github.com/rime/home/blob/master/images/combo-pinyin-v3/combo-pinyin-logo.png)
+
 ## 簡介
 
 [宮保拼音](https://github.com/rime/home/wiki/ComboPinyin) 是由 [居戎氏](https://github.com/lotem) 設計、在標準電腦鍵盤上多鍵並擊輸入拼音的方法。
