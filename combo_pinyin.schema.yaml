@@ -57,11 +57,6 @@ speller:
   initials: "zyxwvutsrqponmlkjihgfedcba"
   delimiter: " "
   algebra:
-    # 合併音節
-    - derive/^lo$/lou/
-    # 合併 ⟨o / ou⟩、⟨e / ei⟩兩組韻母
-    #- derive/^([bpmf])?ou$/$1o/
-    #- derive/^([zcsr]h?)?ei$/$1e/
     # 拼音音節一律後加隔音符號，避免音節切分歧義
     - "xform/^([a-z]+)$/$1'/"
 

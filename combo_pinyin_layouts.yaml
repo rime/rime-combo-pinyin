@@ -101,17 +101,13 @@ common_options:
     - xform/N$/en/
 
     - xform/IAR$/iao/
-    - xform/AR$/ai/
-    - xform/RE$/ei/
-    - xform/UR$/uei/
-    - xform/RO$/ou/
     - xform/IR$/iou/
+    - xform/UR$/uei/
     - xform/AO$/ao/
+    - xform/RO$/ou/
+    - xform/AR$/ai/
+    - xform/RE?$/ei/
     - xform/AE$/a/
-
-    # ⟨ei, ou⟩的省略
-    - xform/^([bpmfdtnlgkh])R$/$1ei/
-    - xform/^([dtnlgkhzcsr]h?)O$/$1ou/
 
     - xlit/AOEIUV/aoeiuv/
 
@@ -126,9 +122,10 @@ common_options:
     - xform/^([jqx])v/$1u/
     # 一些容錯
     - xform/^([bpmf])uo$/$1o/
+    - xform/^([dtngkhzcsr]h?)o$/$1uo/
+    - xform/io$/iao/
     - xform/^([nl])uei$/$1ei/
     - xform/^([nl])iong$/$1ong/
-    - xform/io$/iao/
     - xform/^([zcsr]h?)i([aoe])/$1$2/
     - xform/^([zcsr]h?)i(ng?)$/$1e$2/
     # 拼寫規則
