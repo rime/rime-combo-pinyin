@@ -109,8 +109,9 @@ common_options:
     - xform/AO$/ao/
     - xform/AE$/a/
 
+    # ⟨ei, ou⟩的省略
+    - xform/^([bpmfdtnlgkh])R$/$1ei/
     - xform/^([dtnlgkhzcsr]h?)O$/$1ou/
-    - xform/^([bpmfdtnlgkh])E$/$1ei/
 
     - xlit/AOEIUV/aoeiuv/
 
