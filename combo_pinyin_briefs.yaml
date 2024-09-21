@@ -39,6 +39,7 @@ briefs:
     - xform/^ZFBR$/mei'shi'/  # 沒事
     - xform/^ZFB$/mei'you'/  # 沒有
     - xform/^LDARE$/na'er'/  # 那兒、哪兒
+    - xform/^LDAE$/na'ge'/  # 那個、哪個
     - xform/^CLDIAO$/ni'hao'/  # 你好
     - xform/^CLDN$/ni'men'/  # 你們
     - xform/^CLDIARO$/nin'hao'/  # 您好
@@ -91,9 +92,8 @@ briefs:
     - xform/^ZFBAN$/zen'me'ban'/  # 怎麼辦
     - xform/^ZFBUR$/zen'me'hui'shi'/  # 怎麼回事
     - xform/^ZFBIANE$/zen'me'yang'/  # 怎麼樣
-    - xform/^ZFRE$/zhe'er'/  # 這兒
+    - xform/^ZFARE$/zhe'er'/  # 這兒
     - xform/^ZHG$/zhe'ge'/  # 這個
-    - xform/^ZHGN$/zhe'ge'ren'/  # 這個人
     - xform/^ZFI$/zhe'li'/  # 這裏
     - xform/^ZFBE$/zhe'me'/  # 這麼
     - xform/^ZFBUO$/zhe'me'duo'/  # 這麼多
@@ -102,12 +102,12 @@ briefs:
     - xform/^ZFIANE$/zhe'yang'/  # 這樣
     - xform/^ZFO$/zhi'dao'/  # 知道
     - xform/^ZHRO$/zhi'hou'/  # 之後
-    - xform/^ZGIAN$/zhi'jian'/  # 之間
+    - xform/^ZHGIAN$/zhi'jian'/  # 之間
     - xform/^ZHR$/zhi'shi'/  # 只是、知識
     - xform/^ZFIR$/zhi'you'/  # 只有
-    - xform/^ZGUO$/zhong'guo'/  # 中國
-    - xform/^ZGIN$/zhong'guo'ren'/  # 中國人
-    - xform/^ZHGIAN$/zhong'jian'/  # 中間
+    - xform/^ZGO$/zhong'guo'/  # 中國
+    - xform/^ZGN$/zhong'guo'ren'/  # 中國人
+    - xform/^ZGIAN$/zhong'jian'/  # 中間
     - xform/^ZFV$/zhu'yi'/  # 主義
     - xform/^ZUAO$/zui'hao'/  # 最好
     - xform/^ZHO$/zui'hou'/  # 最後
