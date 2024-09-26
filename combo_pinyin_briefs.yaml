@@ -85,6 +85,7 @@ briefs:
     - xform/^VO$/yi'ge'/  # 一個
     - xform/^HURE$/yi'hui'er'/  # 一會兒
     - xform/^HIAE$/yi'xia'/  # 一下
+    - xform/^LDUR$/yin'wei'/  # 因爲
     - xform/^SHGAR$/ying'gai'/  # 應該
     - xform/^ZFBIR$/you'mei'you'/  # 有沒有
     - xform/^CLDVE$/yue'lai'yue'/  # 越來越
