@@ -31,6 +31,7 @@ briefs:
     - xform/^GIAE$/guo'jia'/  # 國家
     - xform/^LGUAR$/guo'lai'/  # 過來
     - xform/^HAE$/hao'de'/  # 好的
+    - xform/^SHGIRO$/ju'rong'shi'/  # 居戎氏
     - xform/^HKU$/ke'hu'/  # 可乎、客戶
     - xform/^SK$/ke'shi'/  # 可是
     - xform/^KR$/ke'yi'/  # 可以
@@ -109,6 +110,7 @@ briefs:
     - xform/^ZGO$/zhong'guo'/  # 中國
     - xform/^ZGN$/zhong'guo'ren'/  # 中國人
     - xform/^ZGIAN$/zhong'jian'/  # 中間
+    - xform/^ZFVN$/zhong'zhou'yun'/  # 中州韻
     - xform/^ZFV$/zhu'yi'/  # 主義
     - xform/^ZUAO$/zui'hao'/  # 最好
     - xform/^ZHO$/zui'hou'/  # 最後
