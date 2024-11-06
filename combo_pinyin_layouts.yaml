@@ -236,6 +236,8 @@ use_return_to_confirm:
     # 改用 Shift+回車上屏按鍵序列
     Shift+Return: commit_raw_input
   editor/bindings:
+    # 退格鍵刪除一個拼音音節
+    BackSpace: back_syllable
     # 回車鍵確認當前候選
     Return: confirm
 
