@@ -1,7 +1,9 @@
 # 宮保拼音縮略碼
 briefs:
   algebra/+:
+    - xform/^BIA$/biao'da'/  # 表達
     - xform/^BUN$/biao'zhun'/  # 標準
+    - xform/^BUE$/bu'de'/  # 不得
     - xform/^BUR$/bu'dui'/  # 不對
     - xform/^HBAO$/bu'hao'/  # 不好
     - xform/^HBUR$/bu'hui'/  # 不會
@@ -17,26 +19,31 @@ briefs:
     - xform/^ZFBURO$/bu'zhong'/  # 不中
     - xform/^CHUA$/chu'fa'/  # 出發
     - xform/^CHUAR$/chu'lai'/  # 出來
+    - xform/^CLDAR$/cong'lai'/  # 從來
     - xform/^DIAE$/da'jia'/  # 大家
     - xform/^DVE$/da'xue'/  # 大學
+    - xform/^DUA$/dai'ma'/  # 代碼
     - xform/^SD$/dan'shi'/  # 但是
     - xform/^DVAN$/dan'yuan'/  # 單元
     - xform/^DIANE$/di'fang'/  # 地方
     - xform/^DIRO$/dong'xi'/  # 東西
     - xform/^SDAO$/duo'shao'/  # 多少
     - xform/^FIANE$/fang'xiang'/  # 方向
-    - xform/^FARE$/fei'chang'/  # 非常
-    - xform/^FARO$/fei'chang'hao'/  # 非常好
+    - xform/^FIARO$/fei'chang'/  # 非常
+    - xform/^FIAO$/fei'chang'hao'/  # 非常好
     - xform/^FAO$/fu'hao'/  # 符號
+    - xform/^HGI$/guan'xi'/  # 關係
     - xform/^GIAE$/guo'jia'/  # 國家
     - xform/^LGUAR$/guo'lai'/  # 過來
+    - xform/^SHV$/han'shu'/  # 函數
     - xform/^HAE$/hao'de'/  # 好的
+    - xform/^ZPAN$/jian'pan'/  # 鍵盤
+    - xform/^CLGIANE$/jing'chang'/  # 經常
     - xform/^SHGIRO$/ju'rong'shi'/  # 居戎氏
     - xform/^HKU$/ke'hu'/  # 可乎、客戶
     - xform/^SK$/ke'shi'/  # 可是
     - xform/^KR$/ke'yi'/  # 可以
-    - xform/^LKR$/ke'yi'le'/  # 可以了
-    - xform/^LIAR$/li'hai'/  # 厲害
+    - xform/^LIARE$/li'hai'/  # 厲害
     - xform/^ZFBR$/mei'shi'/  # 沒事
     - xform/^ZFB$/mei'you'/  # 沒有
     - xform/^LDARE$/na'er'/  # 那兒、哪兒
@@ -45,7 +52,8 @@ briefs:
     - xform/^CLDN$/ni'men'/  # 你們
     - xform/^CLDIARO$/nin'hao'/  # 您好
     - xform/^LKIAR$/qi'lai'/  # 起來
-    - xform/^KIARO$/qing'kuang'/  # 情況
+    - xform/^CLDUAN$/qian'wan'/  # 千萬
+    - xform/^CUARO$/qing'kuang'/  # 情況
     - xform/^HGO$/ran'hou'/  # 然後
     - xform/^HGIA$/ren'jia'/  # 人家
     - xform/^HGIN$/ren'min'/  # 人民
@@ -73,23 +81,26 @@ briefs:
     - xform/^TUNE$/tong'guo'/  # 通過
     - xform/^TVE$/tong'xue'/  # 同學
     - xform/^TR$/tong'zhi'/  # 同志
-    - xform/^LUR$/wei'le'/  # 爲了
+    - xform/^URE$/wei'le'/  # 爲了
     - xform/^FBUR$/wei'shen'me'/  # 爲什麼
     - xform/^TVN$/wen'ti'/  # 問題
     - xform/^DO$/wo'de'/  # 我的
     - xform/^NO$/wo'men'/  # 我們
     - xform/^DNO$/wo'men'de'/  # 我們的
+    - xform/^SGUAN$/xi'guan'/  # 習慣
     - xform/^SHIE$/xie'xie'/  # 謝謝
     - xform/^SIO$/xu'yao'/  # 需要
     - xform/^SHVE$/xue'xi'/  # 學習
-    - xform/^DIAR$/yi'dian'er'/  # 一點兒
+    - xform/^DIR$/yi'dian'er'/  # 一點兒
     - xform/^VO$/yi'ge'/  # 一個
     - xform/^HURE$/yi'hui'er'/  # 一會兒
     - xform/^HIAE$/yi'xia'/  # 一下
     - xform/^LDUR$/yin'wei'/  # 因爲
     - xform/^SHGAR$/ying'gai'/  # 應該
+    - xform/^INO$/ying'yong'/  # 應用
     - xform/^ZFBIR$/you'mei'you'/  # 有沒有
     - xform/^CLDVE$/yue'lai'yue'/  # 越來越
+    - xform/^VNO$/yun'yong'/  # 運用
     - xform/^ZFBN$/zen'me'/  # 怎麼
     - xform/^ZFBAN$/zen'me'ban'/  # 怎麼辦
     - xform/^ZFBUR$/zen'me'hui'shi'/  # 怎麼回事
@@ -105,11 +116,13 @@ briefs:
     - xform/^ZFO$/zhi'dao'/  # 知道
     - xform/^ZHRO$/zhi'hou'/  # 之後
     - xform/^ZHGIAN$/zhi'jian'/  # 之間
+    - xform/^ZHINE$/zhi'ling'/  # 指令
     - xform/^ZHR$/zhi'shi'/  # 只是、知識
     - xform/^ZFIR$/zhi'you'/  # 只有
     - xform/^ZGO$/zhong'guo'/  # 中國
     - xform/^ZGN$/zhong'guo'ren'/  # 中國人
     - xform/^ZGIAN$/zhong'jian'/  # 中間
+    - xform/^ZFIAO$/zhong'yao'/  # 重要
     - xform/^ZFVN$/zhong'zhou'yun'/  # 中州韻
     - xform/^ZFV$/zhu'yi'/  # 主義
     - xform/^ZUAO$/zui'hao'/  # 最好
