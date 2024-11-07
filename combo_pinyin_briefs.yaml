@@ -91,7 +91,7 @@ briefs:
     - xform/^SHIE$/xie'xie'/  # 謝謝
     - xform/^SIO$/xu'yao'/  # 需要
     - xform/^SHVE$/xue'xi'/  # 學習
-    - xform/^DIR$/yi'dian'er'/  # 一點兒
+    - xform/^DIRE$/yi'dian'er'/  # 一點兒
     - xform/^VO$/yi'ge'/  # 一個
     - xform/^HURE$/yi'hui'er'/  # 一會兒
     - xform/^HIAE$/yi'xia'/  # 一下
