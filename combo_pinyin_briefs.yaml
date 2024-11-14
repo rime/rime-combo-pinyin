@@ -1,6 +1,7 @@
 # 宮保拼音縮略碼
 briefs:
   algebra/+:
+    - xform/^BUA$/ban'fa'/  # 辦法
     - xform/^BIA$/biao'da'/  # 表達
     - xform/^BUN$/biao'zhun'/  # 標準
     - xform/^BUE$/bu'de'/  # 不得
@@ -44,6 +45,7 @@ briefs:
     - xform/^SK$/ke'shi'/  # 可是
     - xform/^KR$/ke'yi'/  # 可以
     - xform/^LIARE$/li'hai'/  # 厲害
+    - xform/^ZFBUA$/mei'fa'/  # 沒法
     - xform/^ZFBR$/mei'shi'/  # 沒事
     - xform/^ZFB$/mei'you'/  # 沒有
     - xform/^CLDR$/na'er'/  # 那兒、哪兒
@@ -92,6 +94,7 @@ briefs:
     - xform/^DO$/wo'de'/  # 我的
     - xform/^NO$/wo'men'/  # 我們
     - xform/^DNO$/wo'men'de'/  # 我們的
+    - xform/^FUA$/wu'fa'/  # 無法
     - xform/^SGUAN$/xi'guan'/  # 習慣
     - xform/^SHIE$/xie'xie'/  # 謝謝
     - xform/^SIO$/xu'yao'/  # 需要
