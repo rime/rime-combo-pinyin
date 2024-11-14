@@ -46,11 +46,15 @@ briefs:
     - xform/^LIARE$/li'hai'/  # 厲害
     - xform/^ZFBR$/mei'shi'/  # 沒事
     - xform/^ZFB$/mei'you'/  # 沒有
-    - xform/^LDARE$/na'er'/  # 那兒、哪兒
-    - xform/^LDAE$/na'ge'/  # 那個、哪個
-    - xform/^CLDIAO$/ni'hao'/  # 你好
+    - xform/^CLDR$/na'er'/  # 那兒、哪兒
+    - xform/^LDO$/na'ge'/  # 那個、哪個
+    - xform/^CLDI$/na'li'/  # 那裏、哪裏
+    - xform/^CLDE$/ni'de'/  # 你的
+    - xform/^CLDAO$/ni'hao'/  # 你好
     - xform/^CLDN$/ni'men'/  # 你們
-    - xform/^CLDIARO$/nin'hao'/  # 您好
+    - xform/^CLDNE$/ni'men'de'/  # 你們的
+    - xform/^CLDANO$/ni'men'hao'/  # 你們好
+    - xform/^LDIANO$/nin'hao'/  # 您好
     - xform/^LKIAR$/qi'lai'/  # 起來
     - xform/^CLDUAN$/qian'wan'/  # 千萬
     - xform/^CUARO$/qing'kuang'/  # 情況
@@ -76,6 +80,7 @@ briefs:
     - xform/^SIARO$/si'xiang'/  # 思想
     - xform/^SHGAN$/sui'ran'/  # 雖然
     - xform/^SO$/suo'yi'/  # 所以
+    - xform/^TO$/ta'de'/  # 他的
     - xform/^TN$/ta'men'/  # 他們
     - xform/^LTUN$/tao'lun'/  # 討論
     - xform/^TUNE$/tong'guo'/  # 通過
@@ -105,13 +110,13 @@ briefs:
     - xform/^ZFBAN$/zen'me'ban'/  # 怎麼辦
     - xform/^ZFBUR$/zen'me'hui'shi'/  # 怎麼回事
     - xform/^ZFBIANE$/zen'me'yang'/  # 怎麼樣
-    - xform/^ZFARE$/zhe'er'/  # 這兒
-    - xform/^ZHG$/zhe'ge'/  # 這個
+    - xform/^ZFR$/zhe'er'/  # 這兒
+    - xform/^ZO$/zhe'ge'/  # 這個
     - xform/^ZFI$/zhe'li'/  # 這裏
     - xform/^ZFBE$/zhe'me'/  # 這麼
     - xform/^ZFBUO$/zhe'me'duo'/  # 這麼多
     - xform/^ZFBUAR$/zhe'me'kuai'/  # 這麼快
-    - xform/^ZFR$/zhe'shi'/  # 這是、這時
+    - xform/^ZR$/zhe'shi'/  # 這是、這時
     - xform/^ZFIANE$/zhe'yang'/  # 這樣
     - xform/^ZFO$/zhi'dao'/  # 知道
     - xform/^ZHRO$/zhi'hou'/  # 之後
