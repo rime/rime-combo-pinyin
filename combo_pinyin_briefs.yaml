@@ -51,6 +51,7 @@ briefs:
     - xform/^CLDR$/na'er'/  # 那兒、哪兒
     - xform/^LDO$/na'ge'/  # 那個、哪個
     - xform/^CLDI$/na'li'/  # 那裏、哪裏
+    - xform/^LDAE$/na'me'/  # 那麼
     - xform/^CLDE$/ni'de'/  # 你的
     - xform/^CLDAO$/ni'hao'/  # 你好
     - xform/^CLDN$/ni'men'/  # 你們
