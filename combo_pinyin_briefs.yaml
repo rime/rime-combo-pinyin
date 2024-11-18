@@ -34,6 +34,7 @@ briefs:
     - xform/^FIAO$/fei'chang'hao'/  # 非常好
     - xform/^FAO$/fu'hao'/  # 符號
     - xform/^GUNE$/gong'neng'/  # 功能
+    - xform/^ZGUO$/gong'zuo'/  # 工作
     - xform/^LGUAN$/guan'li'/  # 管理
     - xform/^LGVAN$/guan'li'yuan'/  # 管理員
     - xform/^HGI$/guan'xi'/  # 關係
@@ -144,4 +145,5 @@ briefs:
     - xform/^ZUAO$/zui'hao'/  # 最好
     - xform/^ZHO$/zui'hou'/  # 最後
     - xform/^ZUAR$/zui'huai'/  # 最坏
-    - xform/^ZUE$/zuo'wei'/  # 作爲
+    - xform/^ZURE$/zuo'wei'/  # 作爲
+    - xform/^ZUE$/zuo'ye'/  # 作業
