@@ -37,7 +37,7 @@ briefs:
     - xform/^LGUAN$/guan'li'/  # 管理
     - xform/^LGVAN$/guan'li'yuan'/  # 管理員
     - xform/^HGI$/guan'xi'/  # 關係
-    - xform/^GIAE$/guo'jia'/  # 國家
+    - xform/^GUAE$/guo'jia'/  # 國家
     - xform/^LGUAR$/guo'lai'/  # 過來
     - xform/^SHV$/han'shu'/  # 函數
     - xform/^HAE$/hao'de'/  # 好的
