@@ -33,6 +33,7 @@ briefs:
     - xform/^FIARO$/fei'chang'/  # 非常
     - xform/^FIAO$/fei'chang'hao'/  # 非常好
     - xform/^FAO$/fu'hao'/  # 符號
+    - xform/^GUNE$/gong'neng'/  # 功能
     - xform/^LGUAN$/guan'li'/  # 管理
     - xform/^LGVAN$/guan'li'yuan'/  # 管理員
     - xform/^HGI$/guan'xi'/  # 關係
@@ -104,6 +105,7 @@ briefs:
     - xform/^SGUAN$/xi'guan'/  # 習慣
     - xform/^SHIE$/xie'xie'/  # 謝謝
     - xform/^SIO$/xu'yao'/  # 需要
+    - xform/^SVAE$/xuan'ze'/  # 選擇
     - xform/^SHVE$/xue'xi'/  # 學習
     - xform/^DIRE$/yi'dian'er'/  # 一點兒
     - xform/^VO$/yi'ge'/  # 一個
