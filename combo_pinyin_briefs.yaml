@@ -59,6 +59,8 @@ briefs:
     - xform/^CLDANO$/ni'men'hao'/  # 你們好
     - xform/^LDIANO$/nin'hao'/  # 您好
     - xform/^LKIAR$/qi'lai'/  # 起來
+    - xform/^SHKI$/qi'shi'/  # 其實
+    - xform/^KIAE$/qi'ta'/  # 其他
     - xform/^CLDUAN$/qian'wan'/  # 千萬
     - xform/^CUARO$/qing'kuang'/  # 情況
     - xform/^HGO$/ran'hou'/  # 然後
@@ -86,6 +88,7 @@ briefs:
     - xform/^TO$/ta'de'/  # 他的
     - xform/^TN$/ta'men'/  # 他們
     - xform/^LTUN$/tao'lun'/  # 討論
+    - xform/^TIRO$/ti'gong'/  # 提供
     - xform/^TUNE$/tong'guo'/  # 通過
     - xform/^TVE$/tong'xue'/  # 同學
     - xform/^TR$/tong'zhi'/  # 同志
