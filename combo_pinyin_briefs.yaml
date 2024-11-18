@@ -33,6 +33,8 @@ briefs:
     - xform/^FIARO$/fei'chang'/  # 非常
     - xform/^FIAO$/fei'chang'hao'/  # 非常好
     - xform/^FAO$/fu'hao'/  # 符號
+    - xform/^LGUAN$/guan'li'/  # 管理
+    - xform/^LGVAN$/guan'li'yuan'/  # 管理員
     - xform/^HGI$/guan'xi'/  # 關係
     - xform/^GIAE$/guo'jia'/  # 國家
     - xform/^LGUAR$/guo'lai'/  # 過來
