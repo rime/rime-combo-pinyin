@@ -12,6 +12,8 @@
 
 *並擊* （chord-typing）是指：同時按下鍵盤上的多個按鍵。
 
+指法演示：[YouTube](https://www.youtube.com/shorts/741fOTV4oOM) · [嗶哩嗶哩](https://www.bilibili.com/video/BV1uECWYcEYc/)
+
 ### 學習資料
 
   - [宮保拼音教程](https://github.com/rime/home/wiki/ComboPinyin)
