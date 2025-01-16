@@ -56,6 +56,7 @@ editor:
 speller:
   alphabet: "zyxwvutsrqponmlkjihgfedcba'"
   initials: "zyxwvutsrqponmlkjihgfedcba"
+  finals: "'"
   delimiter: " "
   algebra:
     # 拼音音節一律後加隔音符號，避免音節切分歧義
