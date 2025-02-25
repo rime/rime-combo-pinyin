@@ -76,8 +76,10 @@ briefs:
     - xform/^SHG$/shen'me'/  # 什麼
     - xform/^SHGUARO$/shen'me'qing'kuang'/  # 什麼情況
     - xform/^SHGIN$/shen'me'ren'/  # 什麼人
+    - xform/^SHGR$/shen'me'shi'/  # 什麼事
     - xform/^SHGO$/shen'me'shi'hou'/  # 什麼時候
     - xform/^SHGIANE$/shen'me'yang'/  # 什麼樣
+    - xform/^SHGIR$/shen'me'yi'si'/  # 什麼意思
     - xform/^SHB$/shi'bu'shi'/  # 是不是
     - xform/^SG$/shi'ge'/  # 是個
     - xform/^SHO$/shi'hou'/  # 時候
