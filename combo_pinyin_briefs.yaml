@@ -47,6 +47,7 @@ briefs:
     - xform/^SHGIRO$/ju'rong'shi'/  # 居戎氏
     - xform/^HKU$/ke'hu'/  # 可乎、客戶
     - xform/^SK$/ke'shi'/  # 可是
+    - xform/^HKVE$/ke'xue'/  # 科學
     - xform/^KR$/ke'yi'/  # 可以
     - xform/^LIARE$/li'hai'/  # 厲害
     - xform/^ZFBUA$/mei'fa'/  # 沒法
