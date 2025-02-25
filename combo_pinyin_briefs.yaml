@@ -62,6 +62,8 @@ briefs:
     - xform/^CLDNE$/ni'men'de'/  # 你們的
     - xform/^CLDANO$/ni'men'hao'/  # 你們好
     - xform/^LDIANO$/nin'hao'/  # 您好
+    - xform/^PIR$/peng'you'/  # 朋友
+    - xform/^PVN$/peng'you'men'/  # 朋友們
     - xform/^LKIAR$/qi'lai'/  # 起來
     - xform/^SHKI$/qi'shi'/  # 其實
     - xform/^KIAE$/qi'ta'/  # 其他
