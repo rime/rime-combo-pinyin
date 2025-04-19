@@ -15,7 +15,9 @@
 ### 指法演示
 
   - 〈宮保拼音並擊術〉[YouTube](https://youtube.com/shorts/iLqb8Pmah7Q) · [嗶哩嗶哩](https://www.bilibili.com/video/BV1PirLYfE1s/)
-  - 〈鼠鬚管〉[YouTube](https://www.youtube.com/shorts/741fOTV4oOM) · [嗶哩嗶哩](https://www.bilibili.com/video/BV1uECWYcEYc/)
+  - 〈東風破早梅〉[YouTube](https://youtu.be/ng_c5CtKQ9U) · [嗶哩嗶哩](https://www.bilibili.com/video/BV1i4ouYvEH2/)
+  - 〈中州韻〉[YouTube](https://youtu.be/XmiRvFWD_7w) · [嗶哩嗶哩](https://www.bilibili.com/video/BV1fFRDY7EFY/)
+  - 〈鼠鬚管〉[YouTube](https://youtu.be/PtChKETA6SQ) · [嗶哩嗶哩](https://www.bilibili.com/video/BV1euZUY5EiQ/)
 
 ### 學習資料
 
