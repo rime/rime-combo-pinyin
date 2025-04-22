@@ -36,6 +36,7 @@ briefs:
     - xform/^FIARO$/fei'chang'/  # 非常
     - xform/^FIAO$/fei'chang'hao'/  # 非常好
     - xform/^FAO$/fu'hao'/  # 符號
+    - xform/^SGIN$/geng'xin'/  # 更新
     - xform/^GUNE$/gong'neng'/  # 功能
     - xform/^ZGUO$/gong'zuo'/  # 工作
     - xform/^LGUAN$/guan'li'/  # 管理
@@ -125,6 +126,7 @@ briefs:
     - xform/^INO$/ying'yong'/  # 應用
     - xform/^ZFBIR$/you'mei'you'/  # 有沒有
     - xform/^CLDVE$/yue'lai'yue'/  # 越來越
+    - xform/^HVNE$/yun'xing'/  # 運行
     - xform/^VNO$/yun'yong'/  # 運用
     - xform/^ZFBN$/zen'me'/  # 怎麼
     - xform/^ZFBAN$/zen'me'ban'/  # 怎麼辦
@@ -141,8 +143,8 @@ briefs:
     - xform/^ZFO$/zhi'dao'/  # 知道
     - xform/^ZHRO$/zhi'hou'/  # 之後
     - xform/^ZHGIAN$/zhi'jian'/  # 之間
-    - xform/^ZHINE$/zhi'ling'/  # 指令
     - xform/^ZHR$/zhi'shi'/  # 只是、知識
+    - xform/^ZHINE$/zhi'xing'/  # 執行
     - xform/^ZFIR$/zhi'you'/  # 只有
     - xform/^ZGO$/zhong'guo'/  # 中國
     - xform/^ZGN$/zhong'guo'ren'/  # 中國人
