@@ -2,7 +2,9 @@
 briefs:
   algebra/+:
     - xform/^BUA$/ban'fa'/  # 辦法
+    - xform/^CLBNE$/bian'cheng'/  # 編程
     - xform/^BIA$/biao'da'/  # 表達
+    - xform/^SHBIA$/biao'da'shi'/  # 表達式
     - xform/^BUN$/biao'zhun'/  # 標準
     - xform/^BUE$/bu'de'/  # 不得
     - xform/^BUR$/bu'dui'/  # 不對
@@ -18,6 +20,7 @@ briefs:
     - xform/^ZBAR$/bu'zai'/  # 不在、不再
     - xform/^ZFBO$/bu'zhi'dao'/  # 不知道
     - xform/^ZFBURO$/bu'zhong'/  # 不中
+    - xform/^CLV$/cheng'xu'/  # 程序
     - xform/^CHUA$/chu'fa'/  # 出發
     - xform/^CHUAR$/chu'lai'/  # 出來
     - xform/^CLDAR$/cong'lai'/  # 從來
@@ -42,7 +45,7 @@ briefs:
     - xform/^LGUAR$/guo'lai'/  # 過來
     - xform/^SHV$/han'shu'/  # 函數
     - xform/^HAE$/hao'de'/  # 好的
-    - xform/^ZPAN$/jian'pan'/  # 鍵盤
+    - xform/^HPAN$/jian'pan'/  # 鍵盤
     - xform/^CLGIANE$/jing'chang'/  # 經常
     - xform/^SHGIRO$/ju'rong'shi'/  # 居戎氏
     - xform/^HKU$/ke'hu'/  # 可乎、客戶
@@ -144,6 +147,7 @@ briefs:
     - xform/^ZGO$/zhong'guo'/  # 中國
     - xform/^ZGN$/zhong'guo'ren'/  # 中國人
     - xform/^ZGIAN$/zhong'jian'/  # 中間
+    - xform/^ZFVNE$/zhong'wen'/  # 中文
     - xform/^ZFIAO$/zhong'yao'/  # 重要
     - xform/^ZFVN$/zhong'zhou'yun'/  # 中州韻
     - xform/^ZFV$/zhu'yi'/  # 主義
