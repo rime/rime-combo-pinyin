@@ -46,6 +46,7 @@ briefs:
     - xform/^LGUAR$/guo'lai'/  # 過來
     - xform/^SHV$/han'shu'/  # 函數
     - xform/^HAE$/hao'de'/  # 好的
+    - xform/^SHGV$/ji'shu'/  # 技術
     - xform/^HPAN$/jian'pan'/  # 鍵盤
     - xform/^CLGIANE$/jing'chang'/  # 經常
     - xform/^SHGIRO$/ju'rong'shi'/  # 居戎氏
@@ -85,6 +86,7 @@ briefs:
     - xform/^SHGO$/shen'me'shi'hou'/  # 什麼時候
     - xform/^SHGIANE$/shen'me'yang'/  # 什麼樣
     - xform/^SHGIR$/shen'me'yi'si'/  # 什麼意思
+    - xform/^CHAN$/sheng'chan'/  # 生產
     - xform/^SHB$/shi'bu'shi'/  # 是不是
     - xform/^SG$/shi'ge'/  # 是個
     - xform/^SHO$/shi'hou'/  # 時候
@@ -154,7 +156,7 @@ briefs:
     - xform/^ZFVN$/zhong'zhou'yun'/  # 中州韻
     - xform/^ZFV$/zhu'yi'/  # 主義
     - xform/^ZUAO$/zui'hao'/  # 最好
-    - xform/^ZHO$/zui'hou'/  # 最後
+    - xform/^ZHUR$/zui'hou'/  # 最後
     - xform/^ZUAR$/zui'huai'/  # 最坏
     - xform/^ZURE$/zuo'wei'/  # 作爲
     - xform/^ZUE$/zuo'ye'/  # 作業
