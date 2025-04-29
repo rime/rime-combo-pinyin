@@ -20,9 +20,11 @@ briefs:
     - xform/^ZBAR$/bu'zai'/  # 不在、不再
     - xform/^ZFBO$/bu'zhi'dao'/  # 不知道
     - xform/^ZFBURO$/bu'zhong'/  # 不中
-    - xform/^CLV$/cheng'xu'/  # 程序
+    - xform/^CLVNE$/cheng'xu'/  # 程序
+    - xform/^CHV$/chi'xu'/  # 持續
     - xform/^CHUA$/chu'fa'/  # 出發
     - xform/^CHUAR$/chu'lai'/  # 出來
+    - xform/^CLV$/chu'li'/  # 處理
     - xform/^CLDAR$/cong'lai'/  # 從來
     - xform/^DIAE$/da'jia'/  # 大家
     - xform/^DVE$/da'xue'/  # 大學
@@ -31,7 +33,9 @@ briefs:
     - xform/^DVAN$/dan'yuan'/  # 單元
     - xform/^DIANE$/di'fang'/  # 地方
     - xform/^DIRO$/dong'xi'/  # 東西
+    - xform/^DV$/du'li'/  # 獨立
     - xform/^SDAO$/duo'shao'/  # 多少
+    - xform/^FUARO$/fang'fa'/  # 方法
     - xform/^FIANE$/fang'xiang'/  # 方向
     - xform/^FIARO$/fei'chang'/  # 非常
     - xform/^FIAO$/fei'chang'hao'/  # 非常好
@@ -42,19 +46,30 @@ briefs:
     - xform/^LGUAN$/guan'li'/  # 管理
     - xform/^LGVAN$/guan'li'yuan'/  # 管理員
     - xform/^HGI$/guan'xi'/  # 關係
+    - xform/^ZGU$/guan'zhu'/  # 關注
     - xform/^GUAE$/guo'jia'/  # 國家
     - xform/^LGUAR$/guo'lai'/  # 過來
     - xform/^SHV$/han'shu'/  # 函數
     - xform/^HAE$/hao'de'/  # 好的
+    - xform/^HUAO$/hao'wu'/  # 毫無
+    - xform/^HGVA$/ji'hua'/  # 計劃
     - xform/^SHGV$/ji'shu'/  # 技術
+    - xform/^HDAN$/jian'dan'/  # 簡單
     - xform/^HPAN$/jian'pan'/  # 鍵盤
+    - xform/^SHGIE$/jie'shi'/  # 解釋
     - xform/^CLGIANE$/jing'chang'/  # 經常
+    - xform/^GINO$/jing'guo'/  # 經過
+    - xform/^ZGVE$/ju'jue'/  # 拒絕
     - xform/^SHGIRO$/ju'rong'shi'/  # 居戎氏
+    - xform/^FKA$/kai'fa'/  # 開發
     - xform/^HKU$/ke'hu'/  # 可乎、客戶
     - xform/^SK$/ke'shi'/  # 可是
     - xform/^HKVE$/ke'xue'/  # 科學
     - xform/^KR$/ke'yi'/  # 可以
+    - xform/^SKU$/kuai'su'/  # 快速
+    - xform/^LKUAN$/kun'nan'/  # 困難
     - xform/^LIARE$/li'hai'/  # 厲害
+    - xform/^FBUAN$/ma'fan'/  # 麻煩
     - xform/^ZFBUA$/mei'fa'/  # 沒法
     - xform/^ZFBR$/mei'shi'/  # 沒事
     - xform/^ZFB$/mei'you'/  # 沒有
@@ -62,6 +77,7 @@ briefs:
     - xform/^LDO$/na'ge'/  # 那個、哪個
     - xform/^CLDI$/na'li'/  # 那裏、哪裏
     - xform/^LDAE$/na'me'/  # 那麼
+    - xform/^SLDIE$/na'xie'/  # 哪些
     - xform/^CLDE$/ni'de'/  # 你的
     - xform/^CLDAO$/ni'hao'/  # 你好
     - xform/^CLDN$/ni'men'/  # 你們
@@ -94,9 +110,11 @@ briefs:
     - xform/^SGIE$/shi'jie'/  # 世界
     - xform/^SGIANE$/shi'jie'shang'/  # 世界上
     - xform/^SHINE$/shi'qing'/  # 事情
+    - xform/^SHIAN$/shi'xian'/  # 實現
     - xform/^SHIRO$/shi'yong'/  # 使用
     - xform/^SHGU$/shu'ru'/  # 輸入
     - xform/^SHGUA$/shu'ru'fa'/  # 輸入法
+    - xform/^SKAO$/si'kao'/  # 思考
     - xform/^SIARO$/si'xiang'/  # 思想
     - xform/^SHGAN$/sui'ran'/  # 雖然
     - xform/^SO$/suo'yi'/  # 所以
@@ -115,6 +133,8 @@ briefs:
     - xform/^DNO$/wo'men'de'/  # 我們的
     - xform/^FUA$/wu'fa'/  # 無法
     - xform/^SGUAN$/xi'guan'/  # 習慣
+    - xform/^HIARO$/xi'wang'/  # 希望
+    - xform/^FBIANE$/xiang'mu'/  # 項目
     - xform/^SHIE$/xie'xie'/  # 謝謝
     - xform/^SIO$/xu'yao'/  # 需要
     - xform/^SVAE$/xuan'ze'/  # 選擇
@@ -141,7 +161,9 @@ briefs:
     - xform/^ZFBUO$/zhe'me'duo'/  # 這麼多
     - xform/^ZFBUAR$/zhe'me'kuai'/  # 這麼快
     - xform/^ZR$/zhe'shi'/  # 這是、這時
+    - xform/^ZFIE$/zhe'xie'/  # 這些
     - xform/^ZFIANE$/zhe'yang'/  # 這樣
+    - xform/^ZFVE$/zheng'que'/  # 正確
     - xform/^ZFO$/zhi'dao'/  # 知道
     - xform/^ZHRO$/zhi'hou'/  # 之後
     - xform/^ZHGIAN$/zhi'jian'/  # 之間
@@ -151,10 +173,13 @@ briefs:
     - xform/^ZGO$/zhong'guo'/  # 中國
     - xform/^ZGN$/zhong'guo'ren'/  # 中國人
     - xform/^ZGIAN$/zhong'jian'/  # 中間
-    - xform/^ZFVNE$/zhong'wen'/  # 中文
+    - xform/^ZHUN$/zhong'wen'/  # 中文
     - xform/^ZFIAO$/zhong'yao'/  # 重要
     - xform/^ZFVN$/zhong'zhou'yun'/  # 中州韻
     - xform/^ZFV$/zhu'yi'/  # 主義
+    - xform/^ZKVE$/zhun'que'/  # 準確
+    - xform/^ZGI$/zi'ji'/  # 自己
+    - xform/^ZGRO$/zu'gou'/  # 足夠
     - xform/^ZUAO$/zui'hao'/  # 最好
     - xform/^ZHUR$/zui'hou'/  # 最後
     - xform/^ZUAR$/zui'huai'/  # 最坏
