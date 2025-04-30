@@ -74,6 +74,10 @@ common_options:
   algebra/+:
     - xlit/BPFDTLGKHZCS/bpfdtlgkhzcs/
 
+    # 通摄三等精組、泥來併入一等，須在尖團音規則前變換
+    # 濃龍蹤從松 ⟨niong/liong/ziong/ciong/siong -> nong/long/zong/cong/song⟩
+    - xform/^([nlzcs])(IRO|VNE)$/$1ong/
+
     # G,K,H 接 I/Ü 作 ⟨ji/ju, qi/qu, xi/xu⟩
     # 若分尖團，也可用 Z,C,S 與 I/Ü 相拼
     - xform/^[gz]([IV])/j$1/
