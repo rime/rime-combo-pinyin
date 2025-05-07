@@ -133,8 +133,10 @@ briefs:
     - xform/^DNO$/wo'men'de'/  # 我們的
     - xform/^FUA$/wu'fa'/  # 無法
     - xform/^SGUAN$/xi'guan'/  # 習慣
+    - xform/^SHVAN$/xi'huan'/  # 喜歡
     - xform/^HIARO$/xi'wang'/  # 希望
     - xform/^FBIANE$/xiang'mu'/  # 項目
+    - xform/^SIANO$/xiang'yao'/  # 想要
     - xform/^SHIE$/xie'xie'/  # 謝謝
     - xform/^SIO$/xu'yao'/  # 需要
     - xform/^SVAE$/xuan'ze'/  # 選擇
