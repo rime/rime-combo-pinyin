@@ -97,6 +97,7 @@ briefs:
     - xform/^HGIA$/ren'jia'/  # 人家
     - xform/^HGIN$/ren'min'/  # 人民
     - xform/^HGIAN$/reng'ran'/  # 仍然
+    - xform/^HGVAN$/ruan'jian'/  # 軟件
     - xform/^SHG$/shen'me'/  # 什麼
     - xform/^SHGUARO$/shen'me'qing'kuang'/  # 什麼情況
     - xform/^SHGIN$/shen'me'ren'/  # 什麼人
