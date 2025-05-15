@@ -152,7 +152,7 @@ briefs:
     - xform/^ZFBIR$/you'mei'you'/  # 有沒有
     - xform/^CLDVE$/yue'lai'yue'/  # 越來越
     - xform/^HVNE$/yun'xing'/  # 運行
-    - xform/^VNO$/yun'yong'/  # 運用
+    - xform/^VNE$/yun'yong'/  # 運用
     - xform/^ZFBN$/zen'me'/  # 怎麼
     - xform/^ZFBAN$/zen'me'ban'/  # 怎麼辦
     - xform/^ZFBUR$/zen'me'hui'shi'/  # 怎麼回事
