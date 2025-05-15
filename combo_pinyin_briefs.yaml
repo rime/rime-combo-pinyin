@@ -73,6 +73,7 @@ briefs:
     - xform/^LKUAN$/kun'nan'/  # 困難
     - xform/^LDUARO$/lao'dong'/  # 勞動
     - xform/^LIARE$/li'hai'/  # 厲害
+    - xform/^SLIANE$/li'xiang'/  # 理想
     - xform/^FBUAN$/ma'fan'/  # 麻煩
     - xform/^ZFBUA$/mei'fa'/  # 沒法
     - xform/^ZFBR$/mei'shi'/  # 沒事
