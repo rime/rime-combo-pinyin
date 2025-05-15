@@ -71,6 +71,7 @@ briefs:
     - xform/^KR$/ke'yi'/  # 可以
     - xform/^SKU$/kuai'su'/  # 快速
     - xform/^LKUAN$/kun'nan'/  # 困難
+    - xform/^LDUARO$/lao'dong'/  # 勞動
     - xform/^LIARE$/li'hai'/  # 厲害
     - xform/^FBUAN$/ma'fan'/  # 麻煩
     - xform/^ZFBUA$/mei'fa'/  # 沒法
