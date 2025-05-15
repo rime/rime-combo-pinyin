@@ -47,6 +47,7 @@ briefs:
     - xform/^LGVAN$/guan'li'yuan'/  # 管理員
     - xform/^HGI$/guan'xi'/  # 關係
     - xform/^ZGU$/guan'zhu'/  # 關注
+    - xform/^ZGE$/gui'ze'/  # 規則
     - xform/^CLGNE$/guo'cheng'/  # 過程
     - xform/^GUAE$/guo'jia'/  # 國家
     - xform/^LGUAR$/guo'lai'/  # 過來
