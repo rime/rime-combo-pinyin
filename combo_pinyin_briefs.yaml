@@ -74,6 +74,7 @@ briefs:
     - xform/^ZFBUA$/mei'fa'/  # 沒法
     - xform/^ZFBR$/mei'shi'/  # 沒事
     - xform/^ZFB$/mei'you'/  # 沒有
+    - xform/^FBURE$/mian'fei'/  # 免費
     - xform/^CLDR$/na'er'/  # 那兒、哪兒
     - xform/^LDO$/na'ge'/  # 那個、哪個
     - xform/^CLDI$/na'li'/  # 那裏、哪裏
