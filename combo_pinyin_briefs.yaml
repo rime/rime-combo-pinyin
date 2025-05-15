@@ -20,6 +20,7 @@ briefs:
     - xform/^ZBAR$/bu'zai'/  # 不在、不再
     - xform/^ZFBO$/bu'zhi'dao'/  # 不知道
     - xform/^ZFBURO$/bu'zhong'/  # 不中
+    - xform/^CGIA$/can'jia'/  # 參加
     - xform/^CLVNE$/cheng'xu'/  # 程序
     - xform/^CHV$/chi'xu'/  # 持續
     - xform/^CHUA$/chu'fa'/  # 出發
