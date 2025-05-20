@@ -25,6 +25,7 @@ briefs:
     - xform/^CHV$/chi'xu'/  # 持續
     - xform/^CHUA$/chu'fa'/  # 出發
     - xform/^CHUAR$/chu'lai'/  # 出來
+    - xform/^CHIAN$/chu'xian'/  # 出現
     - xform/^CLV$/chu'li'/  # 處理
     - xform/^CLDAR$/cong'lai'/  # 從來
     - xform/^DIAE$/da'jia'/  # 大家
