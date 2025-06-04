@@ -25,8 +25,8 @@ briefs:
     - xform/^CHV$/chi'xu'/  # 持續
     - xform/^CHUA$/chu'fa'/  # 出發
     - xform/^CHUAR$/chu'lai'/  # 出來
-    - xform/^CHIAN$/chu'xian'/  # 出現
     - xform/^CLV$/chu'li'/  # 處理
+    - xform/^CHIAN$/chu'xian'/  # 出現
     - xform/^CLDAR$/cong'lai'/  # 從來
     - xform/^DIAE$/da'jia'/  # 大家
     - xform/^DVE$/da'xue'/  # 大學
@@ -37,7 +37,9 @@ briefs:
     - xform/^DIRO$/dong'xi'/  # 東西
     - xform/^DV$/du'li'/  # 獨立
     - xform/^SDAO$/duo'shao'/  # 多少
+    - xform/^HBIAN$/fang'bian'/  # 方便
     - xform/^FUARO$/fang'fa'/  # 方法
+    - xform/^ZFBIAN$/fang'mian'/  # 方面
     - xform/^FIANE$/fang'xiang'/  # 方向
     - xform/^FIARO$/fei'chang'/  # 非常
     - xform/^FIAO$/fei'chang'hao'/  # 非常好
@@ -66,6 +68,7 @@ briefs:
     - xform/^ZGVE$/ju'jue'/  # 拒絕
     - xform/^SHGIRO$/ju'rong'shi'/  # 居戎氏
     - xform/^FKA$/kai'fa'/  # 開發
+    - xform/^LKV$/kao'lv'/  # 考慮
     - xform/^HKU$/ke'hu'/  # 可乎、客戶
     - xform/^SK$/ke'shi'/  # 可是
     - xform/^HKVE$/ke'xue'/  # 科學
