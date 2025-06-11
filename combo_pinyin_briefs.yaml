@@ -62,6 +62,7 @@ briefs:
     - xform/^SHGV$/ji'shu'/  # 技術
     - xform/^HDAN$/jian'dan'/  # 簡單
     - xform/^HPAN$/jian'pan'/  # 鍵盤
+    - xform/^HGIE$/jie'he'/  # 結合
     - xform/^SHGIE$/jie'shi'/  # 解釋
     - xform/^CLGIANE$/jing'chang'/  # 經常
     - xform/^GINO$/jing'guo'/  # 經過
