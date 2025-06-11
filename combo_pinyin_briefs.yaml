@@ -46,6 +46,7 @@ briefs:
     - xform/^FAO$/fu'hao'/  # 符號
     - xform/^SGIN$/geng'xin'/  # 更新
     - xform/^GUNE$/gong'neng'/  # 功能
+    - xform/^HGIARO$/gong'xiang'/  # 共享
     - xform/^ZGUO$/gong'zuo'/  # 工作
     - xform/^LGUAN$/guan'li'/  # 管理
     - xform/^LGVAN$/guan'li'yuan'/  # 管理員
