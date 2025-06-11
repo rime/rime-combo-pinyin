@@ -102,6 +102,7 @@ briefs:
     - xform/^KIAE$/qi'ta'/  # 其他
     - xform/^CLDUAN$/qian'wan'/  # 千萬
     - xform/^CUARO$/qing'kuang'/  # 情況
+    - xform/^KVNE$/qun'zhong'/  # 羣衆
     - xform/^HGO$/ran'hou'/  # 然後
     - xform/^HGIA$/ren'jia'/  # 人家
     - xform/^HGIN$/ren'min'/  # 人民
