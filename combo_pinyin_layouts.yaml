@@ -178,11 +178,11 @@ common_options:
 #           * * _ *
 #
 # 該配列 B, N, M 三鍵向右側移動，指法改變，故
-# 1. 改用 B 鍵輸入宮保拼音的 [Ü]
+# 1. 改用 H 鍵輸入宮保拼音的 [Ü]
 # 2. 聲母⟨p⟩改用 [ZB] 並擊
 use_alpha28_layout:
-  chord_composer/alphabet: 'swxdecfrvgtjub kiloaqzhynmp'
-  chord_composer/algebra/@0: 'xlit|swxdecfrvgtjub kiloaqzhynmp|SCZHLFGDBKTIUVANREOXXXXXXXX|'
+  chord_composer/alphabet: 'swxdecfrvgtbjumh kiloaqzynp'
+  chord_composer/algebra/@0: 'xlit|swxdecfrvgtbjumh kiloaqzynp|SCZHLFGDBKTPIUVVANREOXXXXXX|'
 
 # 補丁模板
 # 補丁文件：combo_pinyin.custom.yaml
