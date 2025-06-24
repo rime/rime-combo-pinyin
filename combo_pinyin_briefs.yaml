@@ -78,6 +78,7 @@ briefs:
     - xform/^SKU$/kuai'su'/  # 快速
     - xform/^LKUAN$/kun'nan'/  # 困難
     - xform/^LDUARO$/lao'dong'/  # 勞動
+    - xform/^LARO$/lao'shi'/  # 老師
     - xform/^LIARE$/li'hai'/  # 厲害
     - xform/^SLIANE$/li'xiang'/  # 理想
     - xform/^FBUAN$/ma'fan'/  # 麻煩
