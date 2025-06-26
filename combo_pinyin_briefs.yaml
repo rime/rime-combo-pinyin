@@ -101,6 +101,7 @@ briefs:
     - xform/^CLDNE$/ni'men'de'/  # 你們的
     - xform/^CLDANO$/ni'men'hao'/  # 你們好
     - xform/^LDIANO$/nin'hao'/  # 您好
+    - xform/^PUAN$/pan'duan'/  # 判斷
     - xform/^PIR$/peng'you'/  # 朋友
     - xform/^PVN$/peng'you'men'/  # 朋友們
     - xform/^LKIAR$/qi'lai'/  # 起來
