@@ -173,6 +173,7 @@ briefs:
     - xform/^ZFBAN$/zen'me'ban'/  # 怎麼辦
     - xform/^ZFBUR$/zen'me'hui'shi'/  # 怎麼回事
     - xform/^ZFBIANE$/zen'me'yang'/  # 怎麼樣
+    - xform/^ZHAN$/zhan'shi'/  # 戰士、展示
     - xform/^ZFR$/zhe'er'/  # 這兒
     - xform/^ZO$/zhe'ge'/  # 這個
     - xform/^ZFI$/zhe'li'/  # 這裏
