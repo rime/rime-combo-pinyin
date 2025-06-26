@@ -48,6 +48,8 @@ briefs:
     - xform/^SGIAE$/gan'xie'/  # 感謝
     - xform/^SGIN$/geng'xin'/  # 更新
     - xform/^GUNE$/gong'neng'/  # 功能
+    - xform/^SGURO$/gong'shi'/  # 公式、共識
+    - xform/^SGR$/gong'si'/  # 公司
     - xform/^HGIARO$/gong'xiang'/  # 共享
     - xform/^ZGUO$/gong'zuo'/  # 工作
     - xform/^LGUAN$/guan'li'/  # 管理
