@@ -113,7 +113,8 @@ briefs:
     - xform/^HGIA$/ren'jia'/  # 人家
     - xform/^HGIN$/ren'min'/  # 人民
     - xform/^HGIAN$/reng'ran'/  # 仍然
-    - xform/^HGVAN$/ruan'jian'/  # 軟件
+    - xform/^HGARE$/Rime /  # Rime
+    - xform/^HGVAN$/ruan'jian'/  # 軟S件
     - xform/^SGI$/she'ji'/  # 設計、涉及
     - xform/^SHG$/shen'me'/  # 什麼
     - xform/^SHGUARO$/shen'me'qing'kuang'/  # 什麼情況
@@ -165,6 +166,7 @@ briefs:
     - xform/^VO$/yi'ge'/  # 一個
     - xform/^HURE$/yi'hui'er'/  # 一會兒
     - xform/^HIAE$/yi'xia'/  # 一下
+    - xform/^HGINE$/yin'qing'/  # 引擎
     - xform/^LDUR$/yin'wei'/  # 因爲
     - xform/^SHGAR$/ying'gai'/  # 應該
     - xform/^INO$/ying'yong'/  # 應用
