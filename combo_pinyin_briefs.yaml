@@ -63,6 +63,7 @@ briefs:
     - xform/^SHV$/han'shu'/  # 函數
     - xform/^HAE$/hao'de'/  # 好的
     - xform/^HUAO$/hao'wu'/  # 毫無
+    - xform/^GIO$/ji'ge'/  # 幾個
     - xform/^HGVA$/ji'hua'/  # 計劃
     - xform/^SHGV$/ji'shu'/  # 技術
     - xform/^HDAN$/jian'dan'/  # 簡單
