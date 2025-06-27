@@ -118,7 +118,7 @@ briefs:
     - xform/^HGIN$/ren'min'/  # 人民
     - xform/^HGIAN$/reng'ran'/  # 仍然
     - xform/^HGARE$/Rime /  # Rime
-    - xform/^HGVAN$/ruan'jian'/  # 軟S件
+    - xform/^HGVAN$/ruan'jian'/  # 軟件
     - xform/^SGI$/she'ji'/  # 設計、涉及
     - xform/^SHG$/shen'me'/  # 什麼
     - xform/^SHGUARO$/shen'me'qing'kuang'/  # 什麼情況
