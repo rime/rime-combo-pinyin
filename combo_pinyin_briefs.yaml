@@ -1,6 +1,7 @@
 # 宮保拼音縮略碼
 briefs:
   algebra/+:
+    - xform/^ZFBAR$/bai'fen'zhi'/  # 百分之
     - xform/^BUA$/ban'fa'/  # 辦法
     - xform/^CLBNE$/bian'cheng'/  # 編程
     - xform/^BIA$/biao'da'/  # 表達
