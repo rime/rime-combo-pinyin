@@ -22,6 +22,7 @@ briefs:
     - xform/^ZFBO$/bu'zhi'dao'/  # 不知道
     - xform/^ZFBURO$/bu'zhong'/  # 不中
     - xform/^CGIA$/can'jia'/  # 參加
+    - xform/^CKAO$/can'kao'/  # 參考
     - xform/^CLVNE$/cheng'xu'/  # 程序
     - xform/^CHV$/chi'xu'/  # 持續
     - xform/^CHUA$/chu'fa'/  # 出發
