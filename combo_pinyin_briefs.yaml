@@ -177,6 +177,7 @@ briefs:
     - xform/^LDUR$/yin'wei'/  # 因爲
     - xform/^SHGAR$/ying'gai'/  # 應該
     - xform/^INO$/ying'yong'/  # 應用
+    - xform/^VANE$/yong'yuan'/  # 永遠
     - xform/^ZFBIR$/you'mei'you'/  # 有沒有
     - xform/^CLDVE$/yue'lai'yue'/  # 越來越
     - xform/^HVNE$/yun'xing'/  # 運行
