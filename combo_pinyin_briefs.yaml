@@ -64,6 +64,7 @@ briefs:
     - xform/^CLGNE$/guo'cheng'/  # 過程
     - xform/^GUAE$/guo'jia'/  # 國家
     - xform/^LGUAR$/guo'lai'/  # 過來
+    - xform/^HARE$/hai'shi'/  # 還是
     - xform/^SHV$/han'shu'/  # 函數
     - xform/^HAE$/hao'de'/  # 好的
     - xform/^HUAO$/hao'wu'/  # 毫無
