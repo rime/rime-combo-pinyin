@@ -94,6 +94,7 @@ briefs:
     - xform/^FBUAN$/ma'fan'/  # 麻煩
     - xform/^ZFBUA$/mei'fa'/  # 沒法
     - xform/^ZFBR$/mei'shi'/  # 沒事
+    - xform/^FBVN$/mei'wen'ti'/  # 沒問題
     - xform/^ZFB$/mei'you'/  # 沒有
     - xform/^FBURE$/mian'fei'/  # 免費
     - xform/^CLDR$/na'er'/  # 那兒、哪兒
