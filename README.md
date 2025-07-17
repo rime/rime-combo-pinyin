@@ -26,19 +26,25 @@
 
 ### 細分方案
 
-可通過配置選擇以下 [並擊键盘佈局](layouts.md)：
+輸入方案 `combo_pinyin` 可通過修改配置選擇以下 [並擊键盘佈局](layouts.md)：
 
   - 七指禪，兼容通用鍵盤
   - 八指禪，用於分體式鍵盤或有拆分空格設計的鍵盤
   - 九宮格，用 3×3 小鍵盤並擊輸入拼音（待開發）
   - 速錄键盘（待開發）
 
+方案 `combo_pinyin_with_tones` 配合地球拼音詞典使用，支持單擊符號鍵輸入聲調。
+
 ## 安裝
+
+[東風破](https://github.com/rime/plum) 安裝口令： `bash rime-install combo-pinyin`
 
 本方案依賴於Rime輸入法預設的
 
   - [朙月拼音](https://github.com/rime/rime-luna-pinyin) ℞ **`luna-pinyin`**
 
-[東風破](https://github.com/rime/plum) 安裝口令： `bash rime-install combo-pinyin`
+若要使用帶聲調輔碼的方案，可選配
+
+  - [地球拼音](https://github.com/rime/rime-terra-pinyin) ℞ **`terra-pinyin`**
 
 授權條款：見 [LICENSE](LICENSE)
