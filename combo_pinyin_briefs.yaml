@@ -34,10 +34,11 @@ briefs:
     - xform/^DIAE$/da'jia'/  # 大家
     - xform/^DVE$/da'xue'/  # 大學
     - xform/^DUA$/dai'ma'/  # 代碼
-    - xform/^SD$/dan'shi'/  # 但是
+    - xform/^SDAN$/dan'shi'/  # 但是
     - xform/^DVAN$/dan'yuan'/  # 單元
     - xform/^DIANE$/di'fang'/  # 地方
     - xform/^DIRO$/dong'xi'/  # 東西
+    - xform/^SDRO$/dou'shi'/  # 都是
     - xform/^DV$/du'li'/  # 獨立
     - xform/^SDAO$/duo'shao'/  # 多少
     - xform/^HBIAN$/fang'bian'/  # 方便
