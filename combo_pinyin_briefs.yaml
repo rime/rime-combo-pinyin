@@ -69,6 +69,7 @@ briefs:
     - xform/^SHV$/han'shu'/  # 函數
     - xform/^HAE$/hao'de'/  # 好的
     - xform/^HUAO$/hao'wu'/  # 毫無
+    - xform/^HANO$/hen'hao'/  # 很好
     - xform/^GIO$/ji'ge'/  # 幾個
     - xform/^HGVA$/ji'hua'/  # 計劃
     - xform/^SHGI$/ji'shi'/  # 即使、及時
