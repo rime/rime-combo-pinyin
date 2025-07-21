@@ -49,6 +49,7 @@ briefs:
     - xform/^FIARO$/fei'chang'/  # 非常
     - xform/^FIAO$/fei'chang'hao'/  # 非常好
     - xform/^FAO$/fu'hao'/  # 符號
+    - xform/^GVAE$/gan'jue'/  # 感覺
     - xform/^SGIAE$/gan'xie'/  # 感謝
     - xform/^GURE$/ge'wei'/  # 各位
     - xform/^SGIN$/geng'xin'/  # 更新
