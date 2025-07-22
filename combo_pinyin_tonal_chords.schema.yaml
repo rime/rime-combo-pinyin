@@ -1,0 +1,80 @@
+# Rime schema
+# encoding: utf-8
+
+__include: combo_pinyin.schema:/
+
+schema:
+  schema_id: combo_pinyin_tonal_chords
+  name: 宮保拼音（聲韻調並擊）
+  version: '0.1'
+  author:
+    - 居戎氏 <chen.sst@gmail.com>
+  description: |
+    並擊輸入拼音
+    https://github.com/rime/home/wiki/ComboPinyin
+
+    掛載地球拼音詞庫，可選輸入聲調。
+
+    方法一、聲韻調並擊：
+    並擊 QAZ 其中一鍵表示第二聲（陽平）；
+    並擊 P; 其中一鍵表示第四聲（去聲）；
+    二者同時並擊表示第三聲（上聲）；
+    第一聲（陰平）不標。
+
+    方法二、第二擊輸入聲調：
+    並擊聲韻之後，再次並擊追加聲調，鍵位同上。
+
+    方法一需要多於六鍵並擊，請使用全鍵無衝（NKRO）的鍵盤。
+
+speller:
+  alphabet: 'zyxwvutsrqponmlkjihgfedcba''-/<\;'
+  initials: zyxwvutsrqponmlkjihgfedcba
+  finals: '-/<\;'
+  delimiter: " "
+  algebra:
+    - xform/^r5$/er5/
+    - derive/^([a-z]+)[0-5]$/$1/
+    - 'erase/^.*5$/'
+    # 未標調拼音音節後加隔音符號，避免音節切分歧義
+    - "xform/^([a-z]+)$/$1'/"
+    # 第二擊輸入聲調
+    - "derive/^([a-z]+)([1-4])$/$1'$2/"
+    # 改爲符號標調
+    - 'xlit 1234 -/<\'
+    - 'derive \\$ ;'
+
+translator:
+  dictionary: terra_pinyin
+  prism: combo_pinyin_tonal_chords
+  preedit_format:
+    __patch:
+      - __append:
+          - "xform/'//"
+          - 'xlit ; \'
+      - __append:
+          __include: terra_pinyin.schema:/translator/preedit_format
+  comment_format:
+    __include: terra_pinyin.schema:/translator/comment_format
+
+key_binder:
+  import_preset: default
+  bindings:
+    - { when: has_menu, accept: minus, send: minus }  # tone 1
+    - { when: paging, accept: minus, send: Page_Up }
+
+__patch:
+  # 聲韻調並擊
+  - combo_pinyin_tonal_chords:/tonal_chords
+  # 解封下列代碼，選用其他佈局選項
+  # 聲韻調並擊，運用縮略碼
+  # - combo_pinyin_tonal_chords:/tonal_chords_with_briefs
+  # 回車鍵上屏按鍵序列
+  - combo_pinyin_layouts:/use_return_to_commit_raw_input
+  # 回車鍵確認當前候選
+  # - combo_pinyin_layouts:/use_return_to_confirm
+
+  # 使用八股文語言模型
+  - grammar:/hant?
+
+  # 用家自選配置
+  - combo_pinyin_tonal_chords.custom:/patch?

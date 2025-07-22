@@ -1,0 +1,137 @@
+# 宮保拼音聲韻調並擊
+
+tonal_chords:
+  chord_composer/+:
+    __patch:
+      - chord_composer_begin
+      - combo_pinyin_layouts:/pc_layout_initials
+      - chord_composer_end
+
+tonal_chords_with_briefs:
+  chord_composer/+:
+    __patch:
+      - chord_composer_begin
+      - combo_pinyin_briefs:/briefs
+      - combo_pinyin_layouts:/pc_layout_initials
+      - chord_composer_end
+
+chord_composer_begin:
+  # 字母表，包含用於並擊的按鍵
+  # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
+  alphabet: 'swxdecfrvgtbjum kiloaqzp;hyn'
+  # 拼寫運算規則，將一組並擊編碼轉換爲拼音音節
+  algebra:
+    # 先將物理按鍵字符對應到宮保拼音鍵位中的拼音字母
+    - 'xlit|swxdecfrvgtbjum kiloaqzp;hyn|SCZHLFGDBKTPIUVANREO2224:XXX|'
+    # 以下根據宮保拼音的鍵位分別變換聲母、韻母部分
+    # 空格鍵單擊時產生空白
+    - 'xform/^A$/ /'
+    # 消除無效按鍵
+    - xform/X+//
+    # 並擊聲調
+    - xform/^:$/;/
+    - xform/:/4/
+    - xform 2+ 2
+    - xform 4+ 4
+    - xform 24 3
+
+chord_composer_end:
+  algebra/+:
+    - xlit/BPFDTLGKHZCS/bpfdtlgkhzcs/
+
+    # 通摄三等精組、泥來併入一等，須在尖團音規則前變換
+    # 濃龍蹤從松 ⟨niong/liong/ziong/ciong/siong -> nong/long/zong/cong/song⟩
+    - xform/^([nlzcs])(IRO|VNE)([1-4]?)$/$1ong$3/
+
+    # G,K,H 接 I/Ü 作 ⟨ji/ju, qi/qu, xi/xu⟩
+    # 若分尖團，也可用 Z,C,S 與 I/Ü 相拼
+    - xform/^[gz]([IV])/j$1/
+    - xform/^[kc]([IV])/q$1/
+    - xform/^[hs]([IV])/x$1/
+
+    # ⟨er⟩自成音節
+    - xform/^R([1-4]?)$/er$1/
+    # 舌尖元音⟨ï⟩
+    - xform/^([zcsr]h?)R?([1-4]?)$/$1i$2/
+
+    - xform/ANE([1-4]?)$/ang$1/
+    - xform/UARO([1-4]?)$/uang$1/
+    - xform/IRO([1-4]?)$/iong$1/
+    - xform/URO([1-4]?)$/ong$1/
+    - xform/VNE([1-4]?)$/iong$1/
+    - xform/UNE([1-4]?)$/ong$1/
+    - xform/INE([1-4]?)$/ing$1/
+    - xform/NE([1-4]?)$/eng$1/
+
+    - xform/AN([1-4]?)$/an$1/
+    - xform/VN([1-4]?)$/vn$1/
+    - xform/UN([1-4]?)$/uen$1/
+    - xform/IN([1-4]?)$/in$1/
+    - xform/N([1-4]?)$/en$1/
+
+    - xform/IAR([1-4]?)$/iao$1/
+    - xform/IR([1-4]?)$/iou$1/
+    - xform/UR([1-4]?)$/uei$1/
+    - xform/AO([1-4]?)$/ao$1/
+    - xform/RO([1-4]?)$/ou$1/
+    - xform/AR([1-4]?)$/ai$1/
+    - xform/RE?([1-4]?)$/ei$1/
+    - xform/AE([1-4]?)$/a$1/
+
+    - xlit/AOEIUV/aoeiuv/
+
+    # 漢語拼音方案的拼寫規則
+    - xform/^i(ng?)([1-4]?)$/yi$1$2/
+    - xform/^i([1-4]?)$/yi$1/
+    - xform/^i/y/
+    - xform/^ong([1-4]?)$/weng$1/
+    - xform/^u([1-4]?)$/wu$1/
+    - xform/^u/w/
+    - xform/^v/yu/
+    - xform/^([jqx])v/$1u/
+    # 一些容錯
+    - xform/^([bpmf])uo([1-4]?)$/$1o$2/
+    - xform/^([dtngkhzcsr]h?)o([1-4]?)$/$1uo$2/
+    - xform/io([1-4]?)$/iao$1/
+    - xform/^([nl])uei([1-4]?)$/$1ei$2/
+    - xform/^([nl])iong([1-4]?)$/$1ong$2/
+    - xform/^([zcsr]h?)i([aoe])/$1$2/
+    - xform/^([zcsr]h?)i(ng?)([1-4]?)$/$1e$2$3/
+    # 拼寫規則
+    - xform/iou([1-4]?)$/iu$1/
+    - xform/uei([1-4]?)$/ui$1/
+    - xform/uen([1-4]?)$/un$1/
+
+    # 聲母獨用時補足隠含的韻母
+    # ⟨bu, pu, fu⟩
+    - xform/^([bpf])([1-4]?)$/$1u$2/
+    # ⟨de, te, ne, le, ge, ke, he⟩
+    # 特別地，⟨me⟩ 對應常用字「麼·么」
+    - xform/^([mdtnlgkh])([1-4]?)$/$1e$2/
+
+  # 並擊完成後套用的式樣
+  output_format:
+    # 追加隔音符號
+    - "xform/^([bpm])([iu]|a|i?e|o|[ae]i|i?ao|[oi]u|i?an|[ie]n|[ei]ng|ang|ong)([1-4]?)$/$1$2$3'/"
+    - "xform/^([fw])(u|a|o|[ae]i|ao|ou|an|en|eng|ang|ong)([1-4]?)$/$1$2$3'/"
+    - "xform/^([dt])([iu]|i?a|i?e|uo|[aeu]i|i?ao|[oi]u|[iu]?an|[ue]n|[ei]ng|ang|ong)([1-4]?)$/$1$2$3'/"
+    - "xform/^([nl])([iuv]|i?a|[iv]?e|u?o|[aeu]i|i?ao|[oi]u|[iu]?an|[iue]n|[ei]ng|i?ang|ong)([1-4]?)$/$1$2$3'/"
+    - "xform/^([gkh])(u|u?a|e|uo|u?ai|[ue]i|ao|ou|u?an|[ue]n|eng|u?ang|ong)([1-4]?)$/$1$2$3'/"
+    - "xform/^([zcs]h?|r)([iu]|u?a|e|uo|u?ai|[ue]i|ao|ou|u?an|[ue]n|eng|u?ang|ong)([1-4]?)$/$1$2$3'/"
+    - "xform/^([jqxy])([iu]|i?a|[iu]?e|o|i?ao|[oi]u|[iu]?an|[iu]n|ing|i?ang|i?ong)([1-4]?)$/$1$2$3'/"
+    - "xform/^([aeo]|[ae]i|ao|ou|[ae]ng?|er)([1-4]?)$/$1$2'/"
+    # 第二擊輸入聲調
+    - "xform/^([1-4])$/$1'/"
+    # 消除不構成合法音節的並擊組合
+    - "erase/^([A-Za-z0-9]*)$/"
+    # 並擊聲調
+    - "xform 1'$ -"
+    - "xform 2'$ /"
+    - "xform 3'$ <"
+    - "xform 4'$ \\"
+  # 並擊過程中套用的式樣
+  prompt_format:
+    # 加方括弧
+    - 'xform/^(.*)$/[$1]/'
+    # 顯示聲調符號
+    - 'xlit 1234 ˉˊˇˋ'
