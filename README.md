@@ -35,6 +35,15 @@
 
 方案 `combo_pinyin_with_tones` 配合地球拼音詞典使用，支持單擊符號鍵輸入聲調。
 
+### 縮略碼
+
+七指禪佈局可支持用戶自定義的縮略碼，利用閒置的並擊組合快速輸入常用詞。
+
+縮略碼不遵循嚴格的編碼規則，需要使用者根據自己的用詞習慣和對拼音的理解逐一制定。
+可將詞語中標誌性的語音信息壓縮在一次並擊的編碼中以方便記憶，但不得與已有並擊碼衝突。
+
+[℞ `lotem/rime-combo-pinyin-briefs`](https://github.com/lotem/rime-combo-pinyin-briefs) 可作參考。
+
 ## 安裝
 
 [東風破](https://github.com/rime/plum) 安裝口令： `bash rime-install combo-pinyin`

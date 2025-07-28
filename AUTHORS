@@ -1,4 +1,5 @@
 
 Gong Chen <chen.sst@gmail.com> : (GPLv3)
-  combo_pinyin.schema.yaml
+  combo_pinyin*.schema.yaml
   combo_pinyin_layouts.yaml
+  combo_pinyin_tonal_chords.yaml
