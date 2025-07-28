@@ -4,14 +4,7 @@ tonal_chords:
   chord_composer/+:
     __patch:
       - chord_composer_begin
-      - combo_pinyin_layouts:/pc_layout_initials
-      - chord_composer_end
-
-tonal_chords_with_briefs:
-  chord_composer/+:
-    __patch:
-      - chord_composer_begin
-      - combo_pinyin_briefs:/briefs
+      - combo_pinyin_briefs:/briefs?
       - combo_pinyin_layouts:/pc_layout_initials
       - chord_composer_end
 

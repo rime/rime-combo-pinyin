@@ -66,8 +66,6 @@ __patch:
   # 聲韻調並擊
   - combo_pinyin_tonal_chords:/tonal_chords
   # 解封下列代碼，選用其他佈局選項
-  # 聲韻調並擊，運用縮略碼
-  # - combo_pinyin_tonal_chords:/tonal_chords_with_briefs
   # 回車鍵上屏按鍵序列
   - combo_pinyin_layouts:/use_return_to_commit_raw_input
   # 回車鍵確認當前候選

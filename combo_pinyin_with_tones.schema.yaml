@@ -58,8 +58,6 @@ __patch:
   # 默認佈局：七指禪
   - combo_pinyin_layouts:/use_pc_layout
   # 解封下列代碼，選用其他佈局選項
-  # 七指禪，運用縮略碼
-  # - combo_pinyin_layouts:/use_pc_layout_with_briefs
   # 回車鍵上屏按鍵序列
   - combo_pinyin_layouts:/use_return_to_commit_raw_input
   # 回車鍵確認當前候選
