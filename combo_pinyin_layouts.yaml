@@ -1,6 +1,6 @@
 # 宮保拼音鍵盤佈局
 
-pc_layout_options:
+default_layout_config:
   # 字母表，包含用於並擊的按鍵
   # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
   alphabet: 'swxdecfrvgtbjum kiloaqzhynp'
@@ -13,21 +13,26 @@ pc_layout_options:
     - 'xform/^A$/ /'
     # 消除無效按鍵
     - xform/X+//
+  # 並擊完成後套用的式樣
+  output_format: { __include: validate_syllable }
+  # 並擊過程中套用的式樣
+  prompt_format: { __include: combo_display_format }
 
-pc_layout_initials:
-  algebra/+:
-    # 並擊聲母
-    - xform/^ZF/zh/
-    - xform/^CL/ch/
-    - xform/^FB/m/
-    - xform/^LD/n/
-    - xform/^HG/r/
-    # 特殊配列鍵盤用
-    - xform/^ZB/p/
-    - xform/^CD/t/
-    - xform/^SG/k/
+default_layout_initial_rules:
+  # 並擊聲母
+  - xform/^ZF/zh/
+  - xform/^CL/ch/
+  - xform/^FB/m/
+  - xform/^LD/n/
+  - xform/^HG/r/
+  # 特殊配列鍵盤用
+  - xform/^ZB/p/
+  - xform/^CD/t/
+  - xform/^SG/k/
+  # 獨立聲母鍵
+  - xlit/BPFDTLGKHZCS/bpfdtlgkhzcs/
 
-split_layout_options:
+split_layout_config:
   # 字母表，包含用於並擊的按鍵
   # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
   alphabet: 'swxdecfrvgtbajum kiloqzhynp'
@@ -50,30 +55,32 @@ split_layout_options:
     # 消除無效按鍵
     - xform/X+//
     - xform/H+/H/
+  # 並擊完成後套用的式樣
+  output_format: { __include: validate_syllable }
+  # 並擊過程中套用的式樣
+  prompt_format: { __include: combo_display_format }
 
-split_layout_initials:
-  algebra/+:
-    # 並擊聲母
-    - xform/^BH/p/
-    - xform/^DH/t/
-    - xform/^GH/k/
-    - xform/^FB/m/
-    - xform/^LD/n/
-    - xform/^CZ/r/
-    # PC鍵盤增補聲母
-    - xform/^[ZCS]B/p/
-    - xform/^[ZCS]D/t/
-    - xform/^[ZCS]G/k/
-    - xform/^[ZCS]Z/zh/
-    # 兼容大衆式
-    - xform/^ZF/zh/
-    - xform/^CL/ch/
-    - xform/^SC/sh/
+split_layout_initial_rules:
+  # 並擊聲母
+  - xform/^BH/p/
+  - xform/^DH/t/
+  - xform/^GH/k/
+  - xform/^FB/m/
+  - xform/^LD/n/
+  - xform/^CZ/r/
+  # PC鍵盤增補聲母
+  - xform/^[ZCS]B/p/
+  - xform/^[ZCS]D/t/
+  - xform/^[ZCS]G/k/
+  - xform/^[ZCS]Z/zh/
+  # 兼容大衆式
+  - xform/^ZF/zh/
+  - xform/^CL/ch/
+  - xform/^SC/sh/
+  # 獨立聲母鍵
+  - xlit/BPFDTLGKHZCS/bpfdtlgkhzcs/
 
-common_options:
-  algebra/+:
-    - xlit/BPFDTLGKHZCS/bpfdtlgkhzcs/
-
+rime_rules:
     # 通摄三等精組、泥來併入一等，須在尖團音規則前變換
     # 濃龍蹤從松 ⟨niong/liong/ziong/ciong/siong -> nong/long/zong/cong/song⟩
     - xform/^([nlzcs])(IRO|VNE)$/$1ong/
@@ -144,23 +151,22 @@ common_options:
     # 特別地，⟨me⟩ 對應常用字「麼·么」
     - xform/^([mdtnlgkh])$/$1e/
 
-  # 並擊完成後套用的式樣
-  output_format:
-    # 追加隔音符號
-    - "xform/^([bpm])([iu]|a|i?e|o|[ae]i|i?ao|[oi]u|i?an|[ie]n|[ei]ng|ang|ong)$/$1$2'/"
-    - "xform/^([fw])(u|a|o|[ae]i|ao|ou|an|en|eng|ang|ong)$/$1$2'/"
-    - "xform/^([dt])([iu]|i?a|i?e|uo|[aeu]i|i?ao|[oi]u|[iu]?an|[ue]n|[ei]ng|ang|ong)$/$1$2'/"
-    - "xform/^([nl])([iuv]|i?a|[iv]?e|u?o|[aeu]i|i?ao|[oi]u|[iu]?an|[iue]n|[ei]ng|i?ang|ong)$/$1$2'/"
-    - "xform/^([gkh])(u|u?a|e|uo|u?ai|[ue]i|ao|ou|u?an|[ue]n|eng|u?ang|ong)$/$1$2'/"
-    - "xform/^([zcs]h?|r)([iu]|u?a|e|uo|u?ai|[ue]i|ao|ou|u?an|[ue]n|eng|u?ang|ong)$/$1$2'/"
-    - "xform/^([jqxy])([iu]|i?a|[iu]?e|o|i?ao|[oi]u|[iu]?an|[iu]n|ing|i?ang|i?ong)$/$1$2'/"
-    - "xform/^([aeo]|[ae]i|ao|ou|[ae]ng?|er)$/$1'/"
-    # 消除不構成合法音節的並擊組合
-    - "erase/^([A-Za-z+]+)$/"
-  # 並擊過程中套用的式樣
-  prompt_format:
-    # 加方括弧
-    - 'xform/^(.*)$/[$1]/'
+validate_syllable:
+  # 追加隔音符號
+  - "xform/^([bpm])([iu]|a|i?e|o|[ae]i|i?ao|[oi]u|i?an|[ie]n|[ei]ng|ang|ong)$/$1$2'/"
+  - "xform/^([fw])(u|a|o|[ae]i|ao|ou|an|en|eng|ang|ong)$/$1$2'/"
+  - "xform/^([dt])([iu]|i?a|i?e|uo|[aeu]i|i?ao|[oi]u|[iu]?an|[ue]n|[ei]ng|ang|ong)$/$1$2'/"
+  - "xform/^([nl])([iuv]|i?a|[iv]?e|u?o|[aeu]i|i?ao|[oi]u|[iu]?an|[iue]n|[ei]ng|i?ang|ong)$/$1$2'/"
+  - "xform/^([gkh])(u|u?a|e|uo|u?ai|[ue]i|ao|ou|u?an|[ue]n|eng|u?ang|ong)$/$1$2'/"
+  - "xform/^([zcs]h?|r)([iu]|u?a|e|uo|u?ai|[ue]i|ao|ou|u?an|[ue]n|eng|u?ang|ong)$/$1$2'/"
+  - "xform/^([jqxy])([iu]|i?a|[iu]?e|o|i?ao|[oi]u|[iu]?an|[iu]n|ing|i?ang|i?ong)$/$1$2'/"
+  - "xform/^([aeo]|[ae]i|ao|ou|[ae]ng?|er)$/$1'/"
+  # 消除不構成合法音節的並擊組合
+  - "erase/^([A-Za-z+]+)$/"
+
+combo_display_format:
+  # 加方括弧
+  - 'xform/^(.*)$/[$1]/'
 
 # 適配 alpha28 以及類似配列的鍵盤，如 3×10 直列、Hummingbird
 #
@@ -207,19 +213,20 @@ use_alpha28_layout:
 #     - combo_pinyin_layouts:/use_return_to_commit_raw_input
 
 use_pc_layout:
-  chord_composer/+:
-    __patch:
-      - pc_layout_options
-      - combo_pinyin_briefs:/briefs?
-      - pc_layout_initials
-      - common_options
+  chord_composer: { __include: default_layout_config }
+  __patch:
+    # 縮略碼
+    - combo_pinyin_briefs:/patch?
+    # 並擊轉拼音
+    - chord_composer/algebra/+: {__include: default_layout_initial_rules }
+    - chord_composer/algebra/+: {__include: rime_rules }
 
 use_split_layout:
-  chord_composer/+:
-    __patch:
-      - split_layout_options
-      - split_layout_initials
-      - common_options
+  chord_composer: { __include: split_layout_config }
+  __patch:
+    # 並擊轉拼音
+    - chord_composer/algebra/+: { __include: split_layout_initial_rules }
+    - chord_composer/algebra/+: { __include: rime_rules }
 
 use_return_to_commit_raw_input:
   chord_composer/bindings:

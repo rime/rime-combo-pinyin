@@ -64,7 +64,7 @@ key_binder:
 
 __patch:
   # 聲韻調並擊
-  - combo_pinyin_tonal_chords:/tonal_chords
+  - combo_pinyin_tonal_chords:/patch
   # 解封下列代碼，選用其他佈局選項
   # 回車鍵上屏按鍵序列
   - combo_pinyin_layouts:/use_return_to_commit_raw_input
