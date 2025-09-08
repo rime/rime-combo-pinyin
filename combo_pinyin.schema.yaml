@@ -10,6 +10,8 @@ schema:
   description: |
     並擊輸入拼音
     https://github.com/rime/home/wiki/ComboPinyin
+  dependencies:
+    - luna_pinyin
 
 switches:
   - name: ascii_mode
