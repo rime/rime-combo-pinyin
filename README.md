@@ -66,9 +66,9 @@
 
 宮保拼音的設計思路和實現方法可推廣到古漢語和各種漢語方言。
 
-  - 古漢語並擊輸入演示 [宫保并击录入诗经「隰有苌楚」](https://www.bilibili.com/video/BV12attzGEht/)
-  - 粵拼並擊輸入演示 [宫保粤拼「七指禅」并击，出鞘！](https://www.bilibili.com/video/BV1UfY3z7EUf/)
-  - 宮保粵拼輸入方案 [℞ lotem/rime-combo-jyutping](https://github.com/lotem/rime-combo-jyutping)
+  - 古漢語並擊輸入演示：[宫保并击录入诗经「隰有苌楚」](https://www.bilibili.com/video/BV12attzGEht/)
+  - 粵拼並擊輸入演示：[宫保粤拼「七指禅」并击，出鞘！](https://www.bilibili.com/video/BV1UfY3z7EUf/)
+  - 宮保粵拼輸入方案 [`℞ lotem/rime-combo-jyutping`](https://github.com/lotem/rime-combo-jyutping)
 
 ## 安裝
 
