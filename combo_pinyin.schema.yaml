@@ -78,6 +78,10 @@ punctuator:
 
 key_binder:
   import_preset: default
+  bindings:
+    # 不用 , . 翻頁
+    - { when: paging, accept: comma, send: comma }
+    - { when: has_menu, accept: period, send: period }
 
 recognizer:
   import_preset: default
