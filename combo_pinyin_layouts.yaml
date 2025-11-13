@@ -237,8 +237,8 @@ use_return_to_confirm:
   chord_composer/bindings:
     # 不看回車鍵，讓 editor 處理
     Return: noop
-    # 改用 Shift+回車上屏按鍵序列
-    Shift+Return: commit_raw_input
+    # 改用 Control+回車上屏按鍵序列；Shift+回車可上屏拼音
+    Control+Return: commit_raw_input
   editor/bindings:
     # 退格鍵刪除一個拼音音節
     BackSpace: back_syllable
