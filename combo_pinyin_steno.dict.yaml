@@ -1,0 +1,40 @@
+# encoding: utf-8
+#
+# 宮保拼音並擊碼詞典
+#
+# 收錄完整的「朙月拼音」詞典，另行定義以並擊碼爲編碼的特定字詞。
+#
+# 「高頻字特定碼」與另紙記錄的「詞兒縮略碼」各包含少量示例，僅供參考。
+# 用家在日常使用中可自行總結補充。
+# 做法是：
+# 1. 複製本文件，另存爲 comb_pinyin_steno.my.dict.yaml，修改 name 字段。
+#    用 . 隔開後綴名 my 以求兼容 combo_pinyin_steno 用戶詞典。
+# 2. 複製出 combo_pinyin_steno.my_briefs 詞典文件，修改 name 字段。
+#    將這個名稱加入 comb_pinyin_steno.my 詞典的 import_tables 列表。
+# 3.  在 combo_pinyin_steno.custom.yaml 補丁裏改寫配置，加載自用詞典：
+# patch:
+#   translator/dictionary: combo_pinyin_steno.my
+---
+name: combo_pinyin_steno
+version: '1.0'
+sort: by_weight
+use_preset_vocabulary: true
+import_tables:
+  - luna_pinyin                # 標準拼音碼
+  - combo_pinyin_steno.briefs  # 縮略碼示例
+...
+
+# 高頻字特定碼
+
+# 「是」用拼音 shi 的標準並擊碼 SH；以下特定並擊碼，可消除歧義、精準定字。
+# 下列單字已在 luna_pinyin 詞典中定義，故用標準拼音並擊碼亦可輸入。
+時	SHI
+事	SHR
+在	ZARE
+再	ZUAR
+買	FBARE
+賣	FBUAR
+哪	LDAE
+那	LDUA
+有	RO  # 通借拼音 ou 的並擊碼
+又	RE  # 通借拼音 ei 的並擊碼

@@ -1,0 +1,51 @@
+# encoding: utf-8
+#
+# 宮保拼音縮略碼詞典
+#
+# 「詞兒縮略碼」包含少量示例，僅供參考。
+# 用家在日常使用中可自行總結補充。
+#
+# 每個詞用特定的並擊碼編碼一遍，再另起一行用拼音編碼一遍。
+# 如此，可保證兩種方法——用簡省的略碼和標準的多音節拼音碼均可輸入。
+# 不用拼音輸入的詞，可以只編並擊碼。
+
+---
+name: combo_pinyin_steno.briefs
+version: '1.0'
+sort: by_weight
+...
+
+# 詞兒縮略碼
+
+一個	IO
+一個	yi ge
+一下	HIAE
+一下	yi xia
+不是	SB
+不是	bu shi
+中國	ZGO
+中國	zhong guo
+中國人	ZGN
+中國人	zhong guo ren
+什麼	SHG
+什麼	shen me
+他們	TN
+他們	ta men
+我們	NO
+我們	wo men
+是不是	SHB
+是不是	shi bu shi
+有沒有	ZFBRO
+有沒有	you mei you
+沒有	ZFB
+沒有	mei you
+越來越	LVRE
+越來越	yue lai yue
+輸入法	SHGUA
+輸入法	shu ru fa
+這個	ZO
+這個	zhe ge
+這是	ZR
+這是	zhe shi
+這裏	ZFI
+這裏	zhe li
