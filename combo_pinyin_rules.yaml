@@ -1,0 +1,252 @@
+# Rime common configuration
+# encoding: utf-8
+# combo_pinyin_rules.yaml - 宮保並擊公共規則庫
+
+# 1. 物理琴盤按鍵映射（26 鍵 + 空格鍵）
+key_map:
+  # 左手聲母區
+  s: S
+  w: C
+  x: Z
+  d: H
+  e: L
+  c: F
+  f: G
+  r: D
+  v: B
+  g: K
+  t: T
+  b: P
+  # 右手韻母區
+  j: I
+  u: U
+  m: V  # 輸入碼爲單字節 V，展示爲 Ü
+  k: N
+  i: R
+  l: E
+  o: O
+  # 拇指
+  space: A
+  # 閒置防誤觸領地
+  q: 'X'
+  a: 'X'
+  z: 'X'
+  'y': 'Y'
+  h: 'Y'
+  'n': 'Y'
+  p: 'Y'
+
+# 2. 和弦音節閉包規格化
+canonicalize:
+  # 消除未用的側邊鍵
+  - xform/[XY]//
+  # 將亂序落鍵的音節按宮保拼音鍵序重排用於棱鏡檢索
+  - reorder SCZHLFGDBKTPIUVANREO
+  # 界定單次並擊，避免切分歧義
+  - xform/^[A-Z]+$/[$0]/
+
+# 3. 核心拼寫代數運算（標準拼音 -> 並擊索引）
+algebra:
+  # 容錯規則
+  - derive/^([bpmf])o$/$1uo/
+  - derive/^([nl])ei$/$1uei/
+  - derive/^([nlzcs])ong$/$1iong/
+  - derive/^([zcsr]h?)([aoe])/$1i$2/
+  - derive/^([zcsr]h?)e(ng?)$/$1i$2/
+
+  # 缺省韻母與舌尖元音
+  # 省略⟨u⟩
+  - derive/^([bpf])u$/$1/
+  # 省略⟨e⟩
+  - derive/^([mdtnlgkh])e$/$1/
+  # 省略舌尖元音⟨ï⟩
+  - derive/^([zcs]h?|r)i$/$1/
+  # 舌尖元音⟨ï⟩（通常省略）可明確輸入爲 R
+  - xform/^([zcsr]h?)i$/$1R/
+  # ⟨er⟩自成音節
+  - xform/^er/R/
+
+  # 複合韻母歸併
+  # ⟨uang⟩ 有 UARO, UANE 兩種形式
+  - derive/[wu]ang/UARO/
+  - xform/ang/ANE/
+  # ⟨iong⟩ 有 IRO, ÜNE 兩種形式
+  - derive/[yi]ong/VNE/
+  - xform/[yi]ong/IRO/
+  # ⟨ueng, ong⟩ 有 URO, UNE 兩種形式
+  - derive/[wu]eng|ong/UNE/
+  - xform/[wu]eng|ong/URO/
+  - xform/y?ing/INE/
+  - xform/eng/NE/
+  - xform/an/AN/
+  - xform/yun|ün|vn/VN/
+  - xform/[wu]en|un/UN/
+  - xform/y?in/IN/
+  - xform/en/N/
+  - xform/[yi]ou|iu/IR/
+  - xform/[wu]ei|ui/UR/
+  - xform/ao/AO/
+  - xform/ou/RO/
+  # IAR 保留爲 ⟨iai⟩ 音的並擊碼
+  - xform/ai/AR/
+  # ⟨ei⟩ RE 與前三組聲母搭配，可減省爲 R
+  - derive/^([bpmfdtnlgkh])ei/$1R/
+  - xform/ei/RE/
+  # 零聲母音節 ⟨a⟩ 特殊規定爲並擊 AE，空格鍵單擊仍爲空格
+  - derive/^a$/AE/
+
+  # 介音與零聲母
+  # ⟨ju, qu, xu⟩ 的介音爲 ü，用 Ü 輸入
+  - xform/^([jqx])[uU]/$1V/
+  - xform/^yu/V/
+  - xform/^yi?/I/
+  - xform/^wu?/U/
+  # 碼表中的拼音 v ü、宮保並擊碼 Ü 在棱鏡索引中轉寫爲 V
+  - xlit/aoeiuvüÜ/AOEIUVVV/
+
+  # 聲母並擊
+  - xform/^zh/ZF/
+  - xform/^ch/CL/
+  - xform/^sh/SH/
+  - xform/^m/FB/
+  - xform/^n/LD/
+  - xform/^r/HG/
+  # 特殊鍵盤佈局通借
+  - derive/^p/ZB/
+  - derive/^t/CD/
+  - derive/^k/SG/
+  # 若分尖團，⟨j, q, x⟩ 也可用 Z,C,S 與 I/Ü 相拼
+  - derive/^j([IV])/Z$1/
+  - derive/^q([IV])/C$1/
+  - derive/^x([IV])/S$1/
+  # 獨立聲母鍵
+  - xlit/bpfdtlgkhjqxzcs/BPFDTLGKHGKHZCS/
+
+  # 單音節定界閉包
+  - xform/^.+$/[$0]/
+
+# 4. 按鍵急救與編輯器綁定
+ascii_bindings:
+  Shift+Return: commit_raw_input
+  Shift+KP_Enter: commit_raw_input
+  Shift+space: commit_raw_input_with_space
+
+editor_bindings:
+  # 退格鍵刪除一個並擊音節
+  BackSpace: back_syllable
+  # 回車鍵確認當前候選
+  Return: confirm
+
+# 5. 回顯轉寫：速記字符展示
+preedit_steno:
+  - xform/\[(\w+)\]/$1/
+  # 將亂序落鍵的音節按宮保拼音鍵序重排顯示
+  - reorder SCZHLFGDBKTPIUVANREO
+  # 恢復並擊碼 Ü 的標準形式
+  - xlit/V/Ü/
+
+# 6. 回顯轉寫：自然拼音展示
+preedit_pinyin:
+  # 消除閒置鍵
+  - xform/[XY]//
+  # 將亂序落鍵的音節按宮保拼音鍵序重排顯示
+  - reorder SCZHLFGDBKTPIUVANREO
+  # 音節閉包歸一化：無論裸碼或已定界，均撫平爲標準閉包
+  - xform/\[?([A-Z]+)\]?/[$1]/
+
+  # 特殊鍵盤佈局通借
+  - xform/\[ZB/[P/
+  - xform/\[CD/[T/
+  - xform/\[SG/[K/
+  # 韻母轉寫
+  - xform/\[AE\]/[a]/
+  - xform/\[([IU]?)A\]/[$1a]/
+  - xform/\[([BPFDTLGHKZCS]+[IU]?)A\]/[$1a]/
+  - xform/\[([IU]?)O\]/[$1o]/
+  - xform/\[([BPFDTLGHKZCS]+U?)O\]/[$1o]/
+  - xform/\[([IV]?)E\]/[$1e]/
+  - xform/\[([BPFDTLGHKZCS]+[IUV]?)E\]/[$1e]/
+  - xform/\[R\]/[er]/
+  - xform/\[([IU]?)AR\]/[$1ai]/
+  - xform/\[([BPFDTLGHKZCS]+U?)AR\]/[$1ai]/
+  - xform/\[RE\]/[ei]/
+  - xform/\[([BPFDTLGHKZCS]+)RE\]/[$1ei]/
+  - xform/\[([BPFDTLGKH]|FB|LD)R\]/[$1ei]/
+  - xform/\[UR\]/[wei]/
+  - xform/\[([BPFDTLGHKZCS]+)UR\]/[$1ui]/
+  - xform/\[(I?)AO\]/[$1ao]/
+  - xform/\[([BPFDTLGHKZCS]+I?)AO\]/[$1ao]/
+  - xform/\[RO\]/[ou]/
+  - xform/\[([BPFDTLGHKZCS]+)RO\]/[$1ou]/
+  - xform/\[IR\]/[you]/
+  - xform/\[([BPFDTLGHKZCS]+)IR\]/[$1iu]/
+  - xform/\[([IUV]?)AN\]/[$1an]/
+  - xform/\[([BPFDTLGHKZCS]+[IUV]?)AN\]/[$1an]/
+  - xform/\[(U?)N\]/[$1en]/
+  - xform/\[IN\]/[yin]/
+  - xform/\[VN\]/[yun]/
+  - xform/\[([BPFDTLGHKZCS]+)N\]/[$1en]/
+  - xform/\[([BPFDTLGHKZCS]+)IN\]/[$1in]/
+  - xform/\[([BPFDTLGHKZCS]+)UN\]/[$1un]/
+  - xform/\[([BPFDTLGHKZCS]+)VN\]/[$1vn]/
+  - xform/\[(U?)ANE\]/[$1ang]/
+  - xform/\[([BPFDTLGHKZCS]+)(U?)ANE\]/[$1$2ang]/
+  - xform/\[IANE\]/[yang]/
+  - xform/\[([BPFDTLGHKZCS]+)IANE\]/[$1iang]/
+  - xform/\[UARO\]/[wang]/
+  - xform/\[([BPFDTLGHKZCS]+)UARO\]/[$1uang]/
+  - xform/\[(U?)NE\]/[$1eng]/
+  - xform/\[([BPFDTLGHKZCS]+)NE\]/[$1eng]/
+  - xform/\[INE\]/[ying]/
+  - xform/\[([BPFDTLGHKZCS]+)INE\]/[$1ing]/
+  - xform/\[(URO|UNE)\]/[weng]/
+  - xform/\[([BPFDTLGHKZCS]+)(URO|UNE)\]/[$1ong]/
+  - xform/\[(IRO|VNE)\]/[yong]/
+  - xform/\[([BPFDTLGHKZCS]+)(IRO|VNE)\]/[$1iong]/
+  - xform/\[I\]/[yi]/
+  - xform/\[I([aoe][a-z]*)\]/[y$1]/
+  - xform/\[([BPFDTLGHKZCS]+)I([a-z]*)\]/[$1i$2]/
+  - xform/\[U\]/[wu]/
+  - xform/\[U([aoe][a-z]*)\]/[w$1]/
+  - xform/\[([BPFDTLGHKZCS]+)U([a-z]*)\]/[$1u$2]/
+  - xform/\[V\]/[yu]/
+  - xform/\[V([aoe][a-z]*)\]/[yu$1]/
+  - xform/\[([BPFDTLGHKZCS]+)V([a-z]*)\]/[$1v$2]/
+  # 聲母轉寫
+  - xform/\[FB\]/[me]/
+  - xform/\[FB/[m/
+  - xform/\[B\]/[bu]/
+  - xform/\[B/[b/
+  - xform/\[P\]/[pu]/
+  - xform/\[P/[p/
+  - xform/\[F\]/[fu]/
+  - xform/\[F/[f/
+  - xform/\[LD\]/[ne]/
+  - xform/\[LD/[n/
+  - xform/\[D\]/[de]/
+  - xform/\[D/[d/
+  - xform/\[T\]/[te]/
+  - xform/\[T/[t/
+  - xform/\[L\]/[le]/
+  - xform/\[L/[l/
+  - xform/\[HG/[r/
+  - xform/\[SH/[sh/
+  - xform/\[S/[s/
+  - xform/\[C[LH]/[ch/
+  - xform/\[C/[c/
+  - xform/\[Z[FH]/[zh/
+  - xform/\[Z/[z/
+  - xform/\[([zcs]h?|r)R?\]/[$1i]/
+  - xform/\[[GZ]([iv])/[j$1/
+  - xform/\[[KC]([iv])/[q$1/
+  - xform/\[[HS]([iv])/[x$1/
+  - xform/\[([jqx])v/[$1u/
+  - xform/\[G\]/[ge]/
+  - xform/\[G/[g/
+  - xform/\[K\]/[ke]/
+  - xform/\[K/[k/
+  - xform/\[H\]/[he]/
+  - xform/\[H/[h/
+  # 脫除定界括號與規範 ü
+  - xform/\[(\w+)\]/$1/
+  - xlit/vV/üÜ/

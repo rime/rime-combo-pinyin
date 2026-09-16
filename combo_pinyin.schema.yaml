@@ -29,9 +29,8 @@ engine:
   processors:
     - ascii_composer
     - recognizer
-    - chord_composer  # 實現並擊按鍵處理
     - key_binder
-    - speller
+    - streaming_chord_processor
     - punctuator
     - selector
     - navigator
@@ -49,238 +48,46 @@ engine:
     - simplifier
     - uniquifier
 
-chord_composer:
-  # 字母表，包含用於並擊的按鍵
-  # 擊鍵雖有先後，形成並擊時，一律以字母表順序排列
-  alphabet: 'swxdecfrvgtbjum kiloaqzhynp'
-  # 拼寫運算規則，將一組並擊按鍵轉換爲標準化並擊碼
-  algebra:
-    # 先將物理按鍵字符對應到宮保拼音鍵碼
-    - 'xlit|swxdecfrvgtbjum kiloaqzhynp|SCZHLFGDBKTPIUVANREOXXXYYYY|'
-    # 空格鍵單擊時產生空白
-    - 'xform/^A$/ /'
-    # 消除無效按鍵
-    - xform/[XY]+//
-  # 並擊完成後套用的式樣
-  output_format:
-    # 添加並擊音節界定符
-    - xform/^([A-Z]+)$/[$1]/
-  # 並擊過程中套用的式樣
-  prompt_format:
-    # 添加並擊音節界定符
-    - xform/^([A-Z]+)$/[$1]/
-  # 功能鍵綁定
+ascii_composer:
+  inline_uppercase: true
+  inline_keypad: true
   bindings:
-    # 選項①：回車鍵上屏按鍵序列
-    Return: commit_raw_input
-    # 選項②：不看回車鍵，讓 editor 處理
-    #Return: noop
-    # 選項②：改用 Shift+回車上屏按鍵序列
-    #Shift+Return: commit_raw_input
+    __include: combo_pinyin_rules:/ascii_bindings
 
 editor:
   bindings:
-    # 退格鍵刪除一個拼音音節
-    BackSpace: back_syllable
-    # 選項②：回車鍵確認當前候選
-    #Return: confirm
+    __include: combo_pinyin_rules:/editor_bindings
+
+streaming_chord:
+  initial_keys: XSCZHLFGDBKTP
+  final_keys: YIUVANREO
+  chord_duration_ms: 60
+  chord_timeout_ms: 120
+  key_map:
+    __include: combo_pinyin_rules:/key_map
+  canonicalize:
+    __include: combo_pinyin_rules:/canonicalize
 
 speller:
   alphabet: 'SCZHLFGDBKTPIUVANREOXY[]'
   delimiter: " '"
   algebra:
-    # 一些容錯
-    - derive/^([bpmf])o$/$1uo/
-    #- derive/^([dtngkhzcsr]h?)uo$/$1o/
-    #- derive/iao$/io/
-    - derive/^([nl])ei$/$1uei/
-    - derive/^([nlzcs])ong$/$1iong/
-    - derive/^([zcsr]h?)([aoe])/$1i$2/
-    - derive/^([zcsr]h?)e(ng?)$/$1i$2/
-
-    # 缺省韻母
-    # 省略⟨u⟩
-    - derive/^([bpf])u$/$1/
-    # 省略⟨e⟩
-    - derive/^([mdtnlgkh])e$/$1/
-    # 省略舌尖元音⟨ï⟩
-    #- xform/^([zcs]h?|r)i$/$1/
-    # 舌尖元音⟨ï⟩（通常省略）可明確輸入爲 R
-    - derive/^([zcs]h?|r)i$/$1/
-    - xform/^([zcsr]h?)i$/$1R/
-
-    # ⟨er⟩自成音節
-    - xform/^er/R/
-
-    # ⟨uang⟩ 有 UARO, UANE 兩種形式
-    - derive/[wu]ang/UARO/
-    - xform/ang/ANE/
-    # ⟨iong⟩ 有 IRO, ÜNE 兩種形式
-    - derive/[yi]ong/VNE/
-    - xform/[yi]ong/IRO/
-    # ⟨ueng, ong⟩ 有 URO, UNE 兩種形式
-    - derive/[wu]eng|ong/UNE/
-    - xform/[wu]eng|ong/URO/
-    - xform/y?ing/INE/
-    - xform/eng/NE/
-
-    - xform/an/AN/
-    - xform/yun|ün|vn/VN/
-    - xform/[wu]en|un/UN/
-    - xform/y?in/IN/
-    - xform/en/N/
-
-    - xform/[yi]ou|iu/IR/
-    - xform/[wu]ei|ui/UR/
-    - xform/ao/AO/
-    - xform/ou/RO/
-    # IAR 保留爲 ⟨iai⟩ 音的並擊碼
-    - xform/ai/AR/
-    # ⟨ei⟩ RE 與前三組聲母搭配，可減省爲 R
-    - derive/^([bpmfdtnlgkh])ei/$1R/
-    - xform/ei/RE/
-    # 零聲母音節 ⟨a⟩ 特殊規定爲並擊 AE，空格鍵單擊仍爲空格
-    - derive/^a$/AE/
-
-    # ⟨ju, qu, xu⟩ 的介音爲 ü，用 Ü 輸入
-    - xform/^([jqx])[uU]/$1V/
-
-    - xform/^yu/V/
-    - xform/^yi?/I/
-    - xform/^wu?/U/
-
-    # 碼表中的拼音 v ü、宮保並擊碼 Ü 在棱鏡索引中轉寫爲 V
-    - xlit/aoeiuvüÜ/AOEIUVVV/
-
-    # 並擊聲母
-    - xform/^zh/ZF/
-    - xform/^ch/CL/
-    - xform/^sh/SH/
-    - xform/^m/FB/
-    - xform/^n/LD/
-    - xform/^r/HG/
-    # 特殊鍵盤佈局通借
-    - derive/^p/ZB/
-    - derive/^t/CD/
-    - derive/^k/SG/
-    # 若分尖團，⟨j, q, x⟩ 也可用 Z,C,S 與 I/Ü 相拼
-    - derive/^j([IV])/Z$1/
-    - derive/^q([IV])/C$1/
-    - derive/^x([IV])/S$1/
-    # 獨立聲母鍵
-    - xlit/bpfdtlgkhjqxzcs/BPFDTLGKHGKHZCS/
-
-    # 派生單音節定界閉包
-    - derive/^.+$/[$0]/
+    __include: combo_pinyin_rules:/algebra
 
 translator:
   dictionary: luna_pinyin
   prism: combo_pinyin
   enable_completion: false
+  # 未界定音節的連續輸入，算法對切分片段按標準並擊鍵序重排
+  canonicalize:
+    __include: combo_pinyin_rules:/canonicalize
   preedit_format:
-    # 將宮保並擊碼轉寫爲拼音顯示
-    # 特殊鍵盤佈局通借
-    - xform/\[ZB/[P/
-    - xform/\[CD/[T/
-    - xform/\[SG/[K/
-    # 韻母
-    - xform/\[AE\]/[a]/
-    - xform/\[([IU]?)A\]/[$1a]/
-    - xform/\[([BPFDTLGHKZCS]+[IU]?)A\]/[$1a]/
-    - xform/\[([IU]?)O\]/[$1o]/
-    - xform/\[([BPFDTLGHKZCS]+U?)O\]/[$1o]/
-    - xform/\[([IV]?)E\]/[$1e]/
-    - xform/\[([BPFDTLGHKZCS]+[IUV]?)E\]/[$1e]/
-    - xform/\[R\]/[er]/
-    - xform/\[([IU]?)AR\]/[$1ai]/
-    - xform/\[([BPFDTLGHKZCS]+U?)AR\]/[$1ai]/
-    - xform/\[RE\]/[ei]/
-    - xform/\[([BPFDTLGHKZCS]+)RE\]/[$1ei]/
-    - xform/\[([BPFDTLGKH]|FB|LD)R\]/[$1ei]/
-    - xform/\[UR\]/[wei]/
-    - xform/\[([BPFDTLGHKZCS]+)UR\]/[$1ui]/
-    - xform/\[(I?)AO\]/[$1ao]/
-    - xform/\[([BPFDTLGHKZCS]+I?)AO\]/[$1ao]/
-    - xform/\[RO\]/[ou]/
-    - xform/\[([BPFDTLGHKZCS]+)RO\]/[$1ou]/
-    - xform/\[IR\]/[you]/
-    - xform/\[([BPFDTLGHKZCS]+)IR\]/[$1iu]/
-    - xform/\[([IUV]?)AN\]/[$1an]/
-    - xform/\[([BPFDTLGHKZCS]+[IUV]?)AN\]/[$1an]/
-    - xform/\[(U?)N\]/[$1en]/
-    - xform/\[IN\]/[yin]/
-    - xform/\[VN\]/[yun]/
-    - xform/\[([BPFDTLGHKZCS]+)N\]/[$1en]/
-    - xform/\[([BPFDTLGHKZCS]+)IN\]/[$1in]/
-    - xform/\[([BPFDTLGHKZCS]+)UN\]/[$1un]/
-    - xform/\[([BPFDTLGHKZCS]+)VN\]/[$1vn]/
-    - xform/\[(U?)ANE\]/[$1ang]/
-    - xform/\[([BPFDTLGHKZCS]+)(U?)ANE\]/[$1$2ang]/
-    - xform/\[IANE\]/[yang]/
-    - xform/\[([BPFDTLGHKZCS]+)IANE\]/[$1iang]/
-    - xform/\[UARO\]/[wang]/
-    - xform/\[([BPFDTLGHKZCS]+)UARO\]/[$1uang]/
-    - xform/\[(U?)NE\]/[$1eng]/
-    - xform/\[([BPFDTLGHKZCS]+)NE\]/[$1eng]/
-    - xform/\[INE\]/[ying]/
-    - xform/\[([BPFDTLGHKZCS]+)INE\]/[$1ing]/
-    - xform/\[(URO|UNE)\]/[weng]/
-    - xform/\[([BPFDTLGHKZCS]+)(URO|UNE)\]/[$1ong]/
-    - xform/\[(IRO|VNE)\]/[yong]/
-    - xform/\[([BPFDTLGHKZCS]+)(IRO|VNE)\]/[$1iong]/
-    - xform/\[I\]/[yi]/
-    - xform/\[I([aoe][a-z]*)\]/[y$1]/
-    - xform/\[([BPFDTLGHKZCS]+)I([a-z]*)\]/[$1i$2]/
-    - xform/\[U\]/[wu]/
-    - xform/\[U([aoe][a-z]*)\]/[w$1]/
-    - xform/\[([BPFDTLGHKZCS]+)U([a-z]*)\]/[$1u$2]/
-    - xform/\[V\]/[yu]/
-    - xform/\[V([aoe][a-z]*)\]/[yu$1]/
-    - xform/\[([BPFDTLGHKZCS]+)V([a-z]*)\]/[$1v$2]/
-    # 聲母
-    - xform/\[FB\]/[me]/
-    - xform/\[FB/[m/
-    - xform/\[B\]/[bu]/
-    - xform/\[B/[b/
-    - xform/\[P\]/[pu]/
-    - xform/\[P/[p/
-    - xform/\[F\]/[fu]/
-    - xform/\[F/[f/
-    - xform/\[LD\]/[ne]/
-    - xform/\[LD/[n/
-    - xform/\[D\]/[de]/
-    - xform/\[D/[d/
-    - xform/\[T\]/[te]/
-    - xform/\[T/[t/
-    - xform/\[L\]/[le]/
-    - xform/\[L/[l/
-    - xform/\[HG/[r/
-    - xform/\[SH/[sh/
-    - xform/\[S/[s/
-    - xform/\[C[LH]/[ch/
-    - xform/\[C/[c/
-    - xform/\[Z[FH]/[zh/
-    - xform/\[Z/[z/
-    - xform/\[([zcs]h?|r)R?\]/[$1i]/
-    - xform/\[[GZ]([iv])/[j$1/
-    - xform/\[[KC]([iv])/[q$1/
-    - xform/\[[HS]([iv])/[x$1/
-    - xform/\[([jqx])v/[$1u/
-    - xform/\[G\]/[ge]/
-    - xform/\[G/[g/
-    - xform/\[K\]/[ke]/
-    - xform/\[K/[k/
-    - xform/\[H\]/[he]/
-    - xform/\[H/[h/
-    # 顯示：先脫除方括號，再轉寫 ü
-    - xform/\[(\w+)\]/$1/
-    - xlit/vV/üÜ/
+    __include: combo_pinyin_rules:/preedit_pinyin
 
 punctuator:
   import_preset: symbols
 
 recognizer:
-  import_preset: default
   patterns:
     punct: '^/([0-9]0?|[A-Za-z]+)$'
 
