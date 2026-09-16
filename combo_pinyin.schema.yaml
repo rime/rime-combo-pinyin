@@ -29,8 +29,9 @@ engine:
   processors:
     - ascii_composer
     - recognizer
+    - chord_composer  # 工廠標籤：新程式依配置分發，舊程式加載舊組件
     - key_binder
-    - streaming_chord_processor
+    - speller         # 舊程式回放按鍵的必需接收者（新程式下自動靜默）
     - punctuator
     - selector
     - navigator
@@ -48,16 +49,25 @@ engine:
     - simplifier
     - uniquifier
 
-ascii_composer:
-  inline_uppercase: true
-  inline_keypad: true
+# ==========================================
+# 1. 舊版程式專用配置塊（舊版生效，新版忽略）
+# ==========================================
+chord_composer:
+  alphabet: 'swxdecfrvgtbjum kiloaqzhynp'
+  algebra:
+    - 'xlit|swxdecfrvgtbjum kiloaqzhynp|SCZHLFGDBKTPIUVANREOXXXYYYY|'
+    - 'xform/^A$/ /'
+    - xform/[XY]+//
+  output_format:
+    - xform/^([A-Z]+)$/[$1]/
+  prompt_format:
+    - xform/^([A-Z]+)$/[$1]/
   bindings:
-    __include: combo_pinyin_rules:/ascii_bindings
+    Return: commit_raw_input
 
-editor:
-  bindings:
-    __include: combo_pinyin_rules:/editor_bindings
-
+# ==========================================
+# 2. 新版程式專用配置塊（新版生效，舊版忽略）
+# ==========================================
 streaming_chord:
   initial_keys: XSCZHLFGDBKTP
   final_keys: YIUVANREO
@@ -68,6 +78,19 @@ streaming_chord:
   canonicalize:
     __include: combo_pinyin_rules:/canonicalize
 
+ascii_composer:
+  inline_uppercase: true
+  inline_keypad: true
+  bindings:
+    __include: combo_pinyin_rules:/ascii_bindings
+
+editor:
+  bindings:
+    __include: combo_pinyin_rules:/editor_bindings
+
+# ==========================================
+# 3. 共用基礎配置（新舊程式皆需使用）
+# ==========================================
 speller:
   alphabet: 'SCZHLFGDBKTPIUVANREOXY[]'
   delimiter: " '"
