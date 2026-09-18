@@ -1,12 +1,10 @@
 # Rime schema
 # encoding: utf-8
 
-__include: combo_pinyin.schema:/
-
 schema:
   schema_id: combo_pinyin_with_tones
-  name: 宮保拼音（帶聲調輔碼）
-  version: '0.2'
+  name: 宮保拼音+聲調輔碼
+  version: '4.0'
   author:
     - 居戎氏 <chen.sst@gmail.com>
   description: |
@@ -20,49 +18,129 @@ schema:
   dependencies:
     - terra_pinyin
 
-speller:
-  alphabet: 'zyxwvutsrqponmlkjihgfedcba''-;/<,\.'
-  initials: zyxwvutsrqponmlkjihgfedcba
-  finals: '-;/<,\.'
-  delimiter: " "
-  algebra:
-    - xform/^r5$/er5/
-    - derive/^([a-z]+)[0-5]$/$1/
-    - 'erase/^.*5$/'
-    # 未標調拼音音節後加隔音符號，避免音節切分歧義
-    - "xform/^([a-z]+)$/$1'/"
-    # 第二擊輸入聲調
-    - "xform/^([a-z]+)([1-4])$/$1'$2/"
-    # 改爲符號標調
-    - 'xlit 1234 -/<\'
-    - "derive '-$ ';"
-    - "derive '<$ ',"
-    - 'derive ''\\$ ''.'
+__include: combo_pinyin.schema:/
 
+# ==========================================
+# 1. 覆寫：詞典與棱鏡索引
+# ==========================================
 translator:
   dictionary: terra_pinyin
   prism: combo_pinyin_with_tones
-  preedit_format:
-    __patch:
-      - __append:
-          - "xform/'//"
-      - __append:
-          __include: terra_pinyin.schema:/translator/preedit_format
+  enable_completion: false
+  spelling_hints: 5
+  canonicalize:
+    __include: combo_pinyin_rules:/canonicalize
+  # 先將並擊碼轉爲自然拼音，再將聲調符號轉爲注音調號
+  preedit_format/+:
+    __include: terra_pinyin.schema:/translator/preedit_format
   comment_format:
     __include: terra_pinyin.schema:/translator/comment_format
 
+# ==========================================
+# 2. 覆寫：字母表與帶調拼寫運算
+# ==========================================
+speller:
+  alphabet: "SCZHLFGDBKTPIUVANREOXY[]-;/<,\\."
+  initials: 'SCZHLFGDBKTPIUVANREOXY[]'
+  finals: '-;/<,\.'
+  delimiter: " '"
+  algebra:
+    __include: /tonal_algebra
+
+# ==========================================
+# 3. 按鍵綁定：防止翻頁鍵搶佔聲調輔碼
+# ==========================================
 key_binder:
-  __include: terra_pinyin.schema:/key_binder
+  import_preset: default
+  bindings:
+    - { when: paging, accept: comma, send: comma }
+    - { when: has_menu, accept: comma, send: comma }
+    - { when: paging, accept: period, send: period }
+    - { when: has_menu, accept: period, send: period }
+    - { when: paging, accept: minus, send: minus }
+    - { when: has_menu, accept: minus, send: minus }
+
+# ==========================================
+# 私有帶調拼寫代數（terra_pinyin 帶調拼音 -> 宮保並擊碼+調號）
+# ==========================================
+
+tonal_algebra:
+  # 1. 聲調預處理與無調派生
+  - xform/^r5$/er5/
+  # 派生無調拼音（純並擊出字）
+  - derive/^([a-z]+)[0-5]$/$1/
+  - 'erase/^.*5$/'
+
+  # 2. 容錯規則（兼容帶調音節）
+  - derive/^([bpmf])o([1-4]?)$/$1uo$2/
+  - derive/^([nl])ei([1-4]?)$/$1uei$2/
+  - derive/^([nlzcs])ong([1-4]?)$/$1iong$2/
+  - derive/^([zcsr]h?)([aoe])([1-4]?)$/$1i$2$3/
+  - derive/^([zcsr]h?)e(ng?)([1-4]?)$/$1i$2$3/
+
+  # 3. 缺省韻母與舌尖元音
+  - derive/^([bpf])u([1-4]?)$/$1$2/
+  - derive/^([mdtnlgkh])e([1-4]?)$/$1$2/
+  - derive/^([zcs]h?|r)i([1-4]?)$/$1$2/
+  - xform/^([zcsr]h?)i([1-4]?)$/$1R$2/
+  - xform/^er([1-4]?)$/R$1/
+
+  # 4. 複合韻母歸併
+  - derive/[wu]ang/UARO/
+  - xform/ang/ANE/
+  - derive/[yi]ong/VNE/
+  - xform/[yi]ong/IRO/
+  - derive/[wu]eng|ong/UNE/
+  - xform/[wu]eng|ong/URO/
+  - xform/y?ing/INE/
+  - xform/eng/NE/
+  - xform/an/AN/
+  - xform/yun|ün|vn/VN/
+  - xform/[wu]en|un/UN/
+  - xform/y?in/IN/
+  - xform/en/N/
+  - xform/[yi]ou|iu/IR/
+  - xform/[wu]ei|ui/UR/
+  - xform/ao/AO/
+  - xform/ou/RO/
+  - xform/ai/AR/
+  - derive/^([bpmfdtnlgkh])ei([1-4]?)$/$1R$2/
+  - xform/ei/RE/
+  - derive/^a([1-4]?)$/AE$1/
+
+  # 5. 介音與零聲母
+  - xform/^([jqx])[uU]/$1V/
+  - xform/^yu/V/
+  - xform/^yi?/I/
+  - xform/^wu?/U/
+  - xlit/aoeiuvüÜ/AOEIUVVV/
+
+  # 6. 聲母並擊
+  - xform/^zh/ZF/
+  - xform/^ch/CL/
+  - xform/^sh/SH/
+  - xform/^m/FB/
+  - xform/^n/LD/
+  - xform/^r/HG/
+  - derive/^p/ZB/
+  - derive/^t/CD/
+  - derive/^k/SG/
+  - derive/^j([IV])/Z$1/
+  - derive/^q([IV])/C$1/
+  - derive/^x([IV])/S$1/
+  - xlit/bpfdtlgkhjqxzcs/BPFDTLGKHGKHZCS/
+
+  # 7. 單音節定界閉包
+  - xform/^([A-Z]+)$/[$1]/
+  - xform/^([A-Z]+)([1-4])$/[$1]$2/
+
+  # 8. 聲調映射（改用 | 作定界符，避免與 / 衝突）
+  - 'xlit|1234|-/<\|'
+  - 'derive/-$/;/'
+  - 'derive/<$/,/'
+  - 'derive/\\$/./'
 
 __patch:
-  # 默認佈局：七指禪
-  - combo_pinyin_layouts:/use_pc_layout
-  # 解封下列代碼，選用其他佈局選項
-  # 回車鍵上屏按鍵序列
-  - combo_pinyin_layouts:/use_return_to_commit_raw_input
-  # 回車鍵確認當前候選
-  # - combo_pinyin_layouts:/use_return_to_confirm
-
   # 使用八股文語言模型
   - grammar:/hant?
 
