@@ -4,28 +4,180 @@
 schema:
   schema_id: combo_pinyin_split
   name: 宮保拼音·八指禪
-  version: '3.0'
+  version: '4.0'
   author:
     - 居戎氏 <chen.sst@gmail.com>
   description: |
     並擊輸入拼音。
     專爲分體式或有拆分空格設計的鍵盤優化，左右手拇指各司一鍵以利並擊。
+    https://github.com/rime/home/wiki/ComboPinyin
+  dependencies:
+    - luna_pinyin
 
 __include: combo_pinyin.schema:/
-__patch:
-  # 選用「八指禪」及兼容佈局
-  - combo_pinyin_layouts:/use_split_layout
-  # 默認配置爲兼容佈局。
-  # 標準鍵盤左手小指字母 A 鍵當作宮保拼音碼 H。
-  # 可編程鍵盤須設拇指左鍵爲字母 A。
-  # 或者解封下列註釋行之一，選定左手拇指 H 鍵所用的鍵碼：
-  # 拇指左鍵設爲分號
-  # - combo_pinyin_layouts:/use_semicolon
-  # 拇指左鍵設爲單引號
-  # - combo_pinyin_layouts:/use_apostrophe
-  # 拇指左鍵設爲 Control
-  # - combo_pinyin_layouts:/use_control
-  # 拇指左鍵設爲 Alt
-  # - combo_pinyin_layouts:/use_alt
-  # 拇指左鍵設爲 Shift
-  # - combo_pinyin_layouts:/use_shift
+
+# ==========================================
+# 1. 覆寫：方案標識與獨立棱鏡
+# ==========================================
+translator:
+  prism: combo_pinyin_split
+  enable_completion: false
+  canonicalize:
+    __include: /split_canonicalize
+  preedit_format:
+    __include: /split_preedit_pinyin
+
+# ==========================================
+# 2. 覆寫：串流並擊（八指禪鍵位與鍵序）
+# ==========================================
+streaming_chord:
+  initial_keys: XSCLFZDBGH
+  final_keys: YIUVANREO
+  chord_duration_ms: 60
+  chord_timeout_ms: 120
+  key_map:
+    # --- 左手聲母區（八指禪主位） ---
+    s: S
+    d: C
+    f: Z
+    g: G
+    e: L
+    r: D
+    c: F
+    v: B
+    # 標準鍵盤以左手小指 A 鍵作 H（兼容佈局）
+    # 分體鍵盤左拇指設爲字母 A 者亦由此擊發
+    a: H
+
+    # --- 右手韻母區 ---
+    space: A
+    u: U
+    i: R
+    o: O
+    j: I
+    k: N
+    l: E
+    m: V
+
+    # --- 閒置防誤觸 ---
+    q: 'X'
+    z: 'X'
+    w: 'X'
+    x: 'X'
+    t: 'X'
+    b: 'X'
+    'y': 'Y'
+    h: 'Y'
+    'n': 'Y'
+    p: 'Y'
+  canonicalize:
+    __include: /split_canonicalize
+
+# ==========================================
+# 3. 覆寫：字母表與拼寫代數（拼音 -> 八指禪並擊碼）
+# ==========================================
+speller:
+  alphabet: 'SCLFZDBGHIUVANREOXY[]'
+  delimiter: " '"
+  algebra:
+    __include: /split_algebra
+
+# ==========================================
+# 八指禪私有規則定義
+# ==========================================
+
+split_canonicalize:
+  - xform/[XY]//
+  - reorder SCLFZDBGHIUVANREO
+  - xform/^[A-Z]+$/[$0]/
+
+split_algebra:
+  # 1. 容錯規則
+  - derive/^([bpmf])o$/$1uo/
+  - derive/^([nl])ei$/$1uei/
+  - derive/^([nlzcs])ong$/$1iong/
+  - derive/^([zcsr]h?)([aoe])/$1i$2/
+  - derive/^([zcsr]h?)e(ng?)$/$1i$2/
+
+  # 2. 缺省韻母與舌尖元音
+  - derive/^([bpf])u$/$1/
+  - derive/^([mdtnlgkh])e$/$1/
+  - derive/^([zcs]h?|r)i$/$1/
+  - xform/^([zcsr]h?)i$/$1R/
+  - xform/^er/R/
+
+  # 3. 複合韻母歸併
+  - derive/[wu]ang/UARO/
+  - xform/ang/ANE/
+  - derive/[yi]ong/VNE/
+  - xform/[yi]ong/IRO/
+  - derive/[wu]eng|ong/UNE/
+  - xform/[wu]eng|ong/URO/
+  - xform/y?ing/INE/
+  - xform/eng/NE/
+  - xform/an/AN/
+  - xform/yun|ün|vn/VN/
+  - xform/[wu]en|un/UN/
+  - xform/y?in/IN/
+  - xform/en/N/
+  - xform/[yi]ou|iu/IR/
+  - xform/[wu]ei|ui/UR/
+  - xform/ao/AO/
+  - xform/ou/RO/
+  - xform/ai/AR/
+  - derive/^([bpmfdtnlgkh])ei/$1R/
+  - xform/ei/RE/
+  - derive/^a$/AE/
+
+  # 4. 介音與零聲母
+  - xform/^([jqx])[uU]/$1V/
+  - xform/^yu/V/
+  - xform/^yi?/I/
+  - xform/^wu?/U/
+  - xlit/aoeiuvüÜ/AOEIUVVV/
+
+  # 5. 八指禪聲母並擊與轉寫（詞典全拼 -> 八指禪並擊碼）
+  # 鼻音
+  - xform/^m/FB/
+  - xform/^n/LD/
+
+  # 翹舌音與日母
+  - xform/^zh/ZH/
+  - xform/^ch/CH/
+  - xform/^sh/SH/
+  - xform/^r/CZ/
+
+  # 送氣音
+  - xform/^p/BH/
+  - xform/^t/DH/
+  - xform/^k/GH/
+
+  # 舌面音（尖團皆可）
+  - derive/^j([IV])/Z$1/
+  - derive/^q([IV])/C$1/
+  - derive/^x([IV])/S$1/
+  - xform/^j([IV])/G$1/
+  - xform/^q([IV])/GH$1/
+  - xform/^x([IV])/H$1/
+
+  # 獨立聲母鍵
+  - xlit/bdgflhzcs/BDGFLHZCS/
+
+  # 6. 單音節定界閉包
+  - xform/^.+$/[$0]/
+
+# ==========================================
+# 八指禪回顯：橋接特有聲母後復用公共規則庫
+# ==========================================
+split_preedit_pinyin:
+  __patch:
+    - __append:
+        # 將八指禪特有並擊聲母轉換爲七指禪等效鍵
+        - xform/\[BH/[P/
+        - xform/\[DH/[T/
+        - xform/\[GH/[K/
+        - xform/\[CZ/[HG/
+        - xform/\[ZH/[ZF/
+        - xform/\[CH/[CL/
+    - __append:
+        __include: combo_pinyin_rules:/preedit_pinyin
