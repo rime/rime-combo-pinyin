@@ -1,76 +1,170 @@
 # Rime schema
 # encoding: utf-8
 
-__include: combo_pinyin.schema:/
-
 schema:
   schema_id: combo_pinyin_tonal_chords
-  name: 宮保拼音（聲韻調並擊）
-  version: '0.1'
+  name: 宮保拼音·聲韻調並擊
+  version: '4.0'
   author:
     - 居戎氏 <chen.sst@gmail.com>
   description: |
     並擊輸入拼音
     https://github.com/rime/home/wiki/ComboPinyin
 
-    掛載地球拼音詞庫，可選輸入聲調。
+    掛載地球拼音詞庫，支持聲韻調一次並擊。
 
-    方法一、聲韻調並擊：
-    並擊 QAZ 其中一鍵表示第二聲（陽平）；
-    並擊 P; 其中一鍵表示第四聲（去聲）；
-    二者同時並擊表示第三聲（上聲）；
-    第一聲（陰平）不標。
+    聲韻調同擊規則：
+    - 左手並擊 QAZ 其中一鍵表示第二聲（陽平）；
+    - 右手並擊 HYNP; 其中一鍵表示第四聲（去聲）；
+    - 二者同時並擊表示第三聲（上聲）；
+    - 第一聲（陰平）與輕聲不標調。
 
-    方法二、第二擊輸入聲調：
-    並擊聲韻之後，再次並擊追加聲調，鍵位同上。
+    本方案需要多鍵同時並擊，請使用全鍵無衝（NKRO）鍵盤。
+  dependencies:
+    - terra_pinyin
 
-    方法一需要多於六鍵並擊，請使用全鍵無衝（NKRO）的鍵盤。
+__include: combo_pinyin.schema:/
 
-speller:
-  alphabet: 'zyxwvutsrqponmlkjihgfedcba''-/<\;'
-  initials: zyxwvutsrqponmlkjihgfedcba
-  finals: '-/<\;'
-  delimiter: " "
-  algebra:
-    - xform/^r5$/er5/
-    - derive/^([a-z]+)[0-5]$/$1/
-    - 'erase/^.*5$/'
-    # 未標調拼音音節後加隔音符號，避免音節切分歧義
-    - "xform/^([a-z]+)$/$1'/"
-    # 第二擊輸入聲調
-    - "derive/^([a-z]+)([1-4])$/$1'$2/"
-    # 改爲符號標調
-    - 'xlit 1234 -/<\'
-    - 'derive \\$ ;'
-
+# ==========================================
+# 1. 覆寫：詞典與棱鏡索引
+# ==========================================
 translator:
   dictionary: terra_pinyin
   prism: combo_pinyin_tonal_chords
+  enable_completion: false
+  canonicalize:
+    __include: /tonal_canonicalize
   preedit_format:
-    __patch:
-      - __append:
-          - "xform/'//"
-          - 'xlit ; \'
-      - __append:
-          __include: terra_pinyin.schema:/translator/preedit_format
+    __include: /tonal_preedit_pinyin
   comment_format:
     __include: terra_pinyin.schema:/translator/comment_format
 
-key_binder:
-  import_preset: default
-  bindings:
-    - { when: has_menu, accept: minus, send: minus }  # tone 1
-    - { when: paging, accept: minus, send: Page_Up }
+# ==========================================
+# 2. 覆寫：串流並擊（聲韻調同擊鍵位與鍵序）
+# ==========================================
+streaming_chord:
+  initial_keys: XSCZHLFGDBKTP
+  final_keys: YIUVANREO
+  chord_duration_ms: 60
+  chord_timeout_ms: 120
+  key_map:
+    __include: combo_pinyin_rules:/key_map
+    # 右手粉指補充第四聲鍵（h, y, n, p, ; 皆可觸發第四聲）
+    ';': Y
+  canonicalize:
+    __include: /tonal_canonicalize
+
+# ==========================================
+# 3. 覆寫：字母表與拼寫代數
+# ==========================================
+speller:
+  alphabet: 'SCZHLFGDBKTPIUVANREOXY[]'
+  delimiter: " '"
+  algebra:
+    __include: /tonal_algebra
+
+# ==========================================
+# 私有規則定義
+# ==========================================
+
+tonal_canonicalize:
+  # 將聲調鍵 X, Y 重排收納於音節閉包末尾
+  - reorder SCZHLFGDBKTPIUVANREOXY
+  - xform/^[A-Z]+$/[$0]/
+
+tonal_algebra:
+  # 1. 聲調預處理（一聲與輕聲不標調）
+  - xform/^r5$/er5/
+  # 解除註釋啓用：派生無調拼音（未擊聲調鍵時，可檢索全部候選）
+  # - derive/^([a-z]+)[0-5]$/$1/
+  # 輕聲抹去調號，作爲無調輸入（與一聲相同）
+  - xform/5$//
+
+  # 2. 容錯規則（保留末尾聲調標記）
+  - derive/^([bpmf])o([1-4]?)$/$1uo$2/
+  - derive/^([nl])ei([1-4]?)$/$1uei$2/
+  - derive/^([nlzcs])ong([1-4]?)$/$1iong$2/
+  - derive/^([zcsr]h?)([aoe])([1-4]?)$/$1i$2$3/
+  - derive/^([zcsr]h?)e(ng?)([1-4]?)$/$1i$2$3/
+
+  # 3. 缺省韻母與舌尖元音
+  - derive/^([bpf])u([1-4]?)$/$1$2/
+  - derive/^([mdtnlgkh])e([1-4]?)$/$1$2/
+  - derive/^([zcs]h?|r)i([1-4]?)$/$1$2/
+  - xform/^([zcsr]h?)i([1-4]?)$/$1R$2/
+  - xform/^er([1-4]?)$/R$1/
+
+  # 4. 複合韻母歸併
+  - derive/[wu]ang/UARO/
+  - xform/ang/ANE/
+  - derive/[yi]ong/VNE/
+  - xform/[yi]ong/IRO/
+  - derive/[wu]eng|ong/UNE/
+  - xform/[wu]eng|ong/URO/
+  - xform/y?ing/INE/
+  - xform/eng/NE/
+  - xform/an/AN/
+  - xform/yun|ün|vn/VN/
+  - xform/[wu]en|un/UN/
+  - xform/y?in/IN/
+  - xform/en/N/
+  - xform/[yi]ou|iu/IR/
+  - xform/[wu]ei|ui/UR/
+  - xform/ao/AO/
+  - xform/ou/RO/
+  - xform/ai/AR/
+  - derive/^([bpmfdtnlgkh])ei([1-4]?)$/$1R$2/
+  - xform/ei/RE/
+  - derive/^a([1-4]?)$/AE$1/
+
+  # 5. 介音與零聲母
+  - xform/^([jqx])[uU]/$1V/
+  - xform/^yu/V/
+  - xform/^yi?/I/
+  - xform/^wu?/U/
+  - xlit/aoeiuvüÜ/AOEIUVVV/
+
+  # 6. 聲母並擊
+  - xform/^zh/ZF/
+  - xform/^ch/CL/
+  - xform/^sh/SH/
+  - xform/^m/FB/
+  - xform/^n/LD/
+  - xform/^r/HG/
+  - derive/^p/ZB/
+  - derive/^t/CD/
+  - derive/^k/SG/
+  - derive/^j([IV])/Z$1/
+  - derive/^q([IV])/C$1/
+  - derive/^x([IV])/S$1/
+  - xlit/bpfdtlgkhjqxzcs/BPFDTLGKHGKHZCS/
+
+  # 7. 聲調轉寫（一聲不標；二聲 X；三聲 XY；四聲 Y）
+  - xform/1$//
+  - xform/2$/X/
+  - xform/3$/XY/
+  - xform/4$/Y/
+
+  # 8. 單音節定界閉包
+  - xform/^.+$/[$0]/
+
+# ==========================================
+# 回顯：將閉包內調號提至閉包外，銜接地球拼音調號
+# ==========================================
+tonal_preedit_pinyin:
+  __patch:
+    - __append:
+        - reorder SCZHLFGDBKTPIUVANREOXY
+        - xform/\[?([A-Z]+)\]?/[$1]/
+        - 'xform~\[([A-Z]+)XY\]~[$1]<~'
+        - 'xform~\[([A-Z]+)X\]~[$1]/~'
+        - 'xform~\[([A-Z]+)Y\]~[$1]\\~'
+    - __append:
+        __include: combo_pinyin_rules:/preedit_pinyin
+    - __append:
+        __include: terra_pinyin.schema:/translator/preedit_format
 
 __patch:
-  # 聲韻調並擊
-  - combo_pinyin_tonal_chords:/patch
-  # 解封下列代碼，選用其他佈局選項
-  # 回車鍵上屏按鍵序列
-  - combo_pinyin_layouts:/use_return_to_commit_raw_input
-  # 回車鍵確認當前候選
-  # - combo_pinyin_layouts:/use_return_to_confirm
-
   # 使用八股文語言模型
   - grammar:/hant?
 
