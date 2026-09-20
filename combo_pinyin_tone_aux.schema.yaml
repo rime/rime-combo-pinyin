@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 schema:
-  schema_id: combo_pinyin_with_tones
+  schema_id: combo_pinyin_tone_aux
   name: 宮保拼音+聲調輔碼
   version: '4.0'
   author:
@@ -25,7 +25,7 @@ __include: combo_pinyin.schema:/
 # ==========================================
 translator:
   dictionary: terra_pinyin
-  prism: combo_pinyin_with_tones
+  prism: combo_pinyin_tone_aux
   enable_completion: false
   spelling_hints: 5
   canonicalize:
@@ -145,4 +145,4 @@ __patch:
   - grammar:/hant?
 
   # 用家自選配置
-  - combo_pinyin_with_tones.custom:/patch?
+  - combo_pinyin_tone_aux.custom:/patch?

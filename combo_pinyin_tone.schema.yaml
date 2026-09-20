@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 schema:
-  schema_id: combo_pinyin_tonal_chords
+  schema_id: combo_pinyin_tone
   name: 宮保拼音·聲韻調並擊
   version: '4.0'
   author:
@@ -30,7 +30,7 @@ __include: combo_pinyin.schema:/
 # ==========================================
 translator:
   dictionary: terra_pinyin
-  prism: combo_pinyin_tonal_chords
+  prism: combo_pinyin_tone
   enable_completion: false
   canonicalize:
     __include: /tonal_canonicalize
@@ -169,4 +169,4 @@ __patch:
   - grammar:/hant?
 
   # 用家自選配置
-  - combo_pinyin_tonal_chords.custom:/patch?
+  - combo_pinyin_tone.custom:/patch?

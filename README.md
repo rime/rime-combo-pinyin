@@ -52,13 +52,13 @@
 
 ### 聲調輔碼
 
-方案 `combo_pinyin_with_tones` 配合地球拼音詞典使用，支持單擊符號鍵追加輸入聲調。
+方案 `combo_pinyin_tone_aux` 配合地球拼音詞典，支持單擊符號鍵追加聲調。
 
   - [演示視頻](https://www.bilibili.com/video/BV1B6g5zmEDs/)
 
 ### 聲韻調並擊
 
-方案 `combo_pinyin_tonal_chords` 配合地球拼音詞典使用，支持並擊輸入聲調。
+方案 `combo_pinyin_tone` 配合地球拼音詞典，支持聲韻調一次並擊。
 
   - [演示視頻](https://www.bilibili.com/video/BV1wA8MzEELt/)
 
