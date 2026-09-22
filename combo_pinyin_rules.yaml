@@ -59,10 +59,10 @@ algebra:
   - derive/^([bpf])u$/$1/
   # 省略⟨e⟩
   - derive/^([mdtnlgkh])e$/$1/
-  # 省略舌尖元音⟨ï⟩
-  - derive/^([zcs]h?|r)i$/$1/
   # 舌尖元音⟨ï⟩（通常省略）可明確輸入爲 R
-  - xform/^([zcsr]h?)i$/$1R/
+  # - derive/^([zcs]h?|r)i$/$1R/
+  # 省略舌尖元音⟨ï⟩
+  - xform/^([zcs]h?|r)i$/$1/
   # ⟨er⟩自成音節
   - xform/^er/R/
 
