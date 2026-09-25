@@ -229,6 +229,10 @@ preedit_pinyin:
   - xform/\[T/[t/
   - xform/\[L\]/[le]/
   - xform/\[L/[l/
+  - xform/\[[GZ]([iv])/[j$1/
+  - xform/\[[KC]([iv])/[q$1/
+  - xform/\[[HS]([iv])/[x$1/
+  - xform/\[([jqx])v/[$1u/
   - xform/\[HG/[r/
   - xform/\[SH/[sh/
   - xform/\[S/[s/
@@ -237,10 +241,6 @@ preedit_pinyin:
   - xform/\[Z[FH]/[zh/
   - xform/\[Z/[z/
   - xform/\[([zcs]h?|r)R?\]/[$1i]/
-  - xform/\[[GZ]([iv])/[j$1/
-  - xform/\[[KC]([iv])/[q$1/
-  - xform/\[[HS]([iv])/[x$1/
-  - xform/\[([jqx])v/[$1u/
   - xform/\[G\]/[ge]/
   - xform/\[G/[g/
   - xform/\[K\]/[ke]/
